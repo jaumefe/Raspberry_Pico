@@ -10,6 +10,7 @@ static const uint8_t DPS310_ADDR = 0x77;
 static const uint8_t DPS310_COEFF = 0x10;
 static const uint8_t DPS310_PRESS_CFG = 0x06;
 static const uint8_t DPS310_TEMP_CFG = 0x07;
+static const uint8_t DPS310_MEAS_CFG = 0x08;
 
 //I2C reserves some addresses for special purposes.
     //These are any addresses of the form 000 0xxx or 111 1xxx
@@ -65,7 +66,8 @@ int main (){
     uint8_t read_bytes;
     int c0, c1, c00, c10, c01, c11, c20, c21, c30;
     //Variable defining the values of the registers for DPS310X configuration
-    uint8_t config[8] = {0x01, 0x80}; 
+    uint8_t config[2] = {0x01, 0x01};
+    uint8_t dataRequest[2] = {0x02, 0x01}; 
     //Enable UART so status output can be printed
     stdio_init_all();
 
@@ -105,9 +107,10 @@ int main (){
     c30 = ((int)(coeff[16] << 8)) | ((int)(coeff[17]));
     c30 = complementTwo(c30, 16);
 
-    // Configuring the DPS310 as a Weather Station (according to the datasheet)
+    //Configuring the DPS310 as a Weather Station (according to the datasheet)
     reg_write(i2c_default, DPS310_ADDR, DPS310_PRESS_CFG, &config[0], 1); //Pressure
     reg_write(i2c_default, DPS310_ADDR, DPS310_TEMP_CFG, &config[1], 1); //Temperature
+    
     while(1){
         
     }
