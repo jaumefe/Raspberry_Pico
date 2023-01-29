@@ -12,7 +12,8 @@ add_executable(weather_forecast
 )
 
 pico_enable_stdio_usb(weather_forecast 1)
+pico_enable_stdio_uart(weather_forecast 0)
 
 pico_add_extra_outputs(weather_forecast)
 
-target_link_libraries(weather_forecast pico_stdlib)
+target_link_libraries(weather_forecast pico_stdlib hardware_i2c)
