@@ -1,0 +1,3 @@
+/home/jaume/Raspberry_Pico/BME680/build/pioasm/CMakeFiles/rebuild_cache.dir
+/home/jaume/Raspberry_Pico/BME680/build/pioasm/CMakeFiles/edit_cache.dir
+/home/jaume/Raspberry_Pico/BME680/build/pioasm/CMakeFiles/pioasm.dir
