@@ -4,6 +4,12 @@
 #include "hardware/i2c.h"
 #include "hardware/gpio.h"
 
+// Address of the BME680
+#define ADDR _u(0x76)
+
+// Registers of memory
+#define ID _u(0xD0)
+
 bool reserved_addr(uint8_t addr){
     return (addr & 0x78) == 0 || (addr & 0x78) == 0x78;
 }
@@ -27,6 +33,14 @@ int main(){
     gpio_set_function(PICO_DEFAULT_I2C_SCL_PIN, GPIO_FUNC_I2C);
     gpio_pull_up(PICO_DEFAULT_I2C_SDA_PIN);
     gpio_pull_up(PICO_DEFAULT_I2C_SCL_PIN);
+    // Make the I2C pins available to picotool
+    bi_decl(bi_2pins_with_func(PICO_DEFAULT_I2C_SDA_PIN, PICO_DEFAULT_I2C_SCL_PIN, GPIO_FUNC_I2C));
+
+    uint8_t rxdata;
+    uint8_t reg = ID;
+    i2c_write_blocking(i2c_default, ADDR, &reg, 1, false);
+    i2c_read_blocking(i2c_default, ADDR, rxdata, 1, false);
+    printf("%x \n",rxdata);
 
     return 0;
 #endif
