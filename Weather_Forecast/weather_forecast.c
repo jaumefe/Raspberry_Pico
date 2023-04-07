@@ -7,7 +7,6 @@
 #include "hardware/timer.h"
 
 
-
 //Register for temperature and humidty sensor (SHT)
 #define SHT4XA_ADDR         0x44
 #define SHT4XA_MEAS         0xFD
@@ -22,6 +21,7 @@ bool reserved_addr(uint8_t addr){
 
 int main (){
     struct DPS310_coeff params;
+    struct DPS310_meas meas;
     //Enable UART so status output can be printed
     stdio_init_all();
     const uint LED_PIN = PICO_DEFAULT_LED_PIN;

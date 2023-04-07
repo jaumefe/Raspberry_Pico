@@ -15,21 +15,25 @@
 #define DPS310_CFG          0x09
 #define DPS310_ID           0x0D
 #define DPS310_PRESS_MEAS   0x00
+#define DPS310_TEMP_MEAS    0x03
 
 struct DPS310_coeff {
     uint16_t c0, c1, c01,c11, c20, c21, c30;
     uint32_t c00, c10;
+    // According to our configuration, the compensation factor is identical
+    uint32_t k = 3670016;
 };
 
 struct DPS310_meas {
     uint32_t rawT, rawP;
+    uint32_t T, P;
 };
 
 void readCoeffDPS310 (struct DPS310_coeff * params){
     uint8_t buf[10] = {0};
     uint8_t reg = DPS310_COEFF;
-    i2c_write_blocking(i2c, DPS310_ADDR, &reg, 1, true);
-    i2c_read_blocking(i2c, DPS310_ADDR, buf, 10, false);
+    i2c_write_blocking(i2c_default, DPS310_ADDR, &reg, 1, true);
+    i2c_read_blocking(i2c_default, DPS310_ADDR, buf, 10, false);
     //pseudocode c0 = (buf[0] * 2⁴) + ((buf[1] / 2⁴) AND 0x0F)
     params->c0 = (buf[0] << 4) + ((buf[1] >> 4) & 0x0F);
     if(params->c0 > power(2, 11) - 1){
@@ -106,6 +110,39 @@ void startupDPS310(){
     i2c_write_blocking(i2c_default, DPS310_ADDR, &regP, 2, false);
 }
 
-void readTemp (struct DPS310_meas * params){
-    uint8_t regT[] = {};
+void readTemp(struct DPS310_meas * meas, struct DPS310_coeff * params){
+    uint8_t buf[3] = {0};
+    uint8_t regT = DPS310_TEMP_MEAS;
+    // Reading raw Temperature Data from DPS310
+    i2c_write_blocking(i2c_default, DPS310_ADDR, &regT, 1, true);
+    i2c_read_blocking(i2c_default, DPS310_ADDR, buf, 3, false);
+    meas->rawT = ((buf[0] << 16) & 0xFF0000) + ((buf[1] << 8) & 0xFF00) + buf[2];
+    // Applying scalating factor
+    meas->T = meas->rawT / params->k;
+    // Compensating parameters
+    meas->T = params->c0 * 0.5 + params->c1 * meas->T;
+}
+
+void readPress(struct DPS310_meas * meas, struct DPS310_coeff * params){
+    uint8_t buf[3] = {0};
+    uint8_t regP = DPS310_PRESS_MEAS;
+    // First, reading temperature for compensating Pressure values
+    readTemp(struct DPS310_meas * meas, struct DPS310_coeff * params);
+    // Reading raw Pressure Data from DPS310
+    i2c_write_blocking(i2c_default, DPS310_ADDR, &regP, 1, true);
+    i2c_read_blocking(i2c_default, DPS310_ADDR, buf, 3, false);
+    meas->rawP = ((buf[0] << 16) & 0xFF0000) + ((buf[1] << 8) & 0xFF00) + buf[2];
+    // Applying scalating factor
+    meas->P = meas->rawP / params->k;
+    // Compensating parameters
+    meas->P = params->c00 + meas->P * (params->c10 + meas->P * (params->c20 + meas->P*params->c30)) + 
+        (meas->rawT / params->k) * params->c01 + (meas->rawT / params->k) * meas->P * (params->c11 + meas->P * params->c21);
+}
+
+uint8_t idDPS310(){
+    uint8_t buf[1] = {0};
+    uint8_t reg = DPS310_ID;
+    i2c_write_blocking(i2c_default, DPS310_ADDR, &reg, 1, false);
+    i2c_read_blocking(i2c_default, DPS310_ADDR, buf, 1, false);
+    return buf;
 }
