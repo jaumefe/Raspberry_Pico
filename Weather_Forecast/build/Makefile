@@ -214,6 +214,60 @@ cyw43_driver_picow_cyw43_bus_pio_spi_pio_h/fast:
 	$(MAKE) -f pico-sdk/src/rp2_common/cyw43_driver/CMakeFiles/cyw43_driver_picow_cyw43_bus_pio_spi_pio_h.dir/build.make pico-sdk/src/rp2_common/cyw43_driver/CMakeFiles/cyw43_driver_picow_cyw43_bus_pio_spi_pio_h.dir/build
 .PHONY : cyw43_driver_picow_cyw43_bus_pio_spi_pio_h/fast
 
+DPS310.obj: DPS310.c.obj
+
+.PHONY : DPS310.obj
+
+# target to build an object file
+DPS310.c.obj:
+	$(MAKE) -f CMakeFiles/weather_forecast.dir/build.make CMakeFiles/weather_forecast.dir/DPS310.c.obj
+.PHONY : DPS310.c.obj
+
+DPS310.i: DPS310.c.i
+
+.PHONY : DPS310.i
+
+# target to preprocess a source file
+DPS310.c.i:
+	$(MAKE) -f CMakeFiles/weather_forecast.dir/build.make CMakeFiles/weather_forecast.dir/DPS310.c.i
+.PHONY : DPS310.c.i
+
+DPS310.s: DPS310.c.s
+
+.PHONY : DPS310.s
+
+# target to generate assembly for a file
+DPS310.c.s:
+	$(MAKE) -f CMakeFiles/weather_forecast.dir/build.make CMakeFiles/weather_forecast.dir/DPS310.c.s
+.PHONY : DPS310.c.s
+
+basic.obj: basic.c.obj
+
+.PHONY : basic.obj
+
+# target to build an object file
+basic.c.obj:
+	$(MAKE) -f CMakeFiles/weather_forecast.dir/build.make CMakeFiles/weather_forecast.dir/basic.c.obj
+.PHONY : basic.c.obj
+
+basic.i: basic.c.i
+
+.PHONY : basic.i
+
+# target to preprocess a source file
+basic.c.i:
+	$(MAKE) -f CMakeFiles/weather_forecast.dir/build.make CMakeFiles/weather_forecast.dir/basic.c.i
+.PHONY : basic.c.i
+
+basic.s: basic.c.s
+
+.PHONY : basic.s
+
+# target to generate assembly for a file
+basic.c.s:
+	$(MAKE) -f CMakeFiles/weather_forecast.dir/build.make CMakeFiles/weather_forecast.dir/basic.c.s
+.PHONY : basic.c.s
+
 home/jaume/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.obj: home/jaume/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj
 
 .PHONY : home/jaume/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.obj
@@ -1922,6 +1976,12 @@ help:
 	@echo "... PioasmBuild"
 	@echo "... cyw43_firmware_package"
 	@echo "... cyw43_driver_picow_cyw43_bus_pio_spi_pio_h"
+	@echo "... DPS310.obj"
+	@echo "... DPS310.i"
+	@echo "... DPS310.s"
+	@echo "... basic.obj"
+	@echo "... basic.i"
+	@echo "... basic.s"
 	@echo "... home/jaume/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.obj"
 	@echo "... home/jaume/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.i"
 	@echo "... home/jaume/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.s"

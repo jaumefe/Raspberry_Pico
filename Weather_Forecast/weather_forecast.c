@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "DPS310.h"
+#include "basic.h"
 #include "pico/stdlib.h"
 #include "hardware/gpio.h"
 #include "hardware/i2c.h"
@@ -17,22 +18,22 @@ bool reserved_addr(uint8_t addr){
         return (addr & 0x78) == 0 || (addr & 0x78) == 0x78;
     }
 
-
-
-int main (){
+int main (void){
     struct DPS310_coeff params;
     struct DPS310_meas meas;
+    const uint LED_PIN = PICO_DEFAULT_LED_PIN;
+    int led = 0;
+    uint8_t ID;
     //Enable UART so status output can be printed
     stdio_init_all();
-    const uint LED_PIN = PICO_DEFAULT_LED_PIN;
     gpio_init(LED_PIN);
     gpio_set_dir(LED_PIN, GPIO_OUT);
-    gpio_put(LED_PIN, 1);
+    gpio_put(LED_PIN, led);
 
     #if !defined (i2c_default) || !defined(PICO_DEFAULT_I2C_SDA_PIN) || !defined(PICO_DEFAULT_I2C_SCL_PIN)
-#warning i2c/bus_scan example requires a board with I2C pins
-    puts("Default I2C pins were not defined");
-#else
+        #warning i2c/bus_scan example requires a board with I2C pins
+        puts("Default I2C pins were not defined");
+    #else
     // In this case we will use I2C0 on the default SDA and SCL pins (GP4, GP5 on a Pico)
     i2c_init(i2c_default, 100 * 1000);
     gpio_set_function(PICO_DEFAULT_I2C_SDA_PIN, GPIO_FUNC_I2C);
@@ -42,29 +43,33 @@ int main (){
     // Make the I2C pins available to picotool
     bi_decl(bi_2pins_with_func(PICO_DEFAULT_I2C_SDA_PIN, PICO_DEFAULT_I2C_SCL_PIN, GPIO_FUNC_I2C));
 
-    uint8_t buf[2] = {0};
-    uint8_t reg = DPS310_ID;
-     
+    // LED blinking
+    blinkLED(led, LED_PIN);
 
     sleep_ms(2000);
-    i2c_write_blocking(i2c_default, DPS310_ADDR, &reg, 1, false);
-    i2c_read_blocking(i2c_default, DPS310_ADDR, buf, 2, false);
-    gpio_put(LED_PIN, 0);
-    sleep_ms(1000);
-        
-    
+    // Reading ID of the DPS310 (and LED blink for debug)
+    ID = idDPS310();
+    printf("ID: %c \n", ID);    
+    blinkLED(led, LED_PIN);
 
-    gpio_put(LED_PIN, 1);
-    
-    sleep_ms(1000);
+    sleep_ms(2000);
+    // Configuring the sensor and starting it
+    startupDPS310();
+    blinkLED(led, LED_PIN);
 
+    sleep_ms(2000);
+    // Reading coefficients for compensation (and LED blink for debug)
     readCoeffDPS310(&params);
+    blinkLED(led, LED_PIN);
     
-    printf("%c \n", buf[0]);
-    printf("%c \n", buf[1]);
-    gpio_put(LED_PIN, 0);
+    sleep_ms(3000);
+    // Pressure measurement (Temperature measurement included for compensation)
+    readPress(&meas, &params);
+    blinkLED(led, LED_PIN);
+    sleep_ms(3000);
 
-    sleep_ms(1000);
+    // Printing result
+    printf("");
     
     return 0;
 #endif

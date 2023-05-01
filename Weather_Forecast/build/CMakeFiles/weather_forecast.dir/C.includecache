@@ -6,9 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/jaume/Raspberry_Pico/Weather_Forecast/weather_forecast.c
+/home/jaume/Raspberry_Pico/Weather_Forecast/DPS310.h
 stdio.h
 -
+basic.h
+/home/jaume/Raspberry_Pico/Weather_Forecast/basic.h
 pico/stdlib.h
 /home/jaume/Raspberry_Pico/Weather_Forecast/pico/stdlib.h
 hardware/gpio.h
@@ -19,8 +21,20 @@ pico/binary_info.h
 /home/jaume/Raspberry_Pico/Weather_Forecast/pico/binary_info.h
 hardware/timer.h
 /home/jaume/Raspberry_Pico/Weather_Forecast/hardware/timer.h
+
+/home/jaume/Raspberry_Pico/Weather_Forecast/basic.h
 stdio.h
 -
+pico/stdlib.h
+/home/jaume/Raspberry_Pico/Weather_Forecast/pico/stdlib.h
+
+/home/jaume/Raspberry_Pico/Weather_Forecast/weather_forecast.c
+stdio.h
+-
+DPS310.h
+/home/jaume/Raspberry_Pico/Weather_Forecast/DPS310.h
+basic.h
+/home/jaume/Raspberry_Pico/Weather_Forecast/basic.h
 pico/stdlib.h
 /home/jaume/Raspberry_Pico/Weather_Forecast/pico/stdlib.h
 hardware/gpio.h

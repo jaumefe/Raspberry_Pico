@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "basic.h"
+#include "DPS310.h"
 #include "pico/stdlib.h"
 #include "hardware/gpio.h"
 #include "hardware/i2c.h"
@@ -16,18 +17,6 @@
 #define DPS310_ID           0x0D
 #define DPS310_PRESS_MEAS   0x00
 #define DPS310_TEMP_MEAS    0x03
-
-struct DPS310_coeff {
-    uint16_t c0, c1, c01,c11, c20, c21, c30;
-    uint32_t c00, c10;
-    // According to our configuration, the compensation factor is identical
-    uint32_t k = 3670016;
-};
-
-struct DPS310_meas {
-    uint32_t rawT, rawP;
-    uint32_t T, P;
-};
 
 void readCoeffDPS310 (struct DPS310_coeff * params){
     uint8_t buf[10] = {0};
@@ -77,32 +66,32 @@ void readCoeffDPS310 (struct DPS310_coeff * params){
     }
 }
 
-void configPress(){
+void configPress(void){
     // Configured as 4 measurement per second and 2 times oversampling (0b_0100001) 
     uint8_t reg[] = {DPS310_PRESS_CFG, 0x21};
     i2c_write_blocking(i2c_default, DPS310_ADDR, &reg, 2, false);
 }
 
-void configTemp(){
+void configTemp(void){
     // Configured as 4 measurement per second and 2 times oversampling (0b00100001)
     uint8_t reg[] = {DPS310_TEMP_CFG, 0x21};
     i2c_write_blocking(i2c_default, DPS310_ADDR, &reg, 2, false);
 }
 
-void configInt(){
+void configInt(void){
     // COnfigured as only FIFO active of all options available
     uint8_t reg[] = {DPS310_CFG, 0x02};
     i2c_write_blocking(i2c_default, DPS310_ADDR, &reg, 2, false);
 }
 
-void configDPS310(){
+void configDPS310(void){
     //Full configuration of device DPS310
     configPress();
     configTemp();
     configInt();
 }
 
-void startupDPS310(){
+void startupDPS310(void){
     uint8_t regT[] = {DPS310_MEAS_CFG, 0x02}; // Temperature measurement
     uint8_t regP[] = {DPS310_MEAS_CFG, 0x01}; // Pressure measurement
     configDPS310();
@@ -111,6 +100,8 @@ void startupDPS310(){
 }
 
 void readTemp(struct DPS310_meas * meas, struct DPS310_coeff * params){
+    // According to our configuration, the compensation factor is identical = 3670016
+    params->kT = 3670016;
     uint8_t buf[3] = {0};
     uint8_t regT = DPS310_TEMP_MEAS;
     // Reading raw Temperature Data from DPS310
@@ -118,7 +109,7 @@ void readTemp(struct DPS310_meas * meas, struct DPS310_coeff * params){
     i2c_read_blocking(i2c_default, DPS310_ADDR, buf, 3, false);
     meas->rawT = ((buf[0] << 16) & 0xFF0000) + ((buf[1] << 8) & 0xFF00) + buf[2];
     // Applying scalating factor
-    meas->T = meas->rawT / params->k;
+    meas->T = meas->rawT / params->kT;
     // Compensating parameters
     meas->T = params->c0 * 0.5 + params->c1 * meas->T;
 }
@@ -127,19 +118,19 @@ void readPress(struct DPS310_meas * meas, struct DPS310_coeff * params){
     uint8_t buf[3] = {0};
     uint8_t regP = DPS310_PRESS_MEAS;
     // First, reading temperature for compensating Pressure values
-    readTemp(struct DPS310_meas * meas, struct DPS310_coeff * params);
+    readTemp(&meas, &params);
     // Reading raw Pressure Data from DPS310
     i2c_write_blocking(i2c_default, DPS310_ADDR, &regP, 1, true);
     i2c_read_blocking(i2c_default, DPS310_ADDR, buf, 3, false);
     meas->rawP = ((buf[0] << 16) & 0xFF0000) + ((buf[1] << 8) & 0xFF00) + buf[2];
     // Applying scalating factor
-    meas->P = meas->rawP / params->k;
+    meas->P = meas->rawP / params->kT;
     // Compensating parameters
     meas->P = params->c00 + meas->P * (params->c10 + meas->P * (params->c20 + meas->P*params->c30)) + 
-        (meas->rawT / params->k) * params->c01 + (meas->rawT / params->k) * meas->P * (params->c11 + meas->P * params->c21);
+        (meas->rawT / params->kT) * params->c01 + (meas->rawT / params->kT) * meas->P * (params->c11 + meas->P * params->c21);
 }
 
-uint8_t idDPS310(){
+uint8_t idDPS310(void){
     uint8_t buf[1] = {0};
     uint8_t reg = DPS310_ID;
     i2c_write_blocking(i2c_default, DPS310_ADDR, &reg, 1, false);

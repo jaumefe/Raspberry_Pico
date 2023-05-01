@@ -188,6 +188,89 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_sta
  /home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S
  generated/pico_base/pico/config_autogen.h
  generated/pico_base/pico/version.h
+CMakeFiles/weather_forecast.dir/DPS310.c.obj
+ /home/jaume/Raspberry_Pico/Weather_Forecast/DPS310.c
+ /home/jaume/Raspberry_Pico/Weather_Forecast/DPS310.h
+ /home/jaume/Raspberry_Pico/Weather_Forecast/basic.h
+ /home/jaume/pico/pico-sdk/src/boards/include/boards/pico.h
+ /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico.h
+ /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/assert.h
+ /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/config.h
+ /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/error.h
+ /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/types.h
+ /home/jaume/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info.h
+ /home/jaume/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/code.h
+ /home/jaume/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/defs.h
+ /home/jaume/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/structure.h
+ /home/jaume/pico/pico-sdk/src/common/pico_stdlib/include/pico/stdlib.h
+ /home/jaume/pico/pico-sdk/src/common/pico_time/include/pico/time.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/dreq.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/i2c.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/intctrl.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/io_bank0.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pads_bank0.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/uart.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/i2c.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/interp.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/iobank0.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/padsbank0.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/sio.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/uart.h
+ /home/jaume/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h
+ /home/jaume/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h
+ /home/jaume/pico/pico-sdk/src/rp2_common/hardware_gpio/include/hardware/gpio.h
+ /home/jaume/pico/pico-sdk/src/rp2_common/hardware_i2c/include/hardware/i2c.h
+ /home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h
+ /home/jaume/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h
+ /home/jaume/pico/pico-sdk/src/rp2_common/hardware_uart/include/hardware/uart.h
+ /home/jaume/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h
+ /home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h
+ /home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h
+ generated/pico_base/pico/config_autogen.h
+ generated/pico_base/pico/version.h
+CMakeFiles/weather_forecast.dir/basic.c.obj
+ /home/jaume/Raspberry_Pico/Weather_Forecast/basic.c
+ /home/jaume/pico/pico-sdk/src/boards/include/boards/pico.h
+ /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico.h
+ /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/assert.h
+ /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/config.h
+ /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/error.h
+ /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/types.h
+ /home/jaume/pico/pico-sdk/src/common/pico_stdlib/include/pico/stdlib.h
+ /home/jaume/pico/pico-sdk/src/common/pico_time/include/pico/time.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/dreq.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/intctrl.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/io_bank0.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pads_bank0.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/uart.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/interp.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/iobank0.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/padsbank0.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/sio.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/uart.h
+ /home/jaume/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h
+ /home/jaume/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h
+ /home/jaume/pico/pico-sdk/src/rp2_common/hardware_gpio/include/hardware/gpio.h
+ /home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h
+ /home/jaume/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h
+ /home/jaume/pico/pico-sdk/src/rp2_common/hardware_uart/include/hardware/uart.h
+ /home/jaume/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h
+ /home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h
+ /home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h
+ generated/pico_base/pico/config_autogen.h
+ generated/pico_base/pico/version.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj
  /home/jaume/pico/pico-sdk/lib/tinyusb/src/class/audio/audio.h
  /home/jaume/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c
@@ -2163,6 +2246,8 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_uni
  generated/pico_base/pico/config_autogen.h
  generated/pico_base/pico/version.h
 CMakeFiles/weather_forecast.dir/weather_forecast.c.obj
+ /home/jaume/Raspberry_Pico/Weather_Forecast/DPS310.h
+ /home/jaume/Raspberry_Pico/Weather_Forecast/basic.h
  /home/jaume/Raspberry_Pico/Weather_Forecast/weather_forecast.c
  /home/jaume/pico/pico-sdk/src/boards/include/boards/pico.h
  /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico.h

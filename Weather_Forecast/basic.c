@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "pico/stdlib.h"
 
 int power (int base, int exponent){
     int res = 1;
@@ -6,4 +7,9 @@ int power (int base, int exponent){
         res *= base;
     }
     return res;
+}
+
+void blinkLED(int state, const uint pin){
+    uint newState = state ? 0 : 1;
+    gpio_put(pin, newState);
 }
