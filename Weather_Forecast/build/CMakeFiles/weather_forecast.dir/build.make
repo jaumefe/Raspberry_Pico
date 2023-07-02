@@ -70,22 +70,9 @@ CMakeFiles/weather_forecast.dir/weather_forecast.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/weather_forecast.dir/weather_forecast.c.s"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jaume/Raspberry_Pico/Weather_Forecast/weather_forecast.c -o CMakeFiles/weather_forecast.dir/weather_forecast.c.s
 
-CMakeFiles/weather_forecast.dir/DPS310.c.obj: CMakeFiles/weather_forecast.dir/flags.make
-CMakeFiles/weather_forecast.dir/DPS310.c.obj: ../DPS310.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/weather_forecast.dir/DPS310.c.obj"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/DPS310.c.obj   -c /home/jaume/Raspberry_Pico/Weather_Forecast/DPS310.c
-
-CMakeFiles/weather_forecast.dir/DPS310.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/weather_forecast.dir/DPS310.c.i"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jaume/Raspberry_Pico/Weather_Forecast/DPS310.c > CMakeFiles/weather_forecast.dir/DPS310.c.i
-
-CMakeFiles/weather_forecast.dir/DPS310.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/weather_forecast.dir/DPS310.c.s"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jaume/Raspberry_Pico/Weather_Forecast/DPS310.c -o CMakeFiles/weather_forecast.dir/DPS310.c.s
-
 CMakeFiles/weather_forecast.dir/basic.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/basic.c.obj: ../basic.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/weather_forecast.dir/basic.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/weather_forecast.dir/basic.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/basic.c.obj   -c /home/jaume/Raspberry_Pico/Weather_Forecast/basic.c
 
 CMakeFiles/weather_forecast.dir/basic.c.i: cmake_force
@@ -95,6 +82,19 @@ CMakeFiles/weather_forecast.dir/basic.c.i: cmake_force
 CMakeFiles/weather_forecast.dir/basic.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/weather_forecast.dir/basic.c.s"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jaume/Raspberry_Pico/Weather_Forecast/basic.c -o CMakeFiles/weather_forecast.dir/basic.c.s
+
+CMakeFiles/weather_forecast.dir/DPS310.c.obj: CMakeFiles/weather_forecast.dir/flags.make
+CMakeFiles/weather_forecast.dir/DPS310.c.obj: ../DPS310.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/weather_forecast.dir/DPS310.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/DPS310.c.obj   -c /home/jaume/Raspberry_Pico/Weather_Forecast/DPS310.c
+
+CMakeFiles/weather_forecast.dir/DPS310.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/weather_forecast.dir/DPS310.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jaume/Raspberry_Pico/Weather_Forecast/DPS310.c > CMakeFiles/weather_forecast.dir/DPS310.c.i
+
+CMakeFiles/weather_forecast.dir/DPS310.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/weather_forecast.dir/DPS310.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jaume/Raspberry_Pico/Weather_Forecast/DPS310.c -o CMakeFiles/weather_forecast.dir/DPS310.c.s
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c
@@ -908,8 +908,8 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware
 # Object files for target weather_forecast
 weather_forecast_OBJECTS = \
 "CMakeFiles/weather_forecast.dir/weather_forecast.c.obj" \
-"CMakeFiles/weather_forecast.dir/DPS310.c.obj" \
 "CMakeFiles/weather_forecast.dir/basic.c.obj" \
+"CMakeFiles/weather_forecast.dir/DPS310.c.obj" \
 "CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj" \
 "CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj" \
 "CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj" \
@@ -984,8 +984,8 @@ weather_forecast_OBJECTS = \
 weather_forecast_EXTERNAL_OBJECTS =
 
 weather_forecast.elf: CMakeFiles/weather_forecast.dir/weather_forecast.c.obj
-weather_forecast.elf: CMakeFiles/weather_forecast.dir/DPS310.c.obj
 weather_forecast.elf: CMakeFiles/weather_forecast.dir/basic.c.obj
+weather_forecast.elf: CMakeFiles/weather_forecast.dir/DPS310.c.obj
 weather_forecast.elf: CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
 weather_forecast.elf: CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
 weather_forecast.elf: CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj

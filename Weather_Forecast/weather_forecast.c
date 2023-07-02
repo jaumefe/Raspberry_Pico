@@ -43,33 +43,42 @@ int main (void){
     // Make the I2C pins available to picotool
     bi_decl(bi_2pins_with_func(PICO_DEFAULT_I2C_SDA_PIN, PICO_DEFAULT_I2C_SCL_PIN, GPIO_FUNC_I2C));
 
+    sleep_ms(5000);
     // LED blinking
-    blinkLED(led, LED_PIN);
+    led = blinkLED(led, LED_PIN);
+    printf("punt1\n");
 
-    sleep_ms(2000);
+    sleep_ms(5000);
     // Reading ID of the DPS310 (and LED blink for debug)
     ID = idDPS310();
-    printf("ID: %c \n", ID);    
-    blinkLED(led, LED_PIN);
-
+    printf("ID: %d \n", ID);    
+    led = blinkLED(led, LED_PIN);
+    printf("punt2\n");
     sleep_ms(2000);
-    // Configuring the sensor and starting it
-    startupDPS310();
-    blinkLED(led, LED_PIN);
 
-    sleep_ms(2000);
     // Reading coefficients for compensation (and LED blink for debug)
     readCoeffDPS310(&params);
-    blinkLED(led, LED_PIN);
+    led = blinkLED(led, LED_PIN);
+    printf("punt3\n");
+
+    // Configuring the sensor and starting it
+    configDPS310();
+    led = blinkLED(led, LED_PIN);
+    printf("punt4\n");
+    sleep_ms(2000);
     
-    sleep_ms(3000);
+    
     // Pressure measurement (Temperature measurement included for compensation)
     readPress(&meas, &params);
-    blinkLED(led, LED_PIN);
+    printf("punt5\n");
+    led = blinkLED(led, LED_PIN);
+    printf("punt6\n");
     sleep_ms(3000);
+    
 
     // Printing result
-    printf("");
+    led = blinkLED(led, LED_PIN);
+    printf("END");
     
     return 0;
 #endif

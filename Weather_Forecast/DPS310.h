@@ -21,14 +21,13 @@
 #define DPS310_H
 
 struct DPS310_coeff{
-    uint16_t c0, c1, c01,c11, c20, c21, c30;
-    uint32_t c00, c10;
-    uint32_t kT;
+    int16_t c0, c1, c01, c11, c20, c21, c30;
+    int32_t c00, c10;
     };
 
 struct DPS310_meas{
-    uint32_t rawT, rawP;
-    uint32_t T, P;
+    int32_t rawT, rawP;
+    double T, P;
     };
 
 void readCoeffDPS310 (struct DPS310_coeff * params);
@@ -48,4 +47,6 @@ void readTemp(struct DPS310_meas * meas, struct DPS310_coeff * params);
 void readPress(struct DPS310_meas * meas, struct DPS310_coeff * params);
 
 uint8_t idDPS310(void);
+
+void correctTemp(void);
 #endif //DPS310_H
