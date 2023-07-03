@@ -96,9 +96,22 @@ CMakeFiles/weather_forecast.dir/DPS310.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/weather_forecast.dir/DPS310.c.s"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jaume/Raspberry_Pico/Weather_Forecast/DPS310.c -o CMakeFiles/weather_forecast.dir/DPS310.c.s
 
+CMakeFiles/weather_forecast.dir/SHT4x.c.obj: CMakeFiles/weather_forecast.dir/flags.make
+CMakeFiles/weather_forecast.dir/SHT4x.c.obj: ../SHT4x.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/weather_forecast.dir/SHT4x.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/SHT4x.c.obj   -c /home/jaume/Raspberry_Pico/Weather_Forecast/SHT4x.c
+
+CMakeFiles/weather_forecast.dir/SHT4x.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/weather_forecast.dir/SHT4x.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jaume/Raspberry_Pico/Weather_Forecast/SHT4x.c > CMakeFiles/weather_forecast.dir/SHT4x.c.i
+
+CMakeFiles/weather_forecast.dir/SHT4x.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/weather_forecast.dir/SHT4x.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jaume/Raspberry_Pico/Weather_Forecast/SHT4x.c -o CMakeFiles/weather_forecast.dir/SHT4x.c.s
+
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i: cmake_force
@@ -111,7 +124,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_std
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i: cmake_force
@@ -124,7 +137,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.i: cmake_force
@@ -137,7 +150,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_platform/platform.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/pico_platform/platform.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.i: cmake_force
@@ -150,7 +163,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_pla
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.i: cmake_force
@@ -163,7 +176,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.i: cmake_force
@@ -176,12 +189,12 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj: /home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building ASM object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building ASM object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_sync/sem.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_sync/sem.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_sync/sem.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_sync/sem.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_sync/sem.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_sync/sem.c.obj   -c /home/jaume/pico/pico-sdk/src/common/pico_sync/sem.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_sync/sem.c.i: cmake_force
@@ -194,7 +207,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_sync/se
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_sync/lock_core.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj   -c /home/jaume/pico/pico-sdk/src/common/pico_sync/lock_core.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_sync/lock_core.c.i: cmake_force
@@ -207,7 +220,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_sync/lo
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_time/time.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_time/time.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_time/time.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_time/time.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_time/time.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_time/time.c.obj   -c /home/jaume/pico/pico-sdk/src/common/pico_time/time.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_time/time.c.i: cmake_force
@@ -220,7 +233,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_time/ti
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_time/timeout_helper.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj   -c /home/jaume/pico/pico-sdk/src/common/pico_time/timeout_helper.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_time/timeout_helper.c.i: cmake_force
@@ -233,7 +246,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_time/ti
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.i: cmake_force
@@ -246,7 +259,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_util/datetime.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_util/datetime.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_util/datetime.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_util/datetime.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_util/datetime.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_util/datetime.c.obj   -c /home/jaume/pico/pico-sdk/src/common/pico_util/datetime.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_util/datetime.c.i: cmake_force
@@ -259,7 +272,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_util/da
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_util/pheap.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_util/pheap.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_util/pheap.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_util/pheap.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_util/pheap.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_util/pheap.c.obj   -c /home/jaume/pico/pico-sdk/src/common/pico_util/pheap.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_util/pheap.c.i: cmake_force
@@ -272,7 +285,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_util/ph
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_util/queue.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_util/queue.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_util/queue.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_util/queue.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_util/queue.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_util/queue.c.obj   -c /home/jaume/pico/pico-sdk/src/common/pico_util/queue.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_util/queue.c.i: cmake_force
@@ -285,7 +298,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_util/qu
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_sync/mutex.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_sync/mutex.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_sync/mutex.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_sync/mutex.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_sync/mutex.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_sync/mutex.c.obj   -c /home/jaume/pico/pico-sdk/src/common/pico_sync/mutex.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_sync/mutex.c.i: cmake_force
@@ -298,7 +311,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_sync/mu
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_sync/critical_section.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj   -c /home/jaume/pico/pico-sdk/src/common/pico_sync/critical_section.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_sync/critical_section.c.i: cmake_force
@@ -311,7 +324,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/common/pico_sync/cr
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.i: cmake_force
@@ -324,12 +337,12 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj: /home/jaume/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building ASM object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building ASM object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i: cmake_force
@@ -342,7 +355,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_run
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i: cmake_force
@@ -355,7 +368,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.i: cmake_force
@@ -368,7 +381,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i: cmake_force
@@ -381,7 +394,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i: cmake_force
@@ -394,7 +407,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i: cmake_force
@@ -407,7 +420,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_printf/printf.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/pico_printf/printf.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.i: cmake_force
@@ -420,12 +433,12 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_pri
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building ASM object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building ASM object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i: cmake_force
@@ -438,17 +451,17 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_boo
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_divider/divider.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building ASM object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building ASM object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/pico_divider/divider.S
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building ASM object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building ASM object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i: cmake_force
@@ -461,7 +474,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_dou
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.i: cmake_force
@@ -474,22 +487,22 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_dou
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building ASM object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building ASM object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building ASM object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building ASM object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building ASM object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building ASM object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i: cmake_force
@@ -502,7 +515,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_flo
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.i: cmake_force
@@ -515,12 +528,12 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_flo
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building ASM object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building ASM object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i: cmake_force
@@ -533,17 +546,17 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_mal
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building ASM object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building ASM object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building ASM object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building ASM object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj"
 	/usr/bin/arm-none-eabi-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj -c /home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i: cmake_force
@@ -556,7 +569,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_sta
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i: cmake_force
@@ -569,7 +582,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_sta
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i: cmake_force
@@ -582,7 +595,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_std
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.i: cmake_force
@@ -595,7 +608,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_std
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.i: cmake_force
@@ -608,7 +621,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_std
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.i: cmake_force
@@ -621,7 +634,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_std
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj: /home/jaume/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj   -c /home/jaume/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.i: cmake_force
@@ -634,7 +647,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/portabl
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj: /home/jaume/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj   -c /home/jaume/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.i: cmake_force
@@ -647,7 +660,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/portabl
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj: /home/jaume/pico/pico-sdk/lib/tinyusb/src/device/usbd.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj   -c /home/jaume/pico/pico-sdk/lib/tinyusb/src/device/usbd.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.i: cmake_force
@@ -660,7 +673,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/device/
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj: /home/jaume/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj   -c /home/jaume/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.i: cmake_force
@@ -673,7 +686,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/device/
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj: /home/jaume/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj   -c /home/jaume/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.i: cmake_force
@@ -686,7 +699,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/a
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj: /home/jaume/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj   -c /home/jaume/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.i: cmake_force
@@ -699,7 +712,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj: /home/jaume/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj   -c /home/jaume/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.i: cmake_force
@@ -712,7 +725,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/d
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj: /home/jaume/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj   -c /home/jaume/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.i: cmake_force
@@ -725,7 +738,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/d
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj: /home/jaume/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj   -c /home/jaume/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.i: cmake_force
@@ -738,7 +751,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/h
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj: /home/jaume/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj   -c /home/jaume/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.i: cmake_force
@@ -751,7 +764,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/m
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj: /home/jaume/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj   -c /home/jaume/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.i: cmake_force
@@ -764,7 +777,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/m
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj: /home/jaume/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj   -c /home/jaume/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.i: cmake_force
@@ -777,7 +790,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/n
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj: /home/jaume/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj   -c /home/jaume/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.i: cmake_force
@@ -790,7 +803,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/n
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj: /home/jaume/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj   -c /home/jaume/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.i: cmake_force
@@ -803,7 +816,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/u
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj: /home/jaume/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj   -c /home/jaume/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.i: cmake_force
@@ -816,7 +829,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/v
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj: /home/jaume/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj   -c /home/jaume/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.i: cmake_force
@@ -829,7 +842,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/v
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj: /home/jaume/pico/pico-sdk/lib/tinyusb/src/tusb.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj   -c /home/jaume/pico/pico-sdk/lib/tinyusb/src/tusb.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/tusb.c.i: cmake_force
@@ -842,7 +855,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/tusb.c.
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj: /home/jaume/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj   -c /home/jaume/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.i: cmake_force
@@ -855,7 +868,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/common/
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.i: cmake_force
@@ -868,7 +881,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_fix
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.i: cmake_force
@@ -881,7 +894,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_uni
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.i: cmake_force
@@ -894,7 +907,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj: CMakeFiles/weather_forecast.dir/flags.make
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Building C object CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj   -c /home/jaume/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i: cmake_force
@@ -910,6 +923,7 @@ weather_forecast_OBJECTS = \
 "CMakeFiles/weather_forecast.dir/weather_forecast.c.obj" \
 "CMakeFiles/weather_forecast.dir/basic.c.obj" \
 "CMakeFiles/weather_forecast.dir/DPS310.c.obj" \
+"CMakeFiles/weather_forecast.dir/SHT4x.c.obj" \
 "CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj" \
 "CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj" \
 "CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj" \
@@ -986,6 +1000,7 @@ weather_forecast_EXTERNAL_OBJECTS =
 weather_forecast.elf: CMakeFiles/weather_forecast.dir/weather_forecast.c.obj
 weather_forecast.elf: CMakeFiles/weather_forecast.dir/basic.c.obj
 weather_forecast.elf: CMakeFiles/weather_forecast.dir/DPS310.c.obj
+weather_forecast.elf: CMakeFiles/weather_forecast.dir/SHT4x.c.obj
 weather_forecast.elf: CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
 weather_forecast.elf: CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
 weather_forecast.elf: CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
@@ -1058,7 +1073,7 @@ weather_forecast.elf: CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/s
 weather_forecast.elf: CMakeFiles/weather_forecast.dir/build.make
 weather_forecast.elf: pico-sdk/src/rp2_common/boot_stage2/bs2_default_padded_checksummed.S
 weather_forecast.elf: CMakeFiles/weather_forecast.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Linking CXX executable weather_forecast.elf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Linking CXX executable weather_forecast.elf"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/weather_forecast.dir/link.txt --verbose=$(VERBOSE)
 	/usr/bin/arm-none-eabi-objcopy -Oihex /home/jaume/Raspberry_Pico/Weather_Forecast/build/weather_forecast.elf weather_forecast.hex
 	/usr/bin/arm-none-eabi-objcopy -Obinary /home/jaume/Raspberry_Pico/Weather_Forecast/build/weather_forecast.elf weather_forecast.bin

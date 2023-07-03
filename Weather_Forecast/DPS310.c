@@ -50,24 +50,24 @@ void readCoeffDPS310 (struct DPS310_coeff * params){
     printf("punt3.1\n");
     i2c_write_blocking(i2c_default, DPS310_ADDR, &reg, 1, true);
     i2c_read_blocking(i2c_default, DPS310_ADDR, buf, 20, false);
-    printf("buf[0] %d\n", buf[0]);
-    printf("buf[1] %d\n", buf[1]);
-    printf("buf[2] %d\n", buf[2]);
-    printf("buf[3] %d\n", buf[3]);
-    printf("buf[4] %d\n", buf[4]);
-    printf("buf[5] %d\n", buf[5]);
-    printf("buf[6] %d\n", buf[6]);
-    printf("buf[7] %d\n", buf[7]);
-    printf("buf[8] %d\n", buf[8]);
-    printf("buf[9] %d\n", buf[9]);
-    printf("buf[10] %d\n", buf[10]);
-    printf("buf[11] %d\n", buf[11]);
-    printf("buf[12] %d\n", buf[12]);
-    printf("buf[13] %d\n", buf[13]);
-    printf("buf[14] %d\n", buf[14]);
-    printf("buf[15] %d\n", buf[15]);
-    printf("buf[16] %d\n", buf[16]);
-    printf("buf[17] %d\n", buf[17]);
+    //printf("buf[0] %d\n", buf[0]);
+    //printf("buf[1] %d\n", buf[1]);
+    //printf("buf[2] %d\n", buf[2]);
+    //printf("buf[3] %d\n", buf[3]);
+    //printf("buf[4] %d\n", buf[4]);
+    //printf("buf[5] %d\n", buf[5]);
+    //printf("buf[6] %d\n", buf[6]);
+    //printf("buf[7] %d\n", buf[7]);
+    //printf("buf[8] %d\n", buf[8]);
+    //printf("buf[9] %d\n", buf[9]);
+    //printf("buf[10] %d\n", buf[10]);
+    //printf("buf[11] %d\n", buf[11]);
+    //printf("buf[12] %d\n", buf[12]);
+    //printf("buf[13] %d\n", buf[13]);
+    //printf("buf[14] %d\n", buf[14]);
+    //printf("buf[15] %d\n", buf[15]);
+    //printf("buf[16] %d\n", buf[16]);
+    //printf("buf[17] %d\n", buf[17]);
     //pseudocode c0 = (buf[0] * 2⁴) + ((buf[1] / 2⁴) AND 0x0F)
     params->c0 = (buf[0] << 4) + ((buf[1] >> 4) & 0x0F);
     if(params->c0 > power(2, 11) - 1){
@@ -207,18 +207,15 @@ void readPress(struct DPS310_meas * meas, struct DPS310_coeff * params){
     printf("punt 4.1\n");
     uint8_t buf[3] = {0};
     uint8_t regP = DPS310_PRESS_MEAS;
-    uint8_t regP_meas[] = {DPS310_MEAS_CFG, 0x01}; // Pressure measurement
-    printf("bufP[0] %d\n", buf[0]);
-    printf("bufP[1] %d\n", buf[1]);
-    printf("bufP[2] %d\n", buf[2]);
+    uint8_t regP_meas[] = {DPS310_MEAS_CFG, 0x01}; 
+    // Pressure measurement
     // First, reading temperature for compensating Pressure values
-    correctTemp();
-    readTemp(meas, params);
+    // correctTemp();
+    // readTemp(meas, params);
     printf("T %f\n", meas->T);
+    meas->rawT = (((double)meas->T - (double)params->c0*0.5)/(double)params->c1)* kT;
+    printf("T %d\n", meas->rawT);
     printf("Punt 4.2\n");
-    printf("bufP[0] %d\n", buf[0]);
-    printf("bufP[1] %d\n", buf[1]);
-    printf("bufP[2] %d\n", buf[2]);
     // Start pressure measurement
     printf("Measuring pressure\n");
     i2c_write_blocking(i2c_default, DPS310_ADDR, &regP_meas, 2, false);
@@ -227,10 +224,6 @@ void readPress(struct DPS310_meas * meas, struct DPS310_coeff * params){
     i2c_write_blocking(i2c_default, DPS310_ADDR, &regP, 1, true);
     i2c_read_blocking(i2c_default, DPS310_ADDR, buf, 3, false);
     printf("Punt 4.3\n");
-    printf("buf[0] %d\n", buf[0]);
-    printf("buf[1] %d\n", buf[1]);
-    printf("buf[2] %d\n", buf[2]);
-    printf("kT %d\n", kT);
     meas->rawP = ((buf[0] << 16) & 0xFF0000) + ((buf[1] << 8) & 0xFF00) + buf[2];
     printf("Punt 4.4\n");
     if (meas->rawP > power(2, 23) - 1){
@@ -238,6 +231,7 @@ void readPress(struct DPS310_meas * meas, struct DPS310_coeff * params){
     }
     // Applying scalating factor
     meas->P = meas->rawP / kT;
+    printf("P %d\n", meas->rawP);
     printf("Punt 4.5\n");
     // Compensating parameters
     meas->P = params->c00 + meas->P * (params->c10 + meas->P * (params->c20 + meas->P*params->c30)) + 

@@ -241,6 +241,33 @@ DPS310.c.s:
 	$(MAKE) -f CMakeFiles/weather_forecast.dir/build.make CMakeFiles/weather_forecast.dir/DPS310.c.s
 .PHONY : DPS310.c.s
 
+SHT4x.obj: SHT4x.c.obj
+
+.PHONY : SHT4x.obj
+
+# target to build an object file
+SHT4x.c.obj:
+	$(MAKE) -f CMakeFiles/weather_forecast.dir/build.make CMakeFiles/weather_forecast.dir/SHT4x.c.obj
+.PHONY : SHT4x.c.obj
+
+SHT4x.i: SHT4x.c.i
+
+.PHONY : SHT4x.i
+
+# target to preprocess a source file
+SHT4x.c.i:
+	$(MAKE) -f CMakeFiles/weather_forecast.dir/build.make CMakeFiles/weather_forecast.dir/SHT4x.c.i
+.PHONY : SHT4x.c.i
+
+SHT4x.s: SHT4x.c.s
+
+.PHONY : SHT4x.s
+
+# target to generate assembly for a file
+SHT4x.c.s:
+	$(MAKE) -f CMakeFiles/weather_forecast.dir/build.make CMakeFiles/weather_forecast.dir/SHT4x.c.s
+.PHONY : SHT4x.c.s
+
 basic.obj: basic.c.obj
 
 .PHONY : basic.obj
@@ -1979,6 +2006,9 @@ help:
 	@echo "... DPS310.obj"
 	@echo "... DPS310.i"
 	@echo "... DPS310.s"
+	@echo "... SHT4x.obj"
+	@echo "... SHT4x.i"
+	@echo "... SHT4x.s"
 	@echo "... basic.obj"
 	@echo "... basic.i"
 	@echo "... basic.s"

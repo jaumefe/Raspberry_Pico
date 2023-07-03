@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "DPS310.h"
+#include "SHT4x.h"
 #include "basic.h"
 #include "pico/stdlib.h"
 #include "hardware/gpio.h"
@@ -21,6 +22,7 @@ bool reserved_addr(uint8_t addr){
 int main (void){
     struct DPS310_coeff params;
     struct DPS310_meas meas;
+    struct SHT4x_meas TH;
     const uint LED_PIN = PICO_DEFAULT_LED_PIN;
     int led = 0;
     uint8_t ID;
@@ -50,8 +52,12 @@ int main (void){
 
     sleep_ms(5000);
     // Reading ID of the DPS310 (and LED blink for debug)
-    ID = idDPS310();
-    printf("ID: %d \n", ID);    
+    //idSHT4x();
+    readHighTH(&TH);
+    printf("T: %f \n", TH.T);
+    printf("H: %f \n", TH.H);
+    //ID = idDPS310();
+    //printf("ID: %d \n", ID);    
     led = blinkLED(led, LED_PIN);
     printf("punt2\n");
     sleep_ms(2000);
@@ -66,7 +72,8 @@ int main (void){
     led = blinkLED(led, LED_PIN);
     printf("punt4\n");
     sleep_ms(2000);
-    
+
+    meas.T = TH.T;    
     
     // Pressure measurement (Temperature measurement included for compensation)
     readPress(&meas, &params);

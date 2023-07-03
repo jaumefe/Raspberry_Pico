@@ -118,6 +118,7 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
   )
 set(CMAKE_DEPENDS_CHECK_C
   "/home/jaume/Raspberry_Pico/Weather_Forecast/DPS310.c" "/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles/weather_forecast.dir/DPS310.c.obj"
+  "/home/jaume/Raspberry_Pico/Weather_Forecast/SHT4x.c" "/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles/weather_forecast.dir/SHT4x.c.obj"
   "/home/jaume/Raspberry_Pico/Weather_Forecast/basic.c" "/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles/weather_forecast.dir/basic.c.obj"
   "/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c" "/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj"
   "/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c" "/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj"
