@@ -45,47 +45,42 @@ int main (void){
     // Make the I2C pins available to picotool
     bi_decl(bi_2pins_with_func(PICO_DEFAULT_I2C_SDA_PIN, PICO_DEFAULT_I2C_SCL_PIN, GPIO_FUNC_I2C));
 
-    sleep_ms(5000);
     // LED blinking
     led = blinkLED(led, LED_PIN);
-    printf("punt1\n");
 
-    sleep_ms(5000);
-    // Reading ID of the DPS310 (and LED blink for debug)
-    //idSHT4x();
-    readHighTH(&TH);
-    printf("T: %f \n", TH.T);
-    printf("H: %f \n", TH.H);
-    //ID = idDPS310();
-    //printf("ID: %d \n", ID);    
-    led = blinkLED(led, LED_PIN);
-    printf("punt2\n");
-    sleep_ms(2000);
-
-    // Reading coefficients for compensation (and LED blink for debug)
+    sleep_ms(500);
+    // Reading coefficients for compensation for DPS310 (and LED blink for debug)
     readCoeffDPS310(&params);
-    led = blinkLED(led, LED_PIN);
-    printf("punt3\n");
 
-    // Configuring the sensor and starting it
+    // Configuring DPS310 sensor
     configDPS310();
-    led = blinkLED(led, LED_PIN);
-    printf("punt4\n");
-    sleep_ms(2000);
 
-    meas.T = TH.T;    
-    
-    // Pressure measurement (Temperature measurement included for compensation)
-    readPress(&meas, &params);
-    printf("punt5\n");
+    // LED blinking
     led = blinkLED(led, LED_PIN);
-    printf("punt6\n");
-    sleep_ms(3000);
-    
+    sleep_ms(500);
 
-    // Printing result
-    led = blinkLED(led, LED_PIN);
-    printf("END");
+    // Main loop
+    while (1) {
+        // LED blinking
+        led = blinkLED(led, LED_PIN);
+
+        // Temperature measure
+        readHighTH(&TH);
+        printf("T: %f \n", TH.T);
+        printf("H: %f \n", TH.H);
+        sleep_ms(100);
+        meas.T = TH.T;
+
+        // Pressure measurement (Temperature measurement included for compensation)
+        readPress(&meas, &params);
+        printf("P: %f\n", meas.P);
+
+        led = blinkLED(led, LED_PIN);
+
+        // Waiting for the next measurement in 30 minutes
+        sleep_ms(30*60*1000);
+        
+    }
     
     return 0;
 #endif
