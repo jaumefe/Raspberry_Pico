@@ -39,9 +39,7 @@ void readHighTH (struct SHT4x_meas *TH){
     i2c_read_blocking(i2c_default, SHT4X_ADDR, buf, 6, false);
     sleep_ms(10);
     TH->rawT = buf[0] * 256 + buf[1];
-    printf("rawT %d\n", TH->rawT);
     TH->rawH = buf[3] * 256 + buf[4];
-    printf("rawH %d\n", TH->rawH);
     TH->T = -45.0 + 175.0 * (double)TH->rawT / ((double)(power(2, 16) - 1));
     TH->H = -6.0 + 125.0 * (double)TH->rawH / ((double)(power(2, 16) - 1));
 }
