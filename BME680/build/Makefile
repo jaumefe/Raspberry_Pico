@@ -214,6 +214,33 @@ cyw43_driver_picow_cyw43_bus_pio_spi_pio_h/fast:
 	$(MAKE) -f pico-sdk/src/rp2_common/cyw43_driver/CMakeFiles/cyw43_driver_picow_cyw43_bus_pio_spi_pio_h.dir/build.make pico-sdk/src/rp2_common/cyw43_driver/CMakeFiles/cyw43_driver_picow_cyw43_bus_pio_spi_pio_h.dir/build
 .PHONY : cyw43_driver_picow_cyw43_bus_pio_spi_pio_h/fast
 
+BME680.obj: BME680.c.obj
+
+.PHONY : BME680.obj
+
+# target to build an object file
+BME680.c.obj:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/BME680.c.obj
+.PHONY : BME680.c.obj
+
+BME680.i: BME680.c.i
+
+.PHONY : BME680.i
+
+# target to preprocess a source file
+BME680.c.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/BME680.c.i
+.PHONY : BME680.c.i
+
+BME680.s: BME680.c.s
+
+.PHONY : BME680.s
+
+# target to generate assembly for a file
+BME680.c.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/BME680.c.s
+.PHONY : BME680.c.s
+
 home/jaume/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.obj: home/jaume/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj
 
 .PHONY : home/jaume/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.obj
@@ -1922,6 +1949,9 @@ help:
 	@echo "... PioasmBuild"
 	@echo "... cyw43_firmware_package"
 	@echo "... cyw43_driver_picow_cyw43_bus_pio_spi_pio_h"
+	@echo "... BME680.obj"
+	@echo "... BME680.i"
+	@echo "... BME680.s"
 	@echo "... home/jaume/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.obj"
 	@echo "... home/jaume/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.i"
 	@echo "... home/jaume/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.s"

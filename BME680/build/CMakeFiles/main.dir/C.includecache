@@ -6,17 +6,35 @@
 
 #IncludeRegexTransform: 
 
-/home/jaume/Raspberry_Pico/BME680/main.c
+/home/jaume/Raspberry_Pico/BME680/BME680.c
+stdio.h
+-
+BME680.h
+/home/jaume/Raspberry_Pico/BME680/BME680.h
+pico/stdlib.h
+/home/jaume/Raspberry_Pico/BME680/pico/stdlib.h
+hardware/gpio.h
+/home/jaume/Raspberry_Pico/BME680/hardware/gpio.h
+hardware/i2c.h
+/home/jaume/Raspberry_Pico/BME680/hardware/i2c.h
+pico/binary_info.h
+/home/jaume/Raspberry_Pico/BME680/pico/binary_info.h
+hardware/timer.h
+/home/jaume/Raspberry_Pico/BME680/hardware/timer.h
+
+/home/jaume/Raspberry_Pico/BME680/BME680.h
 stdio.h
 -
 pico/stdlib.h
 /home/jaume/Raspberry_Pico/BME680/pico/stdlib.h
-pico/binary_info.h
-/home/jaume/Raspberry_Pico/BME680/pico/binary_info.h
-hardware/i2c.h
-/home/jaume/Raspberry_Pico/BME680/hardware/i2c.h
 hardware/gpio.h
 /home/jaume/Raspberry_Pico/BME680/hardware/gpio.h
+hardware/i2c.h
+/home/jaume/Raspberry_Pico/BME680/hardware/i2c.h
+pico/binary_info.h
+/home/jaume/Raspberry_Pico/BME680/pico/binary_info.h
+hardware/timer.h
+/home/jaume/Raspberry_Pico/BME680/hardware/timer.h
 
 /home/jaume/pico/pico-sdk/src/boards/include/boards/pico.h
 

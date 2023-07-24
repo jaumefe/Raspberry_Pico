@@ -72,6 +72,7 @@ int main (void){
         meas.T = TH.T;
 
         // Pressure measurement (Temperature measurement included for compensation)
+        startupDPS310();
         readPress(&meas, &params);
         printf("P: %f\n", meas.P);
 

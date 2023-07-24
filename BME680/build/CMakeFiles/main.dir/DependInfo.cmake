@@ -69,6 +69,7 @@ set(CMAKE_TARGET_DEFINITIONS_ASM
 
 # The include file search paths:
 set(CMAKE_ASM_TARGET_INCLUDE_PATH
+  "../"
   "/home/jaume/pico/pico-sdk/src/common/pico_stdlib/include"
   "/home/jaume/pico/pico-sdk/src/rp2_common/hardware_gpio/include"
   "/home/jaume/pico/pico-sdk/src/common/pico_base/include"
@@ -116,6 +117,7 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
   "/home/jaume/pico/pico-sdk/src/rp2_common/hardware_i2c/include"
   )
 set(CMAKE_DEPENDS_CHECK_C
+  "/home/jaume/Raspberry_Pico/BME680/BME680.c" "/home/jaume/Raspberry_Pico/BME680/build/CMakeFiles/main.dir/BME680.c.obj"
   "/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c" "/home/jaume/Raspberry_Pico/BME680/build/CMakeFiles/main.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj"
   "/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c" "/home/jaume/Raspberry_Pico/BME680/build/CMakeFiles/main.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj"
   "/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c" "/home/jaume/Raspberry_Pico/BME680/build/CMakeFiles/main.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj"
@@ -226,6 +228,7 @@ set(CMAKE_TARGET_DEFINITIONS_C
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
+  "../"
   "/home/jaume/pico/pico-sdk/src/common/pico_stdlib/include"
   "/home/jaume/pico/pico-sdk/src/rp2_common/hardware_gpio/include"
   "/home/jaume/pico/pico-sdk/src/common/pico_base/include"
@@ -326,6 +329,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "../"
   "/home/jaume/pico/pico-sdk/src/common/pico_stdlib/include"
   "/home/jaume/pico/pico-sdk/src/rp2_common/hardware_gpio/include"
   "/home/jaume/pico/pico-sdk/src/common/pico_base/include"

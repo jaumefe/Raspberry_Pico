@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/main.dir/BME680.c.obj"
   "CMakeFiles/main.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj"
   "CMakeFiles/main.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj"
   "CMakeFiles/main.dir/home/jaume/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj"
