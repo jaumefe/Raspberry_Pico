@@ -43,9 +43,9 @@ int main(){
         gasResBME680(&par, &meas);
         printf("Temperatura (ºC): %f\n", meas.temp_comp);
         printf("Humitat: %f\n", meas.hum_comp);
-        printf("Pressió: %f\n", meas.press_comp);
-        printf("Resistència Gas: %f\n", meas.gas_res);
-        sleep_ms(30*1000);
+        printf("Pressió (Pa): %f\n", meas.press_comp);
+        printf("Resistència Gas (Ohm): %f\n", meas.gas_res);
+        sleep_ms(30*60*1000);
     }
     return 0;
 #endif
