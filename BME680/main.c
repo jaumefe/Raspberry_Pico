@@ -29,19 +29,24 @@ int main(){
     // Make the I2C pins available to picotool
     bi_decl(bi_2pins_with_func(PICO_DEFAULT_I2C_SDA_PIN, PICO_DEFAULT_I2C_SCL_PIN, GPIO_FUNC_I2C));
 
-    sleep_ms(5000);
-    printf("Punt1\n");
+    sleep_ms(2000);
+    // Setting the variables for BME680    
     measureBME680(&par, 300, 25, 0);
-    sleep_ms(500);
-    tempBME680(&par, &meas);
-    humidityBME680(&par, &meas);
-    pressBME680(&par, &meas);
-    gasResBME680(&par, &meas);
-    printf("Temperatura (ºC): %f\n", meas.temp_comp);
-    printf("Humitat: %f\n", meas.hum_comp);
-    printf("Pressió: %f\n", meas.press_comp);
-    printf("Resistència Gas: %f\n", meas.gas_res);
 
+    // Main Loop
+    while (1){
+        forcedMode();
+        sleep_ms(250);
+        tempBME680(&par, &meas);
+        humidityBME680(&par, &meas);
+        pressBME680(&par, &meas);
+        gasResBME680(&par, &meas);
+        printf("Temperatura (ºC): %f\n", meas.temp_comp);
+        printf("Humitat: %f\n", meas.hum_comp);
+        printf("Pressió: %f\n", meas.press_comp);
+        printf("Resistència Gas: %f\n", meas.gas_res);
+        sleep_ms(30*1000);
+    }
     return 0;
 #endif
 }

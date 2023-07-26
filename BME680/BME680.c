@@ -49,14 +49,16 @@
 #define BME680_RAN_SW_ER    0x04
 
 void oversampling (void){
+    printf("Oversampling function \n");
     // Humidity oversampling set to 1x (0b00000001)
     uint8_t regH[] = {BME680_CTRL_HUM, 0x01};
-    // Press and temperature oversampling set to 2x (0b01010100)
+    // Press and temperature oversampling set to 16x and 2x (0b01010100)
     uint8_t regM[] = {BME680_CTRL_MEAS, 0x54};
+    uint8_t buf[1] = {0};
     i2c_write_blocking(i2c_default, BME680_ADDR, &regH, 2, false);
-    sleep_ms(500);
+    sleep_ms(100);
     i2c_write_blocking(i2c_default, BME680_ADDR, &regM, 2, false);
-    sleep_ms(500);
+    sleep_ms(100);
 }
 
 bool filter (int coefficient){
@@ -98,8 +100,6 @@ bool filter (int coefficient){
             i2c_write_blocking(i2c_default, BME680_ADDR, &reg, 2, false);
             return false;
     }
-    printf("reg[0]: %d\n", reg[0]);
-    printf("reg[1]: %f\n", reg[1]);
     i2c_write_blocking(i2c_default, BME680_ADDR, &reg, 2, false);
     return true;
 }
@@ -357,7 +357,7 @@ void heaterSettings (struct BME680_par * par){
 }
 
 void forcedMode (void){
-    uint8_t reg[] = {BME680_CTRL_MEAS, 0b01};
+    uint8_t reg[] = {BME680_CTRL_MEAS, 0x55};
     i2c_write_blocking(i2c_default, BME680_ADDR, &reg, 2, false);
 }
 
@@ -368,7 +368,6 @@ bool measureBME680 (struct BME680_par * par, uint16_t target_temp, uint8_t amb_t
     getParam(par);
     heaterSetPoint(par, target_temp, amb_temp);
     heaterSettings(par);
-    forcedMode();
     return filt;
 }
 
@@ -376,7 +375,8 @@ void tempBME680 (struct BME680_par * par, struct BME680_meas * meas){
     uint8_t reg = BME680_TEMP;
     uint8_t buf[3] = {0};
     double var1, var2;
-    //printf("Temperature measurement\n");
+    /*printf("\n");
+    printf("Temperature measurement\n");*/
     i2c_write_blocking(i2c_default, BME680_ADDR, &reg, 1, true);
     i2c_read_blocking(i2c_default, BME680_ADDR, buf, 3, false);
     meas->temp_adc = ((buf[2] >> 4) & 0x0F) + ((buf[1] << 4) & 0xFF0) + ((buf[0] << 12) & 0x0FF000);

@@ -26,5 +26,6 @@ void tempBME680 (struct BME680_par * par, struct BME680_meas * meas);
 void pressBME680 (struct BME680_par * par, struct BME680_meas * meas);
 void humidityBME680 (struct BME680_par * par, struct BME680_meas * meas);
 void gasResBME680 (struct BME680_par * par, struct BME680_meas * meas);
+void forcedMode(void);
 
 #endif //BME680_H
