@@ -2,16 +2,13 @@
 #include "DPS310.h"
 #include "SHT4x.h"
 #include "basic.h"
+#include "BME680.h"
 #include "pico/stdlib.h"
 #include "hardware/gpio.h"
 #include "hardware/i2c.h"
 #include "pico/binary_info.h"
 #include "hardware/timer.h"
 
-
-//Register for temperature and humidty sensor (SHT)
-#define SHT4XA_ADDR         0x44
-#define SHT4XA_MEAS         0xFD
 
 //I2C reserves some addresses for special purposes.
     //These are any addresses of the form 000 0xxx or 111 1xxx
@@ -23,6 +20,8 @@ int main (void){
     struct DPS310_coeff params;
     struct DPS310_meas meas;
     struct SHT4x_meas TH;
+    struct BME680_par par;
+    struct BME680_meas mes;
     const uint LED_PIN = PICO_DEFAULT_LED_PIN;
     int led = 0;
     uint8_t ID;
@@ -48,12 +47,15 @@ int main (void){
     // LED blinking
     led = blinkLED(led, LED_PIN);
 
-    sleep_ms(500);
+    sleep_ms(5000);
     // Reading coefficients for compensation for DPS310 (and LED blink for debug)
     readCoeffDPS310(&params);
 
     // Configuring DPS310 sensor
     configDPS310();
+
+    // Configuring BME680 sensor
+    measureBME680(&par, 300, 25, 0);
 
     // LED blinking
     led = blinkLED(led, LED_PIN);
@@ -66,20 +68,30 @@ int main (void){
 
         // Temperature measure
         readHighTH(&TH);
-        printf("T: %f \n", TH.T);
-        printf("H: %f \n", TH.H);
+        printf("Temperatura (ºC): %f \n", TH.T);
+        printf("Humitat (%%): %f \n", TH.H);
         sleep_ms(100);
         meas.T = TH.T;
 
         // Pressure measurement (Temperature measurement included for compensation)
         startupDPS310();
         readPress(&meas, &params);
-        printf("P: %f\n", meas.P);
+        printf("Pressió (Pa): %f\n", meas.P);
 
         led = blinkLED(led, LED_PIN);
-
-        // Waiting for the next measurement in 30 minutes
-        sleep_ms(30*60*1000);
+        forcedMode();
+        sleep_ms(250);
+        tempBME680(&par, &mes);
+        humidityBME680(&par, &mes);
+        pressBME680(&par, &mes);
+        gasResBME680(&par, &mes);
+        printf("Temperatura (ºC): %f\n", mes.temp_comp);
+        printf("Humitat (%%): %f\n", mes.hum_comp);
+        printf("Pressió (Pa): %f\n", mes.press_comp);
+        printf("Resistència_Gas (Ohm): %f\n", mes.gas_res);
+        
+        // Waiting for the next measurement in 30 minutes. It has been substrated the operation time
+        sleep_ms(30*60*1000 - 1520);
         
     }
     

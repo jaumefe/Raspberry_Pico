@@ -15,6 +15,7 @@ target_sources(weather_forecast PUBLIC
 	${CMAKE_CURRENT_LIST_DIR}/basic.c
 	${CMAKE_CURRENT_LIST_DIR}/DPS310.c
 	${CMAKE_CURRENT_LIST_DIR}/SHT4x.c
+	${CMAKE_CURRENT_LIST_DIR}/BME680.c
 )
 
 target_include_directories(weather_forecast PUBLIC

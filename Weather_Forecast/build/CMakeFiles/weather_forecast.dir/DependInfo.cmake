@@ -117,6 +117,7 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
   "/home/jaume/pico/pico-sdk/src/rp2_common/hardware_i2c/include"
   )
 set(CMAKE_DEPENDS_CHECK_C
+  "/home/jaume/Raspberry_Pico/Weather_Forecast/BME680.c" "/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles/weather_forecast.dir/BME680.c.obj"
   "/home/jaume/Raspberry_Pico/Weather_Forecast/DPS310.c" "/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles/weather_forecast.dir/DPS310.c.obj"
   "/home/jaume/Raspberry_Pico/Weather_Forecast/SHT4x.c" "/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles/weather_forecast.dir/SHT4x.c.obj"
   "/home/jaume/Raspberry_Pico/Weather_Forecast/basic.c" "/home/jaume/Raspberry_Pico/Weather_Forecast/build/CMakeFiles/weather_forecast.dir/basic.c.obj"

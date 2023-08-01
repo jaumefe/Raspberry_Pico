@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/weather_forecast.dir/BME680.c.obj"
   "CMakeFiles/weather_forecast.dir/DPS310.c.obj"
   "CMakeFiles/weather_forecast.dir/SHT4x.c.obj"
   "CMakeFiles/weather_forecast.dir/basic.c.obj"

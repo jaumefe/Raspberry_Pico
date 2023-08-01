@@ -6,17 +6,6 @@
 #include "pico/binary_info.h"
 #include "hardware/timer.h"
 
-//Registers for pressure sensor (DPS310)
-#define DPS310_ADDR         0x77
-#define DPS310_COEFF        0x10
-#define DPS310_PRESS_CFG    0x06
-#define DPS310_TEMP_CFG     0x07
-#define DPS310_MEAS_CFG     0x08
-#define DPS310_CFG          0x09
-#define DPS310_ID           0x0D
-#define DPS310_PRESS_MEAS   0x00
-#define DPS310_TEMP_MEAS    0x03
-
 #ifndef DPS310_H
 #define DPS310_H
 
