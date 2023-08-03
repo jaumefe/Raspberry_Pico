@@ -1,0 +1,3 @@
+[submodule "LCD/pico-hd44780"]
+	path = LCD/pico-hd44780
+	url = https://github.com/Eifoen/pico-hd44780.git

@@ -1,0 +1,3 @@
+/home/jaume/Raspberry_Pico/LCD/build/pioasm/CMakeFiles/rebuild_cache.dir
+/home/jaume/Raspberry_Pico/LCD/build/pioasm/CMakeFiles/edit_cache.dir
+/home/jaume/Raspberry_Pico/LCD/build/pioasm/CMakeFiles/pioasm.dir
