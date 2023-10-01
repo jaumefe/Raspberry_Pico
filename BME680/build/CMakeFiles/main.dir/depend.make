@@ -32,6 +32,7 @@ CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq_han
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj: /home/jaume/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj: /home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj: /home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S
+CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/asm_helper.S
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj: generated/pico_base/pico/config_autogen.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj: generated/pico_base/pico/version.h
@@ -183,6 +184,7 @@ CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/c
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj: /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj: /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj: /home/jaume/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h
+CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/asm_helper.S
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj: generated/pico_base/pico/config_autogen.h
@@ -1696,15 +1698,22 @@ CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_i
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj: generated/pico_base/pico/config_autogen.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj: generated/pico_base/pico/version.h
 
+CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/jaume/pico/pico-sdk/src/boards/include/boards/pico.h
+CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/assert.h
+CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/config.h
+CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/error.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/types.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h
+CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom/sf_table.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_double/include/pico/double.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h
+CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: generated/pico_base/pico/config_autogen.h
+CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: generated/pico_base/pico/version.h
 
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj: /home/jaume/pico/pico-sdk/src/boards/include/boards/pico.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico.h
@@ -1756,15 +1765,22 @@ CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_ini
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj: generated/pico_base/pico/config_autogen.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj: generated/pico_base/pico/version.h
 
+CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/jaume/pico/pico-sdk/src/boards/include/boards/pico.h
+CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/assert.h
+CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/config.h
+CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/error.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/types.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h
+CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom/sf_table.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_float/include/pico/float.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h
+CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: generated/pico_base/pico/config_autogen.h
+CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: generated/pico_base/pico/version.h
 
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj: /home/jaume/pico/pico-sdk/src/boards/include/boards/pico.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico.h
@@ -2021,6 +2037,7 @@ CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj: /home/jaume/pico/pico-sdk/lib/tinyusb/src/common/tusb_types.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj: /home/jaume/pico/pico-sdk/lib/tinyusb/src/common/tusb_verify.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj: /home/jaume/pico/pico-sdk/lib/tinyusb/src/device/usbd.h
+CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj: /home/jaume/pico/pico-sdk/lib/tinyusb/src/device/usbd_pvt.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj: /home/jaume/pico/pico-sdk/lib/tinyusb/src/host/hcd.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj: /home/jaume/pico/pico-sdk/lib/tinyusb/src/host/hcd_attr.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj: /home/jaume/pico/pico-sdk/lib/tinyusb/src/host/usbh.h
@@ -2252,5 +2269,18 @@ CMakeFiles/main.dir/main.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_st
 CMakeFiles/main.dir/main.c.obj: generated/pico_base/pico/config_autogen.h
 CMakeFiles/main.dir/main.c.obj: generated/pico_base/pico/version.h
 
+CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: /home/jaume/pico/pico-sdk/src/boards/include/boards/pico.h
+CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico.h
+CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/assert.h
+CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/config.h
+CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/error.h
+CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/types.h
+CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h
+CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h
+CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h
+CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: /home/jaume/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h
+CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h
 CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp
+CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: generated/pico_base/pico/config_autogen.h
+CMakeFiles/main.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: generated/pico_base/pico/version.h
 
