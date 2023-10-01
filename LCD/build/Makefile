@@ -1906,6 +1906,33 @@ home/jaume/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.s:
 	$(MAKE) -f CMakeFiles/LCD.dir/build.make CMakeFiles/LCD.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.s
 .PHONY : home/jaume/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.s
 
+pico_liquidcrystal.obj: pico_liquidcrystal.c.obj
+
+.PHONY : pico_liquidcrystal.obj
+
+# target to build an object file
+pico_liquidcrystal.c.obj:
+	$(MAKE) -f CMakeFiles/LCD.dir/build.make CMakeFiles/LCD.dir/pico_liquidcrystal.c.obj
+.PHONY : pico_liquidcrystal.c.obj
+
+pico_liquidcrystal.i: pico_liquidcrystal.c.i
+
+.PHONY : pico_liquidcrystal.i
+
+# target to preprocess a source file
+pico_liquidcrystal.c.i:
+	$(MAKE) -f CMakeFiles/LCD.dir/build.make CMakeFiles/LCD.dir/pico_liquidcrystal.c.i
+.PHONY : pico_liquidcrystal.c.i
+
+pico_liquidcrystal.s: pico_liquidcrystal.c.s
+
+.PHONY : pico_liquidcrystal.s
+
+# target to generate assembly for a file
+pico_liquidcrystal.c.s:
+	$(MAKE) -f CMakeFiles/LCD.dir/build.make CMakeFiles/LCD.dir/pico_liquidcrystal.c.s
+.PHONY : pico_liquidcrystal.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -2110,6 +2137,9 @@ help:
 	@echo "... home/jaume/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.obj"
 	@echo "... home/jaume/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.i"
 	@echo "... home/jaume/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.s"
+	@echo "... pico_liquidcrystal.obj"
+	@echo "... pico_liquidcrystal.i"
+	@echo "... pico_liquidcrystal.s"
 .PHONY : help
 
 

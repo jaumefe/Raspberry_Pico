@@ -6,9 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/jaume/Raspberry_Pico/LCD/LCD.c
+/home/jaume/Raspberry_Pico/LCD/pico_liquidcrystal.c
 stdio.h
 -
+pico_liquidcrystal.h
+/home/jaume/Raspberry_Pico/LCD/pico_liquidcrystal.h
 pico/stdlib.h
 /home/jaume/Raspberry_Pico/LCD/pico/stdlib.h
 hardware/gpio.h
@@ -19,6 +21,16 @@ pico/binary_info.h
 /home/jaume/Raspberry_Pico/LCD/pico/binary_info.h
 hardware/timer.h
 /home/jaume/Raspberry_Pico/LCD/hardware/timer.h
+
+/home/jaume/Raspberry_Pico/LCD/pico_liquidcrystal.h
+stdio.h
+-
+pico/stdlib.h
+/home/jaume/Raspberry_Pico/LCD/pico/stdlib.h
+hardware/i2c.h
+/home/jaume/Raspberry_Pico/LCD/hardware/i2c.h
+pico/binary_info.h
+/home/jaume/Raspberry_Pico/LCD/pico/binary_info.h
 
 /home/jaume/pico/pico-sdk/src/boards/include/boards/pico.h
 

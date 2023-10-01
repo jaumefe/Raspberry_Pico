@@ -69,6 +69,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/LCD.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj"
   "CMakeFiles/LCD.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj"
   "CMakeFiles/LCD.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj"
+  "CMakeFiles/LCD.dir/pico_liquidcrystal.c.obj"
   "LCD.elf"
   "LCD.pdb"
 )

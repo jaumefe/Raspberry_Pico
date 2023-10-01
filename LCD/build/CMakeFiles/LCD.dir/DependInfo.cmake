@@ -69,7 +69,7 @@ set(CMAKE_TARGET_DEFINITIONS_ASM
 
 # The include file search paths:
 set(CMAKE_ASM_TARGET_INCLUDE_PATH
-  "../"
+  "../pico_liquidcrystal.c"
   "/home/jaume/pico/pico-sdk/src/common/pico_stdlib/include"
   "/home/jaume/pico/pico-sdk/src/rp2_common/hardware_gpio/include"
   "/home/jaume/pico/pico-sdk/src/common/pico_base/include"
@@ -175,6 +175,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c" "/home/jaume/Raspberry_Pico/LCD/build/CMakeFiles/LCD.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj"
   "/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c" "/home/jaume/Raspberry_Pico/LCD/build/CMakeFiles/LCD.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj"
   "/home/jaume/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c" "/home/jaume/Raspberry_Pico/LCD/build/CMakeFiles/LCD.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj"
+  "/home/jaume/Raspberry_Pico/LCD/pico_liquidcrystal.c" "/home/jaume/Raspberry_Pico/LCD/build/CMakeFiles/LCD.dir/pico_liquidcrystal.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
@@ -227,7 +228,7 @@ set(CMAKE_TARGET_DEFINITIONS_C
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
-  "../"
+  "../pico_liquidcrystal.c"
   "/home/jaume/pico/pico-sdk/src/common/pico_stdlib/include"
   "/home/jaume/pico/pico-sdk/src/rp2_common/hardware_gpio/include"
   "/home/jaume/pico/pico-sdk/src/common/pico_base/include"
@@ -328,7 +329,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "../"
+  "../pico_liquidcrystal.c"
   "/home/jaume/pico/pico-sdk/src/common/pico_stdlib/include"
   "/home/jaume/pico/pico-sdk/src/rp2_common/hardware_gpio/include"
   "/home/jaume/pico/pico-sdk/src/common/pico_base/include"

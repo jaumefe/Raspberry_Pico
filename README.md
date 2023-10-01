@@ -16,3 +16,9 @@ DPS310 sensor has some internal default and it does not give the appropriated pr
 In order to obtain pressure measurements, BME680 sensor has been added so it can be compared the results of both sensors.
 
 In folder Data, there is a Python script so as to see the output send by USB through the Raspberry Pi Pico
+
+## LCD
+Some tests on transforming a Arduino library into a RP2040 library for LCD panels
+
+## freeRTOS
+Testing the freeRTOS library for RP2040

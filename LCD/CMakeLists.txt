@@ -12,11 +12,11 @@ add_executable(LCD
 )
 
 target_sources(LCD PUBLIC
-	${CMAKE_CURRENT_LIST_DIR}
+	${CMAKE_CURRENT_LIST_DIR}/pico_liquidcrystal.c
 )
 
 target_include_directories(LCD PUBLIC
-	${CMAKE_CURRENT_LIST_DIR}
+	${CMAKE_CURRENT_LIST_DIR}/pico_liquidcrystal.c
 )
 
 target_link_libraries(LCD PUBLIC 
