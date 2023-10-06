@@ -149,6 +149,8 @@ pio_disassembler.h
 /home/jaume/pico/pico-sdk/tools/pioasm/pio_disassembler.h
 string
 -
+cstdint
+-
 
 /home/jaume/pico/pico-sdk/tools/pioasm/pio_types.h
 string

@@ -33,6 +33,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware
  /home/jaume/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h
  /home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h
  /home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S
+ /home/jaume/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/asm_helper.S
  /home/jaume/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h
  generated/pico_base/pico/config_autogen.h
  generated/pico_base/pico/version.h
@@ -184,6 +185,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_sta
  /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h
  /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h
  /home/jaume/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h
+ /home/jaume/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/asm_helper.S
  /home/jaume/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h
  /home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S
  generated/pico_base/pico/config_autogen.h
@@ -1826,15 +1828,22 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_dou
  generated/pico_base/pico/config_autogen.h
  generated/pico_base/pico/version.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
+ /home/jaume/pico/pico-sdk/src/boards/include/boards/pico.h
+ /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico.h
  /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/assert.h
+ /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/config.h
+ /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/error.h
  /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/types.h
  /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h
  /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h
  /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h
+ /home/jaume/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h
  /home/jaume/pico/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom/sf_table.h
  /home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c
  /home/jaume/pico/pico-sdk/src/rp2_common/pico_double/include/pico/double.h
  /home/jaume/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h
+ generated/pico_base/pico/config_autogen.h
+ generated/pico_base/pico/version.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj
  /home/jaume/pico/pico-sdk/src/boards/include/boards/pico.h
  /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico.h
@@ -1886,15 +1895,22 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_flo
  generated/pico_base/pico/config_autogen.h
  generated/pico_base/pico/version.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
+ /home/jaume/pico/pico-sdk/src/boards/include/boards/pico.h
+ /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico.h
  /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/assert.h
+ /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/config.h
+ /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/error.h
  /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/types.h
  /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h
  /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h
  /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h
+ /home/jaume/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h
  /home/jaume/pico/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom/sf_table.h
  /home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c
  /home/jaume/pico/pico-sdk/src/rp2_common/pico_float/include/pico/float.h
  /home/jaume/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h
+ generated/pico_base/pico/config_autogen.h
+ generated/pico_base/pico/version.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
  /home/jaume/pico/pico-sdk/src/boards/include/boards/pico.h
  /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico.h
@@ -2151,6 +2167,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_std
  /home/jaume/pico/pico-sdk/lib/tinyusb/src/common/tusb_types.h
  /home/jaume/pico/pico-sdk/lib/tinyusb/src/common/tusb_verify.h
  /home/jaume/pico/pico-sdk/lib/tinyusb/src/device/usbd.h
+ /home/jaume/pico/pico-sdk/lib/tinyusb/src/device/usbd_pvt.h
  /home/jaume/pico/pico-sdk/lib/tinyusb/src/host/hcd.h
  /home/jaume/pico/pico-sdk/lib/tinyusb/src/host/hcd_attr.h
  /home/jaume/pico/pico-sdk/lib/tinyusb/src/host/usbh.h
@@ -2385,4 +2402,17 @@ CMakeFiles/weather_forecast.dir/weather_forecast.c.obj
  generated/pico_base/pico/config_autogen.h
  generated/pico_base/pico/version.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj
+ /home/jaume/pico/pico-sdk/src/boards/include/boards/pico.h
+ /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico.h
+ /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/assert.h
+ /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/config.h
+ /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/error.h
+ /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/types.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h
+ /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h
+ /home/jaume/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h
+ /home/jaume/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h
  /home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp
+ generated/pico_base/pico/config_autogen.h
+ generated/pico_base/pico/version.h

@@ -32,6 +32,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj: /home/jaume/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj: /home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj: /home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S
+CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/asm_helper.S
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj: generated/pico_base/pico/config_autogen.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj: generated/pico_base/pico/version.h
@@ -183,6 +184,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_sta
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj: /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj: /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj: /home/jaume/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h
+CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/asm_helper.S
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj: generated/pico_base/pico/config_autogen.h
@@ -1825,15 +1827,22 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_dou
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj: generated/pico_base/pico/config_autogen.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj: generated/pico_base/pico/version.h
 
+CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/jaume/pico/pico-sdk/src/boards/include/boards/pico.h
+CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/assert.h
+CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/config.h
+CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/error.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/types.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h
+CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom/sf_table.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_double/include/pico/double.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h
+CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: generated/pico_base/pico/config_autogen.h
+CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: generated/pico_base/pico/version.h
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj: /home/jaume/pico/pico-sdk/src/boards/include/boards/pico.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico.h
@@ -1885,15 +1894,22 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_flo
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj: generated/pico_base/pico/config_autogen.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj: generated/pico_base/pico/version.h
 
+CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/jaume/pico/pico-sdk/src/boards/include/boards/pico.h
+CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/assert.h
+CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/config.h
+CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/error.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/types.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h
+CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom/sf_table.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_float/include/pico/float.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h
+CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: generated/pico_base/pico/config_autogen.h
+CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: generated/pico_base/pico/version.h
 
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj: /home/jaume/pico/pico-sdk/src/boards/include/boards/pico.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico.h
@@ -2150,6 +2166,7 @@ CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_std
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj: /home/jaume/pico/pico-sdk/lib/tinyusb/src/common/tusb_types.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj: /home/jaume/pico/pico-sdk/lib/tinyusb/src/common/tusb_verify.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj: /home/jaume/pico/pico-sdk/lib/tinyusb/src/device/usbd.h
+CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj: /home/jaume/pico/pico-sdk/lib/tinyusb/src/device/usbd_pvt.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj: /home/jaume/pico/pico-sdk/lib/tinyusb/src/host/hcd.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj: /home/jaume/pico/pico-sdk/lib/tinyusb/src/host/hcd_attr.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj: /home/jaume/pico/pico-sdk/lib/tinyusb/src/host/usbh.h
@@ -2384,5 +2401,18 @@ CMakeFiles/weather_forecast.dir/weather_forecast.c.obj: /home/jaume/pico/pico-sd
 CMakeFiles/weather_forecast.dir/weather_forecast.c.obj: generated/pico_base/pico/config_autogen.h
 CMakeFiles/weather_forecast.dir/weather_forecast.c.obj: generated/pico_base/pico/version.h
 
+CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: /home/jaume/pico/pico-sdk/src/boards/include/boards/pico.h
+CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico.h
+CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/assert.h
+CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/config.h
+CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/error.h
+CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: /home/jaume/pico/pico-sdk/src/common/pico_base/include/pico/types.h
+CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h
+CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h
+CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: /home/jaume/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h
+CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: /home/jaume/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h
+CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h
 CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: /home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp
+CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: generated/pico_base/pico/config_autogen.h
+CMakeFiles/weather_forecast.dir/home/jaume/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: generated/pico_base/pico/version.h
 
