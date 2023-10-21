@@ -1,8 +1,11 @@
 # Raspberry Pi Pico Projects
 
+Small projects for testing hardware with Raspberry Pi Pico
+
 Hereinafter, there is a list with a short description of every project done using the Raspberry Pi Pico:
-* BME680: Temperature, humidity, pressure and gas resistance sensor for indoor air quality.
-* Weather Forecast: Temperature, humidity and pressure sensor by using DPS310 and SHT-4x sensors
+* `Weather Forecast`: Temperature, humidity and pressure sensor by using DPS310 and SHT-4x sensors. Moreover, it is the code for using a BME680 in order to compare measurements
+* `LCD`: Testing LCD panel and creating independent c and header inspired on pico-examples repository
+* `freeRTOS`: Testing freeRTOS library on Raspberry Pi Pico
 
 ## Weather Forecast
 In this case, the hardware design of the sensor has been developed by myself. It can be found at the following repository: https://github.com/jaumefe/Electronic_Projects/tree/main/Home_Automation/Weather_Forecast
