@@ -4,10 +4,6 @@ Hereinafter, there is a list with a short description of every project done usin
 * BME680: Temperature, humidity, pressure and gas resistance sensor for indoor air quality.
 * Weather Forecast: Temperature, humidity and pressure sensor by using DPS310 and SHT-4x sensors
 
-## BME680
-Raspberry Pi Pico code for interfacing with a BME680 module.
-Nowadays, this project is not connected to Bosch API, so the gas resistance measurements do not give us any feedback.
-
 ## Weather Forecast
 In this case, the hardware design of the sensor has been developed by myself. It can be found at the following repository: https://github.com/jaumefe/Electronic_Projects/tree/main/Home_Automation/Weather_Forecast
 

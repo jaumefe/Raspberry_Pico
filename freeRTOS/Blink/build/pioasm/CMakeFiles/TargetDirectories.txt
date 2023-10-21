@@ -1,3 +1,0 @@
-/home/jaume/Raspberry_Pico/freeRTOS/Blink/build/pioasm/CMakeFiles/rebuild_cache.dir
-/home/jaume/Raspberry_Pico/freeRTOS/Blink/build/pioasm/CMakeFiles/edit_cache.dir
-/home/jaume/Raspberry_Pico/freeRTOS/Blink/build/pioasm/CMakeFiles/pioasm.dir
