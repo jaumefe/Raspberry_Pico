@@ -14,7 +14,7 @@ add_executable(LCD
 )
 
 target_sources(LCD PUBLIC
-	"${CMAKE_CURRENT_LIST_DIR}/src/modules/pico_liquidcrystal.c"
+	"${CMAKE_CURRENT_LIST_DIR}/src/modules/lcd_1602_i2c.c"
 )
 
 target_include_directories(LCD PUBLIC

@@ -14,7 +14,7 @@ In order to obtain pressure measurements, BME680 sensor has been added so it can
 In folder Data, there is a Python script so as to see the output send by USB through the Raspberry Pi Pico
 
 ## LCD
-Some tests on transforming a Arduino library into a RP2040 library for LCD panels
+Tests on pico example about i2c and LCD panel: https://github.com/raspberrypi/pico-examples/tree/master/i2c/lcd_1602_i2c
 
 ## freeRTOS
 Testing the freeRTOS library for RP2040
