@@ -6,6 +6,7 @@ Hereinafter, there is a list with a short description of every project done usin
 * `Weather Forecast`: Temperature, humidity and pressure sensor by using DPS310 and SHT-4x sensors. Moreover, it is the code for using a BME680 in order to compare measurements
 * `LCD`: Testing LCD panel and creating independent c and header inspired on pico-examples repository
 * `freeRTOS`: Testing freeRTOS library on Raspberry Pi Pico
+* `LED Matrix`: Pimoroni RGB Matrix 5x5. Adapted from pimoroni-pico library in C++ into a C library
 
 ## Weather Forecast
 In this case, the hardware design of the sensor has been developed by myself. It can be found at the following repository: https://github.com/jaumefe/Electronic_Projects/tree/main/Home_Automation/Weather_Forecast
@@ -21,3 +22,6 @@ Tests on pico example about i2c and LCD panel: https://github.com/raspberrypi/pi
 
 ## freeRTOS
 Testing the freeRTOS library for RP2040
+
+## LED Matrix
+Just a demo for blinking colors, following this pattern RED, GREEN, BLUE and a combination of them
