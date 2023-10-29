@@ -13,3 +13,6 @@
 [submodule "LCD/external/pico-sdk"]
 	path = LCD/external/pico-sdk
 	url = https://github.com/raspberrypi/pico-sdk.git
+[submodule "LED_Matrix/external/pico-sdk"]
+	path = LED_Matrix/external/pico-sdk
+	url = https://github.com/jaumefe/pico-sdk.git
