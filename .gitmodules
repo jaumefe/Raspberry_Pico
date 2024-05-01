@@ -16,3 +16,6 @@
 [submodule "LED_Matrix/external/pico-sdk"]
 	path = LED_Matrix/external/pico-sdk
 	url = https://github.com/jaumefe/pico-sdk.git
+[submodule "RFID/external/pico-sdk"]
+	path = RFID/external/pico-sdk
+	url = https://github.com/raspberrypi/pico-sdk.git
