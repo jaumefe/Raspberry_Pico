@@ -1,21 +1,9 @@
-[submodule "Weather_Forecast/external/pico-sdk"]
-	path = Weather_Forecast/external/pico-sdk
+[submodule "external/pico-sdk"]
+	path = external/pico-sdk
 	url = https://github.com/raspberrypi/pico-sdk.git
-[submodule "freeRTOS/external/FreeRTOS-Kernel"]
-	path = freeRTOS/external/FreeRTOS-Kernel
+[submodule "external/FreeRTOS-Kernel"]
+	path = external/FreeRTOS-Kernel
 	url = https://github.com/FreeRTOS/FreeRTOS-Kernel.git
-[submodule "freeRTOS/external/pico-sdk"]
-	path = freeRTOS/external/pico-sdk
-	url = https://github.com/raspberrypi/pico-sdk.git
-[submodule "LCD/external/pico-hd44780"]
-	path = LCD/external/pico-hd44780
+[submodule "external/pico-hd44780"]
+	path = external/pico-hd44780
 	url = https://github.com/Eifoen/pico-hd44780.git
-[submodule "LCD/external/pico-sdk"]
-	path = LCD/external/pico-sdk
-	url = https://github.com/raspberrypi/pico-sdk.git
-[submodule "LED_Matrix/external/pico-sdk"]
-	path = LED_Matrix/external/pico-sdk
-	url = https://github.com/jaumefe/pico-sdk.git
-[submodule "RFID/external/pico-sdk"]
-	path = RFID/external/pico-sdk
-	url = https://github.com/raspberrypi/pico-sdk.git
