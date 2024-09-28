@@ -20,6 +20,7 @@ void spi_config () {
     gpio_put(PICO_DEFAULT_SPI_CSN_PIN, 1);
     // Make the CS pin available to picotool
     bi_decl(bi_1pin_with_name(PICO_DEFAULT_SPI_CSN_PIN, "SPI CS"));
+    spi_set_format(spi_default, 8, SPI_CPOL_0, SPI_CPHA_0, SPI_MSB_FIRST);
 }
 
 void cs_select() {
@@ -30,21 +31,23 @@ void cs_deselect(){
     gpio_put(PICO_DEFAULT_SPI_CSN_PIN, 1);
 }
 
-void spi_read(uint8_t reg, uint8_t * buf, uint16_t len) {
+void spi_read(uint8_t * reg, uint8_t * buf, uint16_t len) {
     cs_select();
-    spi_write_blocking(spi_default, &reg, 1);
+    spi_write_blocking(spi_default, reg, 1);
     sleep_ms(10);
     spi_read_blocking(spi_default, 0, buf, len);
     cs_deselect();
-    sleep_ms(10);
 }
 
-void spi_write(uint8_t reg, uint8_t data) {
-    uint8_t buf[2];
+void spi_write(uint8_t reg, uint8_t * data) {
+    uint8_t length = sizeof(data)/sizeof(data[0]);
+    uint8_t * buf;
     buf[0] = reg;
-    buf[1] = data;
+    for(int i = 0; i < length; i++){
+        buf[i+1] = data[i];
+    }
     cs_select();
-    spi_write_blocking(spi_default, buf, 2);
-    cs_deselect();
+    spi_write_blocking(spi_default, buf, length+1);
     sleep_ms(10);
+    cs_deselect();
 }

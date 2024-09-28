@@ -12,7 +12,7 @@
 #define FIFO_LEVEL_REG      0x0A // Number of bytes stored in the FIFO buffer
 #define WATER_LEVEL_REG     0x0B // Level for FIFO underflow and overflow warning
 #define CONTROL_REG         0x0C // Miscellaneous control registers
-#define Bit_FRAMING_REG     0x0D // Adjustments for bit-oriented frames
+#define BIT_FRAMING_REG     0x0D // Adjustments for bit-oriented frames
 #define COLL_REG            0x0E // Bit position of the first bit-collision detected on the RF interface
 
 // Command
@@ -86,5 +86,7 @@
 
 #ifndef _MFRC522_H
 #define _MFRC522_H
-uint8_t * selfTest ();
+void selfTest (uint8_t * buf);
+void mfrc522_write(uint8_t reg, uint8_t * data);
+void mfrc522_read(uint8_t * reg, uint8_t * buf);
 #endif
