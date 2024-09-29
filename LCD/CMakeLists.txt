@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.13)
 
-set(ENV{PICO_SDK_PATH} "${CMAKE_SOURCE_DIR}/external/pico-sdk")
+set(ENV{PICO_SDK_PATH} "${CMAKE_SOURCE_DIR}/../external/pico-sdk")
 
 include(pico_sdk_import.cmake)
 
