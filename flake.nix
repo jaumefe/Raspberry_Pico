@@ -16,7 +16,7 @@
           rev = "2.1.1";
           sha256 = "1a5s5pvqv8kzvj1f0ryydbrcm7akyc5l96hgr6v59mzcd2wbbfzj";
           # Rembember to update the hash if another version is desired: 
-          # nix-prefetch-url --unpack https://github.com/owner/repo/archive/refs/tags/rev.tar.gz
+          # nix run nixpkgs#nix-prefetch-git -- --url https://github.com/raspberrypi/pico-sdk.git --rev 2.1.1 --fetch-submodules
           fetchSubmodules = true;
         };
 
@@ -24,6 +24,8 @@
           url = "https://github.com/FreeRTOS/FreeRTOS-Kernel.git";
           rev = "V11.2.0";
           sha256="1nblmq54jl1hjz5brvxwisg20pp7d8k816ssqpm7d44250v7kiwn";
+          # Rembember to update the hash if another version is desired: 
+          # nix run nixpkgs#nix-prefetch-git -- --url https://github.com/FreeRTOS/FreeRTOS-Kernel.git --rev V11.2.0 --fetch-submodules
           fetchSubmodules = true;
         };
 
