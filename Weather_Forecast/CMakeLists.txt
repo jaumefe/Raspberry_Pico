@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.13)
 
 set(ENV{PICO_SDK_PATH} $ENV{PICO_SDK_PATH})
 
-include(pico_sdk_import.cmake)
+include($ENV{PICO_SDK_PATH}/external/pico_sdk_import.cmake)
 
 project(weather_forecast_project C CXX ASM)
 set(CMAKE_C_STANDARD 11)

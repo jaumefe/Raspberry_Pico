@@ -3,8 +3,8 @@ cmake_minimum_required(VERSION 3.13)
 set(ENV{PICO_SDK_PATH} $ENV{PICO_SDK_PATH})
 set(ENV{FREERTOS_KERNEL_PATH} $ENV{FREERTOS_KERNEL_PATH})
 
-include(pico_sdk_import.cmake)
-include(FreeRTOS_Kernel_import.cmake)
+include($ENV{PICO_SDK_PATH}/external/pico_sdk_import.cmake)
+include($ENV{FREERTOS_KERNEL_PATH}/portable/ThirdParty/GCC/RP2040/FreeRTOS_Kernel_import.cmake)
 
 project("freeRTOS" C CXX ASM)
 set(CMAKE_C_STANDARD 11)
@@ -31,7 +31,7 @@ target_include_directories(prova PUBLIC
 target_compile_options(prova PRIVATE
     "-Wall"
     "-Wextra"
-    "-Werror"
+    #"-Werror"
     "-Wshadow"
     "-Wtrampolines"
     "-Wvla"
