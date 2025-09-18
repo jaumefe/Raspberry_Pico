@@ -10,18 +10,12 @@
 #include "hardware/timer.h"
 
 
-//I2C reserves some addresses for special purposes.
-    //These are any addresses of the form 000 0xxx or 111 1xxx
-bool reserved_addr(uint8_t addr){
-        return (addr & 0x78) == 0 || (addr & 0x78) == 0x78;
-    }
-
 int main (void){
-    struct DPS310_coeff params;
-    struct DPS310_meas meas;
-    struct SHT4x_meas TH;
-    struct BME680_par par;
-    struct BME680_meas mes;
+    DPS310_coeff_t params;
+    DPS310_meas_t meas;
+    SHT4x_meas_t TH;
+    BME680_par_t par;
+    BME680_meas_t mes;
     const uint LED_PIN = PICO_DEFAULT_LED_PIN;
     int led = 0;
     uint8_t ID;

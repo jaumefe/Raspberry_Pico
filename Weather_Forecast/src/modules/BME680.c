@@ -6,48 +6,6 @@
 #include "pico/binary_info.h"
 #include "hardware/timer.h"
 
-// Registers for BME680 Sensor
-#define BME680_ADDR         0x76
-#define BME680_ID           0xD0
-#define BME680_CONFIG       0x75
-#define BME680_CTRL_MEAS    0x74
-#define BME680_CTRL_HUM     0x72
-#define BME680_CTRL_GAS_0   0x70
-#define BME680_CTRL_GAS_1   0x71
-#define BME680_GAS_WAIT_0   0x64
-#define BME680_RES_HEAT_0   0x5A
-#define BME680_GAS_R        0x2A      
-#define BME680_HUM          0x25
-#define BME680_TEMP         0x22
-#define BME680_PRESS        0x1F
-#define BME680_STATUS       0x1D
-
-// Registers for calibration parameters
-#define BME680_PARAM_G      0xEB
-#define BME680_RES_HEAT_VAL 0x00
-#define BME680_RES_HEAT_RAN 0x02
-#define BME680_PARAM_T1     0xE9
-#define BME680_PARAM_T2     0x8A
-#define BME680_PARAM_T3     0x8C
-#define BME680_PARAM_P1     0x8E
-#define BME680_PARAM_P2     0x90
-#define BME680_PARAM_P3     0x92
-#define BME680_PARAM_P4     0x94
-#define BME680_PARAM_P5     0x96
-#define BME680_PARAM_P6     0x99
-#define BME680_PARAM_P7     0x98
-#define BME680_PARAM_P8     0x9C
-#define BME680_PARAM_P9     0x9E
-#define BME680_PARAM_P10    0xA0
-#define BME680_PARAM_H1     0xE2
-#define BME680_PARAM_H2     0xE1
-#define BME680_PARAM_H3     0xE4
-#define BME680_PARAM_H4     0xE5
-#define BME680_PARAM_H5     0xE6
-#define BME680_PARAM_H6     0xE7
-#define BME680_PARAM_H7     0xE8
-#define BME680_RAN_SW_ER    0x04
-
 void oversampling (void){
     //printf("Oversampling function \n");
     // Humidity oversampling set to 1x (0b00000001)
@@ -104,7 +62,7 @@ bool filter (int coefficient){
     return true;
 }
 
-void getParam (struct BME680_par * par){
+void getParam (BME680_par_t * par){
     uint8_t buf[4] = {0};
     uint8_t bufR[1] = {0};
     uint8_t bufV[1] = {0};
@@ -258,7 +216,7 @@ void getParam (struct BME680_par * par){
     par->range_switching_error = bufsw[0];
 }
 
-void heaterSetPoint (struct BME680_par * par, uint16_t target_temp, uint8_t amb_temp){
+void heaterSetPoint (BME680_par_t * par, uint16_t target_temp, uint8_t amb_temp){
     uint8_t regWait[] = {BME680_GAS_WAIT_0, 0x59};
     double var1, var2, var3, var4, var5;
     uint8_t res_heat_x;
@@ -274,7 +232,7 @@ void heaterSetPoint (struct BME680_par * par, uint16_t target_temp, uint8_t amb_
     i2c_write_blocking(i2c_default, BME680_ADDR, &reg, 2, false);
 }
 
-void heaterSettings (struct BME680_par * par){
+void heaterSettings (BME680_par_t * par){
     uint8_t reg[] = {BME680_CTRL_GAS_1, 0x10};
     i2c_write_blocking(i2c_default, BME680_ADDR, &reg, 2, false);
 }
@@ -284,7 +242,7 @@ void forcedMode (void){
     i2c_write_blocking(i2c_default, BME680_ADDR, &reg, 2, false);
 }
 
-bool measureBME680 (struct BME680_par * par, uint16_t target_temp, uint8_t amb_temp, int coefficient){
+bool measureBME680 (BME680_par_t * par, uint16_t target_temp, uint8_t amb_temp, int coefficient){
     bool filt;
     oversampling();
     filt = filter(coefficient);
@@ -294,7 +252,7 @@ bool measureBME680 (struct BME680_par * par, uint16_t target_temp, uint8_t amb_t
     return filt;
 }
 
-void tempBME680 (struct BME680_par * par, struct BME680_meas * meas){
+void tempBME680 (BME680_par_t * par, BME680_meas_t * meas){
     uint8_t reg = BME680_TEMP;
     uint8_t buf[3] = {0};
     double var1, var2;
@@ -307,7 +265,7 @@ void tempBME680 (struct BME680_par * par, struct BME680_meas * meas){
     meas->temp_comp = meas->t_fine / 5120.0;
 }
 
-void pressBME680 (struct BME680_par * par, struct BME680_meas * meas){
+void pressBME680 (BME680_par_t * par, BME680_meas_t * meas){
     uint8_t reg = BME680_PRESS;
     uint8_t buf[3] = {0};
     double var1, var2, var3;
@@ -328,7 +286,7 @@ void pressBME680 (struct BME680_par * par, struct BME680_meas * meas){
     meas->press_comp = meas->press_comp + (var1 + var2 + var3 + ((double)par->p7 * 128.0)) / 16.0;
 }
 
-void humidityBME680 (struct BME680_par * par, struct BME680_meas * meas){
+void humidityBME680 (BME680_par_t * par, BME680_meas_t * meas){
     uint8_t reg = BME680_HUM;
     uint8_t buf[2] = {0};
     double var1, var2, var3, var4;
@@ -342,7 +300,7 @@ void humidityBME680 (struct BME680_par * par, struct BME680_meas * meas){
     meas->hum_comp = var2 + ((var3 + (var4 * meas->temp_comp)) * var2 * var2);
 }
 
-void gasResBME680 (struct BME680_par * par, struct BME680_meas * meas){
+void gasResBME680 (BME680_par_t * par, BME680_meas_t * meas){
     uint8_t reg = BME680_GAS_R;
     uint8_t buf[2] = {0};
     double var1;
@@ -355,7 +313,7 @@ void gasResBME680 (struct BME680_par * par, struct BME680_meas * meas){
     meas->gas_res = var1 * par->const_array2 / (meas->gas_adc - 512.0 + var1);
 }
 
-void constDetBME680 (struct BME680_par * par){
+void constDetBME680 (BME680_par_t * par){
     double const_array1[] = {1, 1, 1, 1, 1, 0.99, 1, 0.992, 1, 1, 0.998, 0.995, 1, 0.99, 1, 1};
     double const_array2[] = {8000000, 4000000, 2000000, 1000000, 499500.4995, 248262.1648, 125000, 63004.03226, 31281.28128, 15625, 7812.5, 3906.25, 1953.125, 976.5625, 488.28125, 244.140625};
     par->const_array1 = const_array1[par->gas_range];

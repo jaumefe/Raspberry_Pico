@@ -9,20 +9,6 @@
 #include "hardware/timer.h"
 
 
-//Registers for pressure sensor (DPS310)
-#define SHT4X_ADDR         0x44
-#define SHT4X_MEAS_HIGH    0xFD
-#define SHT4X_MEAS_MED     0xF6
-#define SHT4X_MEAS_LOW     0xF0
-#define SHT4X_ID           0x89
-#define SHT4X_MAX_HEAT_1   0x39
-#define SHT4X_MAX_HEAT_01  0x32
-#define SHT4X_MED_HEAT_1   0x2F
-#define SHT4X_MED_HEAT_01  0x24
-#define SHT4X_LOW_HEAT_1   0x1E
-#define SHT4X_LOW_HEAT_01  0x15
-
-
 void idSHT4x(void){
     uint8_t buf[6] = {0};
     uint8_t reg = SHT4X_ID;
@@ -31,7 +17,7 @@ void idSHT4x(void){
     i2c_read_blocking(i2c_default, SHT4X_ADDR, buf, 6, false);
 }
 
-void readHighTH (struct SHT4x_meas *TH){
+void readHighTH (SHT4x_meas_t *TH){
     uint8_t buf[6] = {0};
     uint8_t reg = SHT4X_MEAS_HIGH;
     i2c_write_blocking(i2c_default, SHT4X_ADDR, &reg, 1, false);

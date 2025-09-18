@@ -7,26 +7,6 @@
 #include "pico/binary_info.h"
 #include "hardware/timer.h"
 
-//Registers for pressure sensor (DPS310)
-#define DPS310_ADDR         0x77
-#define DPS310_COEFF        0x10
-#define DPS310_PRESS_CFG    0x06
-#define DPS310_TEMP_CFG     0x07
-#define DPS310_MEAS_CFG     0x08
-#define DPS310_CFG          0x09
-#define DPS310_ID           0x0D
-#define DPS310_PRESS_MEAS   0x00
-#define DPS310_TEMP_MEAS    0x03
-
-// Coefficients for correcting internal error of the sensor
-#define COEFF_1             0x45
-#define COEFF_2             0x96
-#define COEFF_3             0x92
-#define COEFF_4             0x00
-#define COEFF_5             0x00
-
-#define kT                  3670016
-
 void correctTemp(void){
     uint8_t reg1 = {0x0E, 0xA5};
     uint8_t reg2 = {0x0F, 0x96};
@@ -44,7 +24,7 @@ void correctTemp(void){
     i2c_write_blocking(i2c_default, DPS310_ADDR, &reg5, 2, false);
 }
 
-void readCoeffDPS310 (struct DPS310_coeff * params){
+void readCoeffDPS310 (DPS310_coeff_t * params){
     uint8_t buf[18] = {0};
     uint8_t reg = DPS310_COEFF;
     i2c_write_blocking(i2c_default, DPS310_ADDR, &reg, 1, true);
@@ -149,7 +129,7 @@ void startupDPS310(void){
     sleep_ms(500);
 }
 
-void readTemp(struct DPS310_meas * meas, struct DPS310_coeff * params){
+void readTemp(DPS310_meas_t * meas, DPS310_coeff_t * params){
     // According to our configuration, the compensation factor is identical = 3670016
     uint8_t buf[3] = {0};
     uint8_t regT_meas[] = {DPS310_MEAS_CFG, 0x02}; // Temperature measurement
@@ -170,7 +150,7 @@ void readTemp(struct DPS310_meas * meas, struct DPS310_coeff * params){
     meas->T = (double)params->c0 * 0.5 + (double)params->c1 * meas->T;
 }
 
-void readPress(struct DPS310_meas * meas, struct DPS310_coeff * params){
+void readPress(DPS310_meas_t * meas, DPS310_coeff_t * params){
     uint8_t buf[3] = {0};
     uint8_t regP = DPS310_PRESS_MEAS;
     uint8_t regP_meas[] = {DPS310_MEAS_CFG, 0x01}; 
