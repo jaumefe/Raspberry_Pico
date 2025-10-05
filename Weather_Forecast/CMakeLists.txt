@@ -12,14 +12,12 @@ set(CMAKE_CXX_STANDARD 17)
 pico_sdk_init()
 
 add_executable(weather_forecast
-	src/weather_forecast.c       
-)
-
-target_sources(weather_forecast PUBLIC
-	"${CMAKE_CURRENT_LIST_DIR}/src/modules/DPS310.c"
-	"${CMAKE_CURRENT_LIST_DIR}/src/modules/SHT4x.c"
-	"${CMAKE_CURRENT_LIST_DIR}/src/modules/BME680.c"
-	"${CMAKE_CURRENT_LIST_DIR}/src/modules/led.c"
+	src/weather_forecast.c  
+	src/core/usb_cdc.c
+	#src/modules/DPS310.c
+	#src/modules/SHT4x.c
+	#src/modules/BME680.c
+	src/modules/led.c     
 )
 
 target_include_directories(weather_forecast PUBLIC
