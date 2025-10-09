@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "basic.h"
 #include "pico/stdlib.h"
 #include "hardware/gpio.h"
 #include "hardware/i2c.h"
@@ -39,7 +38,7 @@ typedef struct DPS310_meas_s{
     double T, P;
 } DPS310_meas_t;
 
-void readCoeffDPS310 (DPS310_coeff_t * params);
+void readCoeffDPS310 (uint8_t * buf);
 
 void configPress(void);
 

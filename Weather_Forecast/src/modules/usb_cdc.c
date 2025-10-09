@@ -4,6 +4,7 @@
 #include "task.h"
 #include "queue.h"
 #include <string.h>
+#include "DPS310.h"
 
 const uint LED_USB_PIN = 1;
 
@@ -44,6 +45,7 @@ void tud_cdc_rx_cb(uint8_t itf) {
 void usb_cdc_task(void *p) {
     (void) p;
     char cmd_buf[128]= {0};
+    uint8_t coeff_buf[18] = {0};
     size_t idx = 0;
     char c;
     gpio_init(LED_USB_PIN);
@@ -66,6 +68,15 @@ void usb_cdc_task(void *p) {
                 } else if (strcmp(cmd_buf, "LED_OFF") == 0) {
                     gpio_put(LED_USB_PIN, 0);
                     tud_cdc_write_str("LED turned OFF\r\n");
+                } else if (strcmp(cmd_buf, "DPS310_COEFF") == 0) {
+                    readCoeffDPS310(coeff_buf);
+                    tud_cdc_write_str("DPS310 Coefficients:\r\n");
+                    for (int i = 0; i < 18; i++) {
+                        char byte_str[5];
+                        snprintf(byte_str, sizeof(byte_str), "%02X ", coeff_buf[i]);
+                        tud_cdc_write_str(byte_str);
+                    }
+                    tud_cdc_write_str("\r\n");
                 } else {
                     tud_cdc_write_str("Unknown command: ");
                     tud_cdc_write_str(cmd_buf);
@@ -83,7 +94,6 @@ void usb_cdc_task(void *p) {
 void cdc_init(void){
     usb_rx_queue = xQueueCreate(128, sizeof(char));
     if (usb_rx_queue == NULL) {
-        // Handle error
         while (1);
     }
     xTaskCreate(usb_cdc_task, "usb_cdc_task", 1024, NULL, tskIDLE_PRIORITY+1, NULL);

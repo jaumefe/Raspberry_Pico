@@ -13,8 +13,8 @@ pico_sdk_init()
 
 add_executable(weather_forecast
 	src/weather_forecast.c  
-	src/core/usb_cdc.c
-	#src/modules/DPS310.c
+	src/modules/usb_cdc.c
+	src/modules/DPS310.c
 	#src/modules/SHT4x.c
 	#src/modules/BME680.c
 	src/modules/led.c     

@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "basic.h"
 #include "DPS310.h"
 #include "pico/stdlib.h"
 #include "hardware/gpio.h"
@@ -24,55 +23,54 @@ void correctTemp(void){
     i2c_write_blocking(i2c_default, DPS310_ADDR, &reg5, 2, false);
 }
 
-void readCoeffDPS310 (DPS310_coeff_t * params){
-    uint8_t buf[18] = {0};
+void readCoeffDPS310 (uint8_t * buf){
+    //uint8_t buf[18] = {0};
     uint8_t reg = DPS310_COEFF;
     i2c_write_blocking(i2c_default, DPS310_ADDR, &reg, 1, true);
-    i2c_read_blocking(i2c_default, DPS310_ADDR, buf, 20, false);
-    //pseudocode c0 = (buf[0] * 2⁴) + ((buf[1] / 2⁴) AND 0x0F)
-    params->c0 = (buf[0] << 4) + ((buf[1] >> 4) & 0x0F);
-    if(params->c0 > power(2, 11) - 1){
-        params->c0 -= power(2, 12);
-    }
+    i2c_read_blocking(i2c_default, DPS310_ADDR, buf, 18, false);
+    // params->c0 = (buf[0] << 4) + ((buf[1] >> 4) & 0x0F);
+    // if(params->c0 > power(2, 11) - 1){
+    //     params->c0 -= power(2, 12);
+    // }
     
-    params->c1 = ((buf[1] << 8) & 0x0F00) + buf[2];
-    if (params->c1 > power(2,11) - 1){
-        params->c1 -= power(2, 12);
-    }
+    // params->c1 = ((buf[1] << 8) & 0x0F00) + buf[2];
+    // if (params->c1 > power(2,11) - 1){
+    //     params->c1 -= power(2, 12);
+    // }
    
-    params->c00 = ((buf[3] << 12) & 0x00FF000) + ((buf[4] << 4) & 0xFF0) + ((buf[5] >> 4) & 0x0F);
-    if (params->c00 > power(2, 19) - 1){
-        params->c00 -= power(2, 20);
-    }
+    // params->c00 = ((buf[3] << 12) & 0x00FF000) + ((buf[4] << 4) & 0xFF0) + ((buf[5] >> 4) & 0x0F);
+    // if (params->c00 > power(2, 19) - 1){
+    //     params->c00 -= power(2, 20);
+    // }
     
-    params->c10 = ((buf[5] << 16) & 0x000F0000) + ((buf[6] << 8) & 0xFF00) + buf[7];
-    if (params->c10 > power(2, 19) - 1){
-        params->c10 -= power(2, 20);
-    }
+    // params->c10 = ((buf[5] << 16) & 0x000F0000) + ((buf[6] << 8) & 0xFF00) + buf[7];
+    // if (params->c10 > power(2, 19) - 1){
+    //     params->c10 -= power(2, 20);
+    // }
     
-    params->c01 = ((buf[8] << 8) & 0xFF00) + buf[9];
-    if (params->c01 > power(2, 15) - 1){
-        params->c01 -= power(2, 16);
-    }
+    // params->c01 = ((buf[8] << 8) & 0xFF00) + buf[9];
+    // if (params->c01 > power(2, 15) - 1){
+    //     params->c01 -= power(2, 16);
+    // }
     
-    params->c11 = ((buf[10] << 8) & 0xFF00) + buf[11];
-    if (params->c11 > power(2, 15) - 1){
-        params->c11 -= power(2, 16);
-    }
+    // params->c11 = ((buf[10] << 8) & 0xFF00) + buf[11];
+    // if (params->c11 > power(2, 15) - 1){
+    //     params->c11 -= power(2, 16);
+    // }
     
-    if (params->c20 > power(2, 15) - 1){
-        params->c20 -= power(2, 16);
-    }
+    // if (params->c20 > power(2, 15) - 1){
+    //     params->c20 -= power(2, 16);
+    // }
 
-    params->c21 = ((buf[14] << 8) & 0xFF00) + buf[15];
-    if (params->c21 > power(2, 15) - 1){
-        params->c21 -= power(2, 16);
-    }
+    // params->c21 = ((buf[14] << 8) & 0xFF00) + buf[15];
+    // if (params->c21 > power(2, 15) - 1){
+    //     params->c21 -= power(2, 16);
+    // }
 
-    params->c30 = ((buf[16] << 8) & 0xFF00) + buf[17];
-    if (params->c30 > power(2, 15) - 1){
-        params->c30 -= power(2, 16);
-    }
+    // params->c30 = ((buf[16] << 8) & 0xFF00) + buf[17];
+    // if (params->c30 > power(2, 15) - 1){
+    //     params->c30 -= power(2, 16);
+    // }
 
 }
 
