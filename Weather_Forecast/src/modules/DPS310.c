@@ -78,7 +78,8 @@ void configPress(void){
     // Configured as 4 measurement per second and 2 times oversampling (0b_0100001) 
     uint8_t reg[] = {DPS310_PRESS_CFG, 0x21};
     uint8_t buf[1] = {0};
-    i2c_write_blocking(i2c_default, DPS310_ADDR, &reg, 2, false);
+
+    i2c_write_blocking(i2c_default, DPS310_ADDR, reg, 2, false);
     sleep_ms(500);
     i2c_write_blocking(i2c_default, DPS310_ADDR, &reg[0], 1, true);
     i2c_read_blocking(i2c_default, DPS310_ADDR, buf, 1, false);
@@ -88,7 +89,7 @@ void configTemp(void){
     // Configured as 4 measurement per second and 2 times oversampling (0b00100001)
     uint8_t reg[] = {DPS310_TEMP_CFG, 0x21};
     uint8_t buf[1] = {0};
-    i2c_write_blocking(i2c_default, DPS310_ADDR, &reg, 2, false);
+    i2c_write_blocking(i2c_default, DPS310_ADDR, reg, 2, false);
     sleep_ms(500);
     i2c_write_blocking(i2c_default, DPS310_ADDR, &reg[0], 1, true);
     i2c_read_blocking(i2c_default, DPS310_ADDR, buf, 1, false);
@@ -98,13 +99,13 @@ void configInt(void){
     // COnfigured as only FIFO active of all options available
     uint8_t reg[] = {DPS310_CFG, 0x02};
     uint8_t buf[1] = {0};
-    i2c_write_blocking(i2c_default, DPS310_ADDR, &reg, 2, false);
+    i2c_write_blocking(i2c_default, DPS310_ADDR, reg, 2, false);
     sleep_ms(500);
     reg[1] = 0x01;
-    i2c_write_blocking(i2c_default, DPS310_ADDR, &reg, 2, false);
+    i2c_write_blocking(i2c_default, DPS310_ADDR, reg, 2, false);
     sleep_ms(500);
     reg[1] = 0x00;
-    i2c_write_blocking(i2c_default, DPS310_ADDR, &reg, 2, false);
+    i2c_write_blocking(i2c_default, DPS310_ADDR, reg, 2, false);
     sleep_ms(500);  
     i2c_write_blocking(i2c_default, DPS310_ADDR, &reg[0], 1, true);
     i2c_read_blocking(i2c_default, DPS310_ADDR, buf, 1, false);
@@ -120,10 +121,9 @@ void configDPS310(void){
 void startupDPS310(void){
     uint8_t regT[] = {DPS310_MEAS_CFG, 0x02}; // Temperature measurement
     uint8_t regP[] = {DPS310_MEAS_CFG, 0x01}; // Pressure measurement
-    configDPS310();
-    i2c_write_blocking(i2c_default, DPS310_ADDR, &regT, 2, false);
+    i2c_write_blocking(i2c_default, DPS310_ADDR, regT, 2, false);
     sleep_ms(500);
-    i2c_write_blocking(i2c_default, DPS310_ADDR, &regP, 2, false);
+    i2c_write_blocking(i2c_default, DPS310_ADDR, regP, 2, false);
     sleep_ms(500);
 }
 
@@ -133,7 +133,7 @@ void readTemp(DPS310_meas_t * meas, DPS310_coeff_t * params){
     uint8_t regT_meas[] = {DPS310_MEAS_CFG, 0x02}; // Temperature measurement
     uint8_t regT = DPS310_TEMP_MEAS;
     // Start temperature measurement
-    i2c_write_blocking(i2c_default, DPS310_ADDR, &regT_meas, 2, false);
+    i2c_write_blocking(i2c_default, DPS310_ADDR, regT_meas, 2, false);
     sleep_ms(500);
     // Reading raw Temperature Data from DPS310
     i2c_write_blocking(i2c_default, DPS310_ADDR, &regT, 1, true);
@@ -155,7 +155,7 @@ void readPress(DPS310_meas_t * meas, DPS310_coeff_t * params){
     // Pressure measurement
     meas->rawT = (((double)meas->T - (double)params->c0*0.5)/(double)params->c1)* kT;
     // Start pressure measurement
-    i2c_write_blocking(i2c_default, DPS310_ADDR, &regP_meas, 2, false);
+    i2c_write_blocking(i2c_default, DPS310_ADDR, regP_meas, 2, false);
     sleep_ms(500);
     // Reading raw Pressure Data from DPS310
     i2c_write_blocking(i2c_default, DPS310_ADDR, &regP, 1, true);

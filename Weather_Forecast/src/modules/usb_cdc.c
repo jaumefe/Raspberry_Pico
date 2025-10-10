@@ -50,6 +50,7 @@ void usb_cdc_task(void *p) {
     char c;
     gpio_init(LED_USB_PIN);
 	gpio_set_dir(LED_USB_PIN, GPIO_OUT);
+    dps310_t dps310 = { .initialized = false };
 
     while (1) {
         if (xQueueReceive(usb_rx_queue, &c, portMAX_DELAY) == pdTRUE) {
@@ -77,6 +78,14 @@ void usb_cdc_task(void *p) {
                         tud_cdc_write_str(byte_str);
                     }
                     tud_cdc_write_str("\r\n");
+                } else if (strcmp(cmd_buf, "DPS310_INIT") == 0) {
+                    if (!dps310.initialized) {
+                        dps310.initialized = true;
+                        configDPS310();                    
+                        tud_cdc_write_str("DPS310 Initialized\r\n");
+                    } else {
+                        tud_cdc_write_str("DPS310 was already initialized\r\n");
+                    }
                 } else {
                     tud_cdc_write_str("Unknown command: ");
                     tud_cdc_write_str(cmd_buf);

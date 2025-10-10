@@ -38,13 +38,11 @@ typedef struct DPS310_meas_s{
     double T, P;
 } DPS310_meas_t;
 
+typedef struct dps310_s {
+    bool initialized;
+} dps310_t;
+
 void readCoeffDPS310 (uint8_t * buf);
-
-void configPress(void);
-
-void configTemp(void);
-
-void configInt(void);
 
 void configDPS310(void);
 
