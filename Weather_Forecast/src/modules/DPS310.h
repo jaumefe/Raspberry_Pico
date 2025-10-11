@@ -28,29 +28,19 @@
 
 #define kT                  3670016
 
-typedef struct DPS310_coeff_s{
-    int16_t c0, c1, c01, c11, c20, c21, c30;
-    int32_t c00, c10;
-} DPS310_coeff_t;
-    
-typedef struct DPS310_meas_s{
-    int32_t rawT, rawP;
-    double T, P;
-} DPS310_meas_t;
-
 typedef struct dps310_s {
     bool initialized;
 } dps310_t;
 
-void readCoeffDPS310 (uint8_t * buf);
+void readRawCoeffDPS310 (uint8_t * buf);
 
-void configDPS310(void);
+bool configDPS310(void);
 
-void startupDPS310(void);
+void prepareMeasDPS310(void);
 
-void readTemp(DPS310_meas_t * meas, DPS310_coeff_t * params);
+void dps310ReadTemp(uint8_t * buf);
 
-void readPress(DPS310_meas_t * meas, DPS310_coeff_t * params);
+void dps310ReadPress(uint8_t * buf);
 
 uint8_t idDPS310(void);
 

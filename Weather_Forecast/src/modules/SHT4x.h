@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "basic.h"
 #include "pico/stdlib.h"
 #include "hardware/gpio.h"
 #include "hardware/i2c.h"
@@ -22,11 +21,10 @@
 #define SHT4X_LOW_HEAT_1   0x1E
 #define SHT4X_LOW_HEAT_01  0x15
 
-typedef struct SHT4x_meas_s{
-        int32_t rawT, rawH;
-        double T, H;
-} SHT4x_meas_t;
+typedef struct sht4x_s {
+        bool initialized;
+} sht4x_t;
 
 void idSHT4x(void);
-void readHighTH (SHT4x_meas_t * TH);
+void readHighTH (uint8_t * buf);
 #endif //SHT4x_H

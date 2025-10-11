@@ -5,6 +5,7 @@
 #include "queue.h"
 #include <string.h>
 #include "DPS310.h"
+#include "SHT4x.h"
 
 const uint LED_USB_PIN = 1;
 
@@ -70,7 +71,7 @@ void usb_cdc_task(void *p) {
                     gpio_put(LED_USB_PIN, 0);
                     tud_cdc_write_str("LED turned OFF\r\n");
                 } else if (strcmp(cmd_buf, "DPS310_COEFF") == 0) {
-                    readCoeffDPS310(coeff_buf);
+                    readRawCoeffDPS310(coeff_buf);
                     tud_cdc_write_str("DPS310 Coefficients:\r\n");
                     for (int i = 0; i < 18; i++) {
                         char byte_str[5];
@@ -80,12 +81,48 @@ void usb_cdc_task(void *p) {
                     tud_cdc_write_str("\r\n");
                 } else if (strcmp(cmd_buf, "DPS310_INIT") == 0) {
                     if (!dps310.initialized) {
-                        dps310.initialized = true;
-                        configDPS310();                    
-                        tud_cdc_write_str("DPS310 Initialized\r\n");
+                        if(configDPS310()){
+                            dps310.initialized = true;
+                            tud_cdc_write_str("DPS310 Initialized\r\n");
+                        } else {
+                            tud_cdc_write_str("DPS310 Initialization Failed\r\n");
+                        }                    
                     } else {
                         tud_cdc_write_str("DPS310 was already initialized\r\n");
                     }
+                } else if (strcmp(cmd_buf, "DPS310_MEAS") == 0) {
+                    if (dps310.initialized) {
+                        uint8_t temp_buf[3] = {0};
+                        dps310ReadTemp(temp_buf);
+                        tud_cdc_write_str("DPS310 Temperature Raw Data:\r\n");
+                        for (int i = 0; i < 3; i++) {
+                            char byte_str[5];
+                            snprintf(byte_str, sizeof(byte_str), "%02X ", temp_buf[i]);
+                            tud_cdc_write_str(byte_str);
+                        }
+                        tud_cdc_write_str("\r\n");
+                        tud_cdc_write_flush();
+
+                        uint8_t press_buf[3] = {0};
+                        dps310ReadPress(press_buf);
+                        tud_cdc_write_str("DPS310 Pressure Raw Data:\r\n");
+                        for (int i = 0; i < 3; i++) {
+                            char byte_str[5];
+                            snprintf(byte_str, sizeof(byte_str), "%02X ", press_buf[i]);
+                            tud_cdc_write_str(byte_str);
+                        }
+                        tud_cdc_write_str("\r\n");
+                    }
+                } else if (strcmp(cmd_buf, "SHT4x_MEAS") == 0) {
+                    uint8_t sh4x_buf[6] = {0};
+                    readHighTH(sh4x_buf);
+                    tud_cdc_write_str("SHT4x Raw Data:\r\n");
+                        for (int i = 0; i < 6; i++) {
+                            char byte_str[5];
+                            snprintf(byte_str, sizeof(byte_str), "%02X ", sh4x_buf[i]);
+                            tud_cdc_write_str(byte_str);
+                        }
+                        tud_cdc_write_str("\r\n");
                 } else {
                     tud_cdc_write_str("Unknown command: ");
                     tud_cdc_write_str(cmd_buf);
