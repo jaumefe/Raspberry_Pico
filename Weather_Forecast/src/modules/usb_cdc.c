@@ -6,6 +6,7 @@
 #include <string.h>
 #include "DPS310.h"
 #include "SHT4x.h"
+#include "BME680.h"
 
 const uint LED_USB_PIN = 1;
 
@@ -123,6 +124,8 @@ void usb_cdc_task(void *p) {
                             tud_cdc_write_str(byte_str);
                         }
                         tud_cdc_write_str("\r\n");
+                } else if (strcmp(cmd_buf, "TEST") == 0) {
+                    oversampling();
                 } else {
                     tud_cdc_write_str("Unknown command: ");
                     tud_cdc_write_str(cmd_buf);

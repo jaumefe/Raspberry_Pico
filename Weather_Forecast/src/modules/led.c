@@ -5,7 +5,7 @@
 
 #include "hardware/gpio.h"
 
-const uint LED_PIN = 0;
+const uint LED_PIN = 25;
 const TickType_t ms_delay = 1000 / portTICK_PERIOD_MS;
 
 void blinkHandler(void *p){

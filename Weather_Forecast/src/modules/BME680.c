@@ -7,59 +7,51 @@
 #include "hardware/timer.h"
 
 void oversampling (void){
-    //printf("Oversampling function \n");
-    // Humidity oversampling set to 1x (0b00000001)
-    uint8_t regH[] = {BME680_CTRL_HUM, 0x01};
-    // Press and temperature oversampling set to 16x and 2x (0b01010100)
-    uint8_t regM[] = {BME680_CTRL_MEAS, 0x54};
-    uint8_t buf[1] = {0};
-    i2c_write_blocking(i2c_default, BME680_ADDR, &regH, 2, false);
-    sleep_ms(100);
-    i2c_write_blocking(i2c_default, BME680_ADDR, &regM, 2, false);
-    sleep_ms(100);
+    // First read the current value of ctrl_hum register
+    uint8_t reg = BME680_CTRL_HUM;
+    uint8_t bufH;
+    i2c_write_blocking(i2c_default, BME680_ADDR, &reg, 1, true);
+    i2c_read_blocking(i2c_default, BME680_ADDR, &bufH, 1, false);
+    
+    // Set the oversampling for humidity to x1 (0b001)
+    uint8_t regH[] = {BME680_CTRL_HUM, bufH | BME680_OSRS_H};
+    i2c_write_blocking(i2c_default, BME680_ADDR, regH, 2, false);
+    
+    // Temperature and pressure oversampling set to 2x and 16x (0b01010100) (Sleep mode)
+    uint8_t regPT[] = {BME680_CTRL_MEAS, (BME680_OSRS_T << 5) | (BME680_OSRS_P << 2) | BME680_MODE_SLEEP};
+    i2c_write_blocking(i2c_default, BME680_ADDR, regPT, 2, false);
 }
 
-bool filter (int coefficient){
+void filter (int coefficient){
     uint8_t reg[2] = {};
+    reg[0] = BME680_CONFIG;
+
+    uint8_t buf;
+    i2c_write_blocking(i2c_default, BME680_ADDR, &reg[0], 1, true);
+    i2c_read_blocking(i2c_default, BME680_ADDR, &buf, 1, false);
+
+    uint8_t filter = 0;
     switch (coefficient)
     {
         case 1:
-            reg[0] = BME680_CONFIG;
-            reg[1] = 0x04;
-            break;
+            filter = BME680_FILTER_1;
         case 3:
-            reg[0] = BME680_CONFIG;
-            reg[1] = 0x08;
-            break;
+            filter = BME680_FILTER_3;
         case 7:
-            reg[0] = BME680_CONFIG;
-            reg[1] = 0x0C;
-            break;
+            filter = BME680_FILTER_7;
         case 15:
-            reg[0] = BME680_CONFIG;
-            reg[1] = 0x10;
-            break;
+            filter = BME680_FILTER_15;
         case 31:
-            reg[0] = BME680_CONFIG;
-            reg[1] = 0x14;
-            break;
+            filter = BME680_FILTER_31;
         case 63:
-            reg[0] = BME680_CONFIG;
-            reg[1] = 0x18;
-            break;
+            filter = BME680_FILTER_63;
         case 127:
-            reg[0] = BME680_CONFIG;
-            reg[1] = 0x1C;
-            break;
+            filter = BME680_FILTER_127;
         default:
-            
-            reg[0] = BME680_CONFIG;
-            reg[1] = 0x00;
-            i2c_write_blocking(i2c_default, BME680_ADDR, &reg, 2, false);
-            return false;
+            filter = BME680_FILTER_0;
     }
+    reg[1] = buf | (filter << 2);
     i2c_write_blocking(i2c_default, BME680_ADDR, &reg, 2, false);
-    return true;
 }
 
 void getParam (BME680_par_t * par){
@@ -242,14 +234,12 @@ void forcedMode (void){
     i2c_write_blocking(i2c_default, BME680_ADDR, &reg, 2, false);
 }
 
-bool measureBME680 (BME680_par_t * par, uint16_t target_temp, uint8_t amb_temp, int coefficient){
-    bool filt;
+void measureBME680 (BME680_par_t * par, uint16_t target_temp, uint8_t amb_temp, int coefficient){
     oversampling();
-    filt = filter(coefficient);
+    filter(coefficient);
     getParam(par);
     heaterSetPoint(par, target_temp, amb_temp);
     heaterSettings(par);
-    return filt;
 }
 
 void tempBME680 (BME680_par_t * par, BME680_meas_t * meas){
