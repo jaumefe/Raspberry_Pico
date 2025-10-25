@@ -44,6 +44,32 @@ void tud_cdc_rx_cb(uint8_t itf) {
     }
 }
 
+void printBufToUSB(const uint8_t * buf, uint8_t size){
+    for (int i = 0; i < size; i++) {
+        char byte_str[5];
+        snprintf(byte_str, sizeof(byte_str), "%02X ", buf[i]);
+        tud_cdc_write_str(byte_str);
+    }
+}
+
+void printBME680ParametersUSB(const bme680_temp_par_t * temp_par, const bme680_press_par_t * press_par, const bme680_hum_par_t * hum_par){
+    char param_str[256];
+    snprintf(param_str, sizeof(param_str), "Temp Par: %u, %d, %d\r\n", temp_par->t1, temp_par->t2, temp_par->t3);
+    tud_cdc_write_str(param_str);
+    tud_cdc_write_flush();
+    snprintf(param_str, sizeof(param_str), "Press Par: %u, %d, %d, %d, %d, %d, %d, %d, %d\r\n",
+             press_par->p1, press_par->p2, press_par->p3, press_par->p4,
+             press_par->p5, press_par->p6, press_par->p7, press_par->p8,
+             press_par->p9);
+    tud_cdc_write_str(param_str);
+    tud_cdc_write_str("\r\n");
+    tud_cdc_write_flush();
+    snprintf(param_str, sizeof(param_str), "Hum Par: %u, %u, %d, %d, %d, %d, %d\r\n",
+             hum_par->h1, hum_par->h2, hum_par->h3,
+             hum_par->h4, hum_par->h5, hum_par->h6, hum_par->h7);
+    tud_cdc_write_str(param_str);
+}
+
 void usb_cdc_task(void *p) {
     (void) p;
     char cmd_buf[128]= {0};
@@ -74,11 +100,7 @@ void usb_cdc_task(void *p) {
                 } else if (strcmp(cmd_buf, "DPS310_COEFF") == 0) {
                     readRawCoeffDPS310(coeff_buf);
                     tud_cdc_write_str("DPS310 Coefficients:\r\n");
-                    for (int i = 0; i < 18; i++) {
-                        char byte_str[5];
-                        snprintf(byte_str, sizeof(byte_str), "%02X ", coeff_buf[i]);
-                        tud_cdc_write_str(byte_str);
-                    }
+                    printBufToUSB(coeff_buf, sizeof(coeff_buf));
                     tud_cdc_write_str("\r\n");
                 } else if (strcmp(cmd_buf, "DPS310_INIT") == 0) {
                     if (!dps310.initialized) {
@@ -96,22 +118,14 @@ void usb_cdc_task(void *p) {
                         uint8_t temp_buf[3] = {0};
                         dps310ReadTemp(temp_buf);
                         tud_cdc_write_str("DPS310 Temperature Raw Data:\r\n");
-                        for (int i = 0; i < 3; i++) {
-                            char byte_str[5];
-                            snprintf(byte_str, sizeof(byte_str), "%02X ", temp_buf[i]);
-                            tud_cdc_write_str(byte_str);
-                        }
+                        printBufToUSB(temp_buf, sizeof(temp_buf));
                         tud_cdc_write_str("\r\n");
                         tud_cdc_write_flush();
 
                         uint8_t press_buf[3] = {0};
                         dps310ReadPress(press_buf);
                         tud_cdc_write_str("DPS310 Pressure Raw Data:\r\n");
-                        for (int i = 0; i < 3; i++) {
-                            char byte_str[5];
-                            snprintf(byte_str, sizeof(byte_str), "%02X ", press_buf[i]);
-                            tud_cdc_write_str(byte_str);
-                        }
+                        printBufToUSB(press_buf, sizeof(press_buf));
                         tud_cdc_write_str("\r\n");
                     }
                 } else if (strcmp(cmd_buf, "SHT4x_MEAS") == 0) {
@@ -124,8 +138,14 @@ void usb_cdc_task(void *p) {
                             tud_cdc_write_str(byte_str);
                         }
                         tud_cdc_write_str("\r\n");
-                } else if (strcmp(cmd_buf, "TEST") == 0) {
-                    oversampling();
+                } else if (strcmp(cmd_buf, "BME680_CALIB") == 0) {
+                    bme680_temp_par_t temp_par;
+                    bme680_press_par_t press_par;
+                    bme680_hum_par_t hum_par;
+                    bme680GetCalibrationParameters(&temp_par, &press_par, &hum_par);
+                    tud_cdc_write_str("BME680 Calibration Parameters:\r\n");
+                    printBME680ParametersUSB(&temp_par, &press_par, &hum_par);
+                    tud_cdc_write_str("\r\n");
                 } else {
                     tud_cdc_write_str("Unknown command: ");
                     tud_cdc_write_str(cmd_buf);

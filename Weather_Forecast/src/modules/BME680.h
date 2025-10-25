@@ -51,27 +51,26 @@
 #define BME680_RAN_SW_ER    0x04
 
 // Settings
-#define BME680_OSRS_H       0b001 // Humidity oversampling x1
-#define BME680_OSRS_T       0b010 // Temperature oversampling x2
-#define BME680_OSRS_P       0b101 // Pressure oversampling x16
-#define BME680_MODE_FORCED  0b01  // Forced mode
-#define BME680_MODE_SLEEP   0b00  // Sleep mode
-#define BME680_FILTER_0     0b000 // Filter off
-#define BME680_FILTER_1     0b001 // Filter coefficient 1
-#define BME680_FILTER_3     0b010 // Filter coefficient 3
-#define BME680_FILTER_7     0b011 // Filter coefficient 7
-#define BME680_FILTER_15    0b100 // Filter coefficient 15
-#define BME680_FILTER_31    0b101 // Filter coefficient 31
-#define BME680_FILTER_63    0b110 // Filter coefficient 63
-#define BME680_FILTER_127   0b111 // Filter coefficient 127
+#define BME680_OSRS_H       0b001   // Humidity oversampling x1
+#define BME680_OSRS_T       0b010   // Temperature oversampling x2
+#define BME680_OSRS_P       0b101   // Pressure oversampling x16
+#define BME680_MODE_FORCED  0b01    // Forced mode
+#define BME680_MODE_SLEEP   0b00    // Sleep mode
+#define BME680_FILTER_0     0b000   // Filter off
+#define BME680_FILTER_1     0b001   // Filter coefficient 1
+#define BME680_FILTER_3     0b010   // Filter coefficient 3
+#define BME680_FILTER_7     0b011   // Filter coefficient 7
+#define BME680_FILTER_15    0b100   // Filter coefficient 15
+#define BME680_FILTER_31    0b101   // Filter coefficient 31
+#define BME680_FILTER_63    0b110   // Filter coefficient 63
+#define BME680_FILTER_127   0b111   // Filter coefficient 127
+#define BME680_HEATER_100MS 0x59    // Heater duration 100ms
+#define BME680_RUN_GAS      0x1     // Enable gas sensor
+#define BME680_NB_CONV      0b0000  // Select heater configuration 0
 
+#define TARGET_HEATER_TEMP  300     // Heater temperature 300°C
+#define AMBIENT_TEMP        25      // Ambient temperature 25°C 
 
-typedef struct BME680_par_s{
-    uint8_t g1, g3, t3, p3, p6, p7, p10, h3, h4, h5, h6, h7;
-    uint16_t g2, t1, t2, p1, p2, p4, p5, p8, p9, h1, h2;
-    int8_t res_heat_val, res_heat_range, gas_range, range_switching_error;
-    double const_array1, const_array2;
-    } BME680_par_t;
 
 typedef struct BME680_meas_s{
     int32_t temp_adc, press_adc;
@@ -79,12 +78,31 @@ typedef struct BME680_meas_s{
     double t_fine, temp_comp, press_comp, hum_comp, gas_res;
 } BME680_meas_t;
 
-void measureBME680 (BME680_par_t * par, uint16_t target_temp, uint8_t amb_temp, int coefficient);
-void tempBME680 (BME680_par_t * par, BME680_meas_t * meas);
-void pressBME680 (BME680_par_t * par, BME680_meas_t * meas);
-void humidityBME680 (BME680_par_t * par, BME680_meas_t * meas);
-void gasResBME680 (BME680_par_t * par, BME680_meas_t * meas);
+typedef struct bme680_temp_par_s {
+    uint16_t t1;
+    int16_t t2;
+    int8_t t3;
+} bme680_temp_par_t;
+
+typedef struct bme680_press_par_s {
+    uint16_t p1;
+    int16_t p2, p4, p5, p8, p9;
+    int8_t p3, p6, p7, p10;
+} bme680_press_par_t;
+
+typedef struct bme680_hum_par_s {
+    uint16_t h1, h2;
+    int8_t h3, h4, h5, h7;
+    uint8_t h6;
+} bme680_hum_par_t;
+
+// void measureBME680 (BME680_par_t * par, uint16_t target_temp, uint8_t amb_temp, int coefficient);
+void bme680Temperature (uint8_t * temp_buf);
+void bme680Pressure (uint8_t * press_buf);
+void bme680Humidity (uint8_t * hum_buf);
+void bme680GasRes (uint8_t * gas_buf);
 void forcedMode(void);
 void oversampling (void);
+void bme680GetCalibrationParameters (bme680_temp_par_t * temp_par, bme680_press_par_t * press_par, bme680_hum_par_t * hum_par);
 
 #endif //BME680_H

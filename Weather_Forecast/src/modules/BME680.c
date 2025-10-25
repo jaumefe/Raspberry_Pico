@@ -51,261 +51,159 @@ void filter (int coefficient){
             filter = BME680_FILTER_0;
     }
     reg[1] = buf | (filter << 2);
-    i2c_write_blocking(i2c_default, BME680_ADDR, &reg, 2, false);
+    i2c_write_blocking(i2c_default, BME680_ADDR, reg, 2, false);
 }
 
-void getParam (BME680_par_t * par){
-    uint8_t buf[4] = {0};
-    uint8_t bufR[1] = {0};
-    uint8_t bufV[1] = {0};
-    uint8_t bufT1[2] = {0};
-    uint8_t bufT2[2] = {0};
-    uint8_t bufT3[1] = {0};
-    uint8_t bufP1[2] = {0};
-    uint8_t bufP2[2] = {0};
-    uint8_t bufP3[1] = {0};
-    uint8_t bufP4[2] = {0};
-    uint8_t bufP5[2] = {0};
-    uint8_t bufP6[1] = {0};
-    uint8_t bufP7[1] = {0};
-    uint8_t bufP8[2] = {0};
-    uint8_t bufP9[2] = {0};
-    uint8_t bufP10[1] = {0};
-    uint8_t bufh1[2] = {0};
-    uint8_t bufh2[2] = {0};
-    uint8_t bufh3[1] = {0};
-    uint8_t bufh4[1] = {0};
-    uint8_t bufh5[1] = {0};
-    uint8_t bufh6[1] = {0};
-    uint8_t bufh7[1] = {0};
-    uint8_t bufsw[1] = {0};
+void bme680GetCalibrationParameters (bme680_temp_par_t * temp_par, bme680_press_par_t * press_par, bme680_hum_par_t * hum_par){
+    // Temperature calibration parameters
+    uint8_t reg = BME680_PARAM_T1;
+    uint8_t buf_temp_par_t1[2] = {0};
+    i2c_write_blocking(i2c_default, BME680_ADDR, &reg, 1, true);
+    i2c_read_blocking(i2c_default, BME680_ADDR, buf_temp_par_t1, 2, false);
+    temp_par->t1 = (uint16_t)(((buf_temp_par_t1[1] << 8) & 0xFF00) | (buf_temp_par_t1[0] & 0x00FF));
 
-    uint8_t regP = BME680_PARAM_G;
-    uint8_t regR = BME680_RES_HEAT_RAN;
-    uint8_t regV = BME680_RES_HEAT_VAL;
-    uint8_t regT1 = BME680_PARAM_T1;
-    uint8_t regT2 = BME680_PARAM_T2;
-    uint8_t regT3 = BME680_PARAM_T3;
-    uint8_t regP1 = BME680_PARAM_P1;
-    uint8_t regP2 = BME680_PARAM_P2;
-    uint8_t regP3 = BME680_PARAM_P3;
-    uint8_t regP4 = BME680_PARAM_P4;
-    uint8_t regP5 = BME680_PARAM_P5;
-    uint8_t regP6 = BME680_PARAM_P6;
-    uint8_t regP7 = BME680_PARAM_P7;
-    uint8_t regP8 = BME680_PARAM_P8;
-    uint8_t regP9 = BME680_PARAM_P9;
-    uint8_t regP10 = BME680_PARAM_P10;
-    uint8_t regh1 = BME680_PARAM_H1;
-    uint8_t regh2 = BME680_PARAM_H2;
-    uint8_t regh3 = BME680_PARAM_H3;
-    uint8_t regh4 = BME680_PARAM_H4;
-    uint8_t regh5 = BME680_PARAM_H5;
-    uint8_t regh6 = BME680_PARAM_H6;
-    uint8_t regh7 = BME680_PARAM_H7;
-    uint8_t regsw = BME680_RAN_SW_ER;
+    reg = BME680_PARAM_T2;
+    uint8_t buf_temp_par_t2_t3[3] = {0};
+    i2c_write_blocking(i2c_default, BME680_ADDR, &reg, 1, true);
+    i2c_read_blocking(i2c_default, BME680_ADDR, buf_temp_par_t2_t3, 3, false);
+    temp_par->t2 = (int16_t)(((buf_temp_par_t2_t3[1] << 8) & 0xFF00) | (buf_temp_par_t2_t3[0] & 0x00FF));
+    temp_par->t3 = (int8_t)buf_temp_par_t2_t3[2];
 
-    // Parameters from gas measurement
-    i2c_write_blocking(i2c_default, BME680_ADDR, &regP, 1, true);
-    i2c_read_blocking(i2c_default, BME680_ADDR, buf, 4, false);
-    par->g2 = ((buf[1] << 8) & 0xFF00) +  (buf[0] & 0x00FF);
-    par->g1 = buf[2];
-    par->g3 = buf[3];
-    i2c_write_blocking(i2c_default, BME680_ADDR, &regR, 1, true);
-    i2c_read_blocking(i2c_default, BME680_ADDR, bufR, 1, false);
-    // We want only the bits 5:4 of this parameter
-    par->res_heat_range = (bufR[0] >> 4) & 0x3;
-    i2c_write_blocking(i2c_default, BME680_ADDR, &regV, 1, true);
-    i2c_read_blocking(i2c_default, BME680_ADDR, bufV, 1, false);
-    par->res_heat_val = bufV[0];
+    // Pressure calibration parameters
+    reg = BME680_PARAM_P1;
+    uint8_t buf_press_par_p1_p3[5] = {0};
+    i2c_write_blocking(i2c_default, BME680_ADDR, &reg, 1, true);
+    i2c_read_blocking(i2c_default, BME680_ADDR, buf_press_par_p1_p3, 5, false);
+    press_par->p1 = (uint16_t)((buf_press_par_p1_p3[0] & 0x00FF) | ((buf_press_par_p1_p3[1] << 8)& 0xFF00));
+    press_par->p2 = (int16_t)((buf_press_par_p1_p3[2] & 0x00FF) | ((buf_press_par_p1_p3[3] << 8)& 0xFF00));
+    press_par->p3 = (int8_t)buf_press_par_p1_p3[4];
 
-    // Parameters of temperature measurement
-    i2c_write_blocking(i2c_default, BME680_ADDR, &regT1, 1, true);
-    i2c_read_blocking(i2c_default, BME680_ADDR, bufT1, 2, false);
-    par->t1 = ((bufT1[1] << 8) & 0xFF00) + (bufT1[0] & 0x00FF);
+    reg = BME680_PARAM_P4;
+    uint8_t buf_press_par_p4_p7[6] = {0};
+    i2c_write_blocking(i2c_default, BME680_ADDR, &reg, 1, true);
+    i2c_read_blocking(i2c_default, BME680_ADDR, buf_press_par_p4_p7, 6, false);
+    press_par->p4 = (int16_t)((buf_press_par_p4_p7[0] & 0x00FF) | ((buf_press_par_p4_p7[1] << 8)& 0xFF00));
+    press_par->p5 = (int16_t)((buf_press_par_p4_p7[2] & 0x00FF) | ((buf_press_par_p4_p7[3] << 8)& 0xFF00));
+    press_par->p6 = (int8_t)buf_press_par_p4_p7[5];
+    press_par->p7 = (int8_t)buf_press_par_p4_p7[4];
 
-    i2c_write_blocking(i2c_default, BME680_ADDR, &regT2, 1, true);
-    i2c_read_blocking(i2c_default, BME680_ADDR, bufT2, 2, false);
-    par->t2 = ((bufT2[1] << 8) & 0xFF00) + (bufT2[0] & 0x00FF);
-    
-    i2c_write_blocking(i2c_default, BME680_ADDR, &regT3, 1, true);
-    i2c_read_blocking(i2c_default, BME680_ADDR, bufT3, 1, false);
-    par->t3 = bufT3[0];
+    reg = BME680_PARAM_P8;
+    uint8_t buf_press_par_p8_p10[5] = {0};
+    i2c_write_blocking(i2c_default, BME680_ADDR, &reg, 1, true);
+    i2c_read_blocking(i2c_default, BME680_ADDR, buf_press_par_p8_p10, 5, false);
+    press_par->p8 = (int16_t)((buf_press_par_p8_p10[0] & 0x00FF) | ((buf_press_par_p8_p10[1] << 8)& 0xFF00));
+    press_par->p9 = (int16_t)((buf_press_par_p8_p10[2] & 0x00FF) | ((buf_press_par_p8_p10[3] << 8)& 0xFF00));
+    press_par->p10 = (int8_t)buf_press_par_p8_p10[4];
 
-    // Parameters of pressure measurement
-    i2c_write_blocking(i2c_default, BME680_ADDR, &regP1, 1, true);
-    i2c_read_blocking(i2c_default, BME680_ADDR, bufP1, 2, false);
-    par->p1 = ((bufP1[1] << 8) & 0xFF00) + (bufP1[0] & 0x00FF);
-
-    i2c_write_blocking(i2c_default, BME680_ADDR, &regP2, 1, true);
-    i2c_read_blocking(i2c_default, BME680_ADDR, bufP2, 2, false);
-    par->p2 = ((bufP2[1] << 8) & 0xFF00) + (bufP2[0] & 0x00FF);
-
-    i2c_write_blocking(i2c_default, BME680_ADDR, &regP3, 1, true);
-    i2c_read_blocking(i2c_default, BME680_ADDR, bufP3, 1, false);
-    par->p3 = bufP3[0];
-
-    i2c_write_blocking(i2c_default, BME680_ADDR, &regP4, 1, true);
-    i2c_read_blocking(i2c_default, BME680_ADDR, bufP4, 2, false);
-    par->p4 = ((bufP4[1] << 8) & 0xFF00) + (bufP4[0] & 0x00FF);
-
-    i2c_write_blocking(i2c_default, BME680_ADDR, &regP5, 1, true);
-    i2c_read_blocking(i2c_default, BME680_ADDR, bufP5, 2, false);
-    par->p5 = ((bufP5[1] << 8) & 0xFF00) + (bufP5[0] & 0x00FF);
-
-    i2c_write_blocking(i2c_default, BME680_ADDR, &regP6, 1, true);
-    i2c_read_blocking(i2c_default, BME680_ADDR, bufP6, 1, false);
-    par->p6 = bufP6[0];
-
-    i2c_write_blocking(i2c_default, BME680_ADDR, &regP7, 1, true);
-    i2c_read_blocking(i2c_default, BME680_ADDR, bufP7, 1, false);
-    par->p7 = bufP7[0];
-
-    i2c_write_blocking(i2c_default, BME680_ADDR, &regP8, 1, true);
-    i2c_read_blocking(i2c_default, BME680_ADDR, bufP8, 2, false);
-    par->p8 = ((bufP8[1] << 8) & 0xFF00) + (bufP8[0] & 0x00FF);
-
-    i2c_write_blocking(i2c_default, BME680_ADDR, &regP9, 1, true);
-    i2c_read_blocking(i2c_default, BME680_ADDR, bufP9, 2, false);
-    par->p9 = ((bufP9[1] << 8) & 0xFF00) + (bufP9[0] & 0x00FF);
-
-    i2c_write_blocking(i2c_default, BME680_ADDR, &regP10, 1, true);
-    i2c_read_blocking(i2c_default, BME680_ADDR, bufP10, 1, false);
-    par->p10 = bufP10[0];
-
-    // Parameters of humidity measurement
-    i2c_write_blocking(i2c_default, BME680_ADDR, &regh1, 1, true);
-    i2c_read_blocking(i2c_default, BME680_ADDR, bufh1, 2, false);
-    par->h1 = ((bufh1[0] >> 4) & 0x0F) + ((bufh1[1] << 4) & 0xFF0);
-
-    i2c_write_blocking(i2c_default, BME680_ADDR, &regh2, 1, true);
-    i2c_read_blocking(i2c_default, BME680_ADDR, bufh2, 2, false);
-    par->h2 = ((bufh2[1] >> 4) & 0x0F) + ((bufh2[0] << 4) & 0xFF0);
-
-    i2c_write_blocking(i2c_default, BME680_ADDR, &regh3, 1, true);
-    i2c_read_blocking(i2c_default, BME680_ADDR, bufh3, 1, false);
-    par->h3 = bufh3[0];
-
-    i2c_write_blocking(i2c_default, BME680_ADDR, &regh4, 1, true);
-    i2c_read_blocking(i2c_default, BME680_ADDR, bufh4, 1, false);
-    par->h4 = bufh4[0];
-
-    i2c_write_blocking(i2c_default, BME680_ADDR, &regh5, 1, true);
-    i2c_read_blocking(i2c_default, BME680_ADDR, bufh5, 1, false);
-    par->h5 = bufh5[0];
-
-    i2c_write_blocking(i2c_default, BME680_ADDR, &regh6, 1, true);
-    i2c_read_blocking(i2c_default, BME680_ADDR, bufh6, 1, false);
-    par->h6 = bufh6[0];
-
-    i2c_write_blocking(i2c_default, BME680_ADDR, &regh7, 1, true);
-    i2c_read_blocking(i2c_default, BME680_ADDR, bufh7, 1, false);
-    par->h7 = bufh7[0];
-
-    // Parameters of gas measurement
-    i2c_write_blocking(i2c_default, BME680_ADDR, &regsw, 1, true);
-    i2c_read_blocking(i2c_default, BME680_ADDR, bufsw, 1, false);
-    par->range_switching_error = bufsw[0];
+    // Humidity parameters
+    reg = BME680_PARAM_H2;
+    uint8_t buf_hum_par_h[8] = {0};
+    i2c_write_blocking(i2c_default, BME680_ADDR, &reg, 1, true);
+    i2c_read_blocking(i2c_default, BME680_ADDR, buf_hum_par_h, 8, false);
+    hum_par->h1 = (uint16_t)(((buf_hum_par_h[2] << 4) & 0xFF00) | (buf_hum_par_h[1] & 0x0F));
+    hum_par->h2 = (uint16_t)(((buf_hum_par_h[0] << 4) & 0xFF00) | ((buf_hum_par_h[1] >> 2) & 0x0F));
+    hum_par->h3 = (int8_t)buf_hum_par_h[3];
+    hum_par->h4 = (int8_t)buf_hum_par_h[4];
+    hum_par->h5 = (int8_t)buf_hum_par_h[5];
+    hum_par->h6 = (uint8_t)buf_hum_par_h[6];
+    hum_par->h7 = (int8_t)buf_hum_par_h[7];
 }
 
-void heaterSetPoint (BME680_par_t * par, uint16_t target_temp, uint8_t amb_temp){
-    uint8_t regWait[] = {BME680_GAS_WAIT_0, 0x59};
-    double var1, var2, var3, var4, var5;
+uint8_t computeHeaterResistance (uint16_t target_temp, uint8_t amb_temp){
+    // Get calibration parameters
+    uint8_t par_g[4] = {0};
+    uint8_t reg_par_g = BME680_PARAM_G;
+    i2c_write_blocking(i2c_default, BME680_ADDR, &reg_par_g, 1, true);
+    i2c_read_blocking(i2c_default, BME680_ADDR, par_g, 4, false);
+    int8_t par_g1, par_g3;
+    int16_t par_g2;
+    par_g2 = ((par_g[1] << 8) & 0xFF00) + (par_g[0] & 0x00FF);
+    par_g1 = par_g[2];
+    par_g3 = par_g[3];
+
+    // Get the heater range stored in address 0x02 [5:4]
+    uint8_t res_heat_range;
+    uint8_t reg_rhr = BME680_RES_HEAT_RAN;
+    i2c_write_blocking(i2c_default, BME680_ADDR, &reg_rhr, 1, true);
+    i2c_read_blocking(i2c_default, BME680_ADDR, &res_heat_range, 1, false);
+    res_heat_range = (res_heat_range >> 4) & 0x03;
+
+    // Get the heater correction factor (0x00)
+    uint8_t buf_heat_val;
+    uint8_t reg_rhv = BME680_RES_HEAT_VAL;
+    i2c_write_blocking(i2c_default, BME680_ADDR, &reg_rhv, 1, true);
+    i2c_read_blocking(i2c_default, BME680_ADDR, &buf_heat_val, 1, false);
+    int8_t res_heat_val = (int8_t)buf_heat_val;
+
+    // Calculate the heater resistance value
     uint8_t res_heat_x;
-    uint8_t reg[2] = {0};
-    var1 = ((double)par->g1 / 16.0) + 49.0;
-    var2 = (((double)par->g2 / 32768.0) * 0.0005) + 0.00235;
-    var3 = (double)par->g3 / 1024.0;
-    var4 = var1 * (1.0 + (var2 * (double)target_temp));
-    var5 = var4 + var3 * (double)amb_temp;
-    res_heat_x = (uint8_t)(3.4 * ((var5 * (4.0 / (4.0 + (double)par->res_heat_range)) * (1.0/(1.0 + ((double)par->res_heat_val * 0.002)))) - 25));
-    reg[0] = BME680_RES_HEAT_0;
-    reg[1] = res_heat_x;
-    i2c_write_blocking(i2c_default, BME680_ADDR, &reg, 2, false);
+    double var1, var2, var3, var4, var5;
+    var1 = ((double)par_g1 / 16.0) + 49.0;
+    var2 = (((double)par_g2 / 32768.0) * 0.0005) + 0.00235;
+    var3 = (double)par_g3 / 1024.0;
+    var4 = var1 * (1.0 + (var2 * (double) target_temp));
+    var5 = var4 + (var3 * (double)amb_temp);
+    res_heat_x = (uint8_t)(3.4 * ((var5 * (4.0 / (4.0 + (double)res_heat_range)) * (1.0/(1.0 + ((double)res_heat_val * 0.002)))) - 25));
+
+    return res_heat_x;
 }
 
-void heaterSettings (BME680_par_t * par){
-    uint8_t reg[] = {BME680_CTRL_GAS_1, 0x10};
-    i2c_write_blocking(i2c_default, BME680_ADDR, &reg, 2, false);
+void configureGasMeasurement (void) {
+    // Set heater duration to 100ms
+    uint8_t reg_gas_wait_0[] = {BME680_GAS_WAIT_0, BME680_HEATER_100MS};
+    i2c_write_blocking(i2c_default, BME680_ADDR, reg_gas_wait_0, 2, false);
+
+    // Set heater temperature to 300ºC
+    // Page 22: https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme680-ds001.pdf
+    uint8_t res_heat_0 = computeHeaterResistance(TARGET_HEATER_TEMP, AMBIENT_TEMP);
+    uint8_t reg_res_heat_0[] = {BME680_RES_HEAT_0, res_heat_0};
+    i2c_write_blocking(i2c_default, BME680_ADDR, reg_res_heat_0, 2, false);
+
+    // Enable gas measurements and set heater configuration to profile 0
+    uint8_t reg_ctrl_gas_1[] = {BME680_CTRL_GAS_1, (BME680_RUN_GAS << 4) | BME680_NB_CONV};
+    i2c_write_blocking(i2c_default, BME680_ADDR, reg_ctrl_gas_1, 2, false);
 }
 
 void forcedMode (void){
     uint8_t reg[] = {BME680_CTRL_MEAS, 0x55};
-    i2c_write_blocking(i2c_default, BME680_ADDR, &reg, 2, false);
+    i2c_write_blocking(i2c_default, BME680_ADDR, reg, 2, false);
 }
 
-void measureBME680 (BME680_par_t * par, uint16_t target_temp, uint8_t amb_temp, int coefficient){
-    oversampling();
-    filter(coefficient);
-    getParam(par);
-    heaterSetPoint(par, target_temp, amb_temp);
-    heaterSettings(par);
-}
+// void measureBME680 (BME680_par_t * par, uint16_t target_temp, uint8_t amb_temp, int coefficient){
+//     oversampling();
+//     filter(coefficient);
+//     bme680GetCalibrationParameters(par);
+//     heaterSetPoint(par, target_temp, amb_temp); 
+//     heaterSettings(par);
+// }
 
-void tempBME680 (BME680_par_t * par, BME680_meas_t * meas){
+void bme680Temperature (uint8_t * temp_buf){
     uint8_t reg = BME680_TEMP;
-    uint8_t buf[3] = {0};
-    double var1, var2;
     i2c_write_blocking(i2c_default, BME680_ADDR, &reg, 1, true);
-    i2c_read_blocking(i2c_default, BME680_ADDR, buf, 3, false);
-    meas->temp_adc = ((buf[2] >> 4) & 0x0F) + ((buf[1] << 4) & 0xFF0) + ((buf[0] << 12) & 0x0FF000);
-    var1 = (((double)meas->temp_adc / 16384.0) - ((double)par->t1 / 1024.0)) * (double)par->t2;
-    var2 = ((((double)meas->temp_adc / 131072.0) - ((double)par->t1 / 8192.0)) * (((double)meas->temp_adc / 131072.0) - ((double)par->t1 / 8192.0))) * ((double)par->t3 * 16.0);
-    meas->t_fine = var1 + var2;
-    meas->temp_comp = meas->t_fine / 5120.0;
+    i2c_read_blocking(i2c_default, BME680_ADDR, temp_buf, 3, false);
 }
 
-void pressBME680 (BME680_par_t * par, BME680_meas_t * meas){
+void bme680Pressure (uint8_t * press_buf){
     uint8_t reg = BME680_PRESS;
-    uint8_t buf[3] = {0};
-    double var1, var2, var3;
     i2c_write_blocking(i2c_default, BME680_ADDR, &reg, 1, true);
-    i2c_read_blocking(i2c_default, BME680_ADDR, buf, 3, false);
-    meas->press_adc = ((buf[2] >> 4) & 0x0F) + ((buf[1] << 4) & 0xFF0) + ((buf[0] << 12) & 0x0FF000);
-    var1 = ((double)meas->t_fine / 2.0) - 64000.0;
-    var2 = var1 * var1 * ((double)par->p6 / 131072.0);
-    var2 = var2 + (var1 * (double)par->p5 * 2.0);
-    var2 = (var2 / 4.0) + ((double)par->p4 * 65536.0);
-    var1 = ((((double)par->p3 * var1 * var1) / 16384.0) + ((double)par->p2 * var1)) / 524288.0;
-    var1 = (1.0 + (var1 / 32768.0)) * (double)par->p1;
-    meas->press_comp = 1048576.0 - (double)meas->press_adc;
-    meas->press_comp = ((meas->press_comp - (var2 / 4096.0)) * 6250.0) / var1;
-    var1 = ((double)par->p9 * meas->press_comp * meas->press_comp) / 2147483648.0;
-    var2 = meas->press_comp * ((double)par->p8 / 32768.0);
-    var3 = (meas->press_comp / 256.0) * (meas->press_comp / 256.0) * (meas->press_comp / 256.0) * (par->p10 / 131072.0);
-    meas->press_comp = meas->press_comp + (var1 + var2 + var3 + ((double)par->p7 * 128.0)) / 16.0;
+    i2c_read_blocking(i2c_default, BME680_ADDR, press_buf, 3, false);
 }
 
-void humidityBME680 (BME680_par_t * par, BME680_meas_t * meas){
+void bme680Humidity (uint8_t * hum_buf){
     uint8_t reg = BME680_HUM;
-    uint8_t buf[2] = {0};
-    double var1, var2, var3, var4;
     i2c_write_blocking(i2c_default, BME680_ADDR, &reg, 1, true);
-    i2c_read_blocking(i2c_default, BME680_ADDR, buf, 2, false);
-    meas->hum_adc = (buf[1] & 0x00FF) + ((buf[0] << 8) & 0xFF00);
-    var1 = meas->hum_adc - (((double)par->h1 * 16.0) + (((double)par->h3 / 2.0) * meas->temp_comp));
-    var2 = var1 * (((double)par->h2 / 262144.0) * (1.0 + (((double)par->h4 / 16384.0) * meas->temp_comp) + (((double)par->h5 / 1048576.0) * meas->temp_comp * meas->temp_comp)));
-    var3 = (double)par->h6 / 16384.0;
-    var4 = (double)par->h7 / 2097152.0;
-    meas->hum_comp = var2 + ((var3 + (var4 * meas->temp_comp)) * var2 * var2);
+    i2c_read_blocking(i2c_default, BME680_ADDR, hum_buf, 2, false);
 }
 
-void gasResBME680 (BME680_par_t * par, BME680_meas_t * meas){
+void bme680GasRes (uint8_t * gas_buf){
     uint8_t reg = BME680_GAS_R;
-    uint8_t buf[2] = {0};
-    double var1;
     i2c_write_blocking(i2c_default, BME680_ADDR, &reg, 1, true);
-    i2c_read_blocking(i2c_default, BME680_ADDR, buf, 2, false);
-    meas->gas_adc = ((buf[0] << 2) & 0x3FC) + ((buf[1] >> 6) & 0x3);
-    par->gas_range = buf[1] & 0x0F;
-    constDetBME680(par);
-    var1 = (1340.0 + 5.0 * par->range_switching_error) * par->const_array1;
-    meas->gas_res = var1 * par->const_array2 / (meas->gas_adc - 512.0 + var1);
+    i2c_read_blocking(i2c_default, BME680_ADDR, gas_buf, 2, false);
 }
 
-void constDetBME680 (BME680_par_t * par){
-    double const_array1[] = {1, 1, 1, 1, 1, 0.99, 1, 0.992, 1, 1, 0.998, 0.995, 1, 0.99, 1, 1};
-    double const_array2[] = {8000000, 4000000, 2000000, 1000000, 499500.4995, 248262.1648, 125000, 63004.03226, 31281.28128, 15625, 7812.5, 3906.25, 1953.125, 976.5625, 488.28125, 244.140625};
-    par->const_array1 = const_array1[par->gas_range];
-    par->const_array2 = const_array2[par->gas_range];
-}
+// void constDetBME680 (BME680_par_t * par){
+//     double const_array1[] = {1, 1, 1, 1, 1, 0.99, 1, 0.992, 1, 1, 0.998, 0.995, 1, 0.99, 1, 1};
+//     double const_array2[] = {8000000, 4000000, 2000000, 1000000, 499500.4995, 248262.1648, 125000, 63004.03226, 31281.28128, 15625, 7812.5, 3906.25, 1953.125, 976.5625, 488.28125, 244.140625};
+//     par->const_array1 = const_array1[par->gas_range];
+//     par->const_array2 = const_array2[par->gas_range];
+// }
