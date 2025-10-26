@@ -79,6 +79,7 @@ void usb_cdc_task(void *p) {
     gpio_init(LED_USB_PIN);
 	gpio_set_dir(LED_USB_PIN, GPIO_OUT);
     dps310_t dps310 = { .initialized = false };
+    bme680_t bme680 = { .initialized = false };
 
     while (1) {
         if (xQueueReceive(usb_rx_queue, &c, portMAX_DELAY) == pdTRUE) {
@@ -127,6 +128,8 @@ void usb_cdc_task(void *p) {
                         tud_cdc_write_str("DPS310 Pressure Raw Data:\r\n");
                         printBufToUSB(press_buf, sizeof(press_buf));
                         tud_cdc_write_str("\r\n");
+                    } else {
+                        tud_cdc_write_str("DPS310 is not initialized\r\n");
                     }
                 } else if (strcmp(cmd_buf, "SHT4x_MEAS") == 0) {
                     uint8_t sh4x_buf[6] = {0};
@@ -146,6 +149,45 @@ void usb_cdc_task(void *p) {
                     tud_cdc_write_str("BME680 Calibration Parameters:\r\n");
                     printBME680ParametersUSB(&temp_par, &press_par, &hum_par);
                     tud_cdc_write_str("\r\n");
+                } else if (strcmp(cmd_buf, "BME680_CONFIG") == 0) {
+                    if (!bme680.initialized) {
+                        bme680Configure();
+                        bme680.initialized = true;
+                        tud_cdc_write_str("BME680 Configured\r\n");
+                    } else {
+                        tud_cdc_write_str("BME680 was already initialized\r\n");
+                    }
+                } else if (strcmp(cmd_buf, "BME680_MEAS") == 0) {
+                    if (bme680.initialized) {
+                        uint8_t temp_buf[3] = {0};
+                        uint8_t press_buf[3] = {0};
+                        uint8_t hum_buf[2] = {0};
+                        uint8_t gas_buf[2] = {0};
+                        bme680Measure(temp_buf, press_buf, hum_buf, gas_buf);
+
+                        tud_cdc_write_str("BME680 Temperature Raw Data:\r\n");
+                        printBufToUSB(temp_buf, sizeof(temp_buf));
+                        tud_cdc_write_str("\r\n");
+                        tud_cdc_write_flush();
+
+                        tud_cdc_write_str("BME680 Pressure Raw Data:\r\n");
+                        printBufToUSB(press_buf, sizeof(press_buf));
+                        tud_cdc_write_str("\r\n");
+                        tud_cdc_write_flush();
+
+                        tud_cdc_write_str("BME680 Humidity Raw Data:\r\n");
+                        printBufToUSB(hum_buf, sizeof(hum_buf));
+                        tud_cdc_write_str("\r\n");
+                        tud_cdc_write_flush();
+
+                        tud_cdc_write_str("BME680 Gas Resistance Raw Data:\r\n");
+                        printBufToUSB(gas_buf, sizeof(gas_buf));
+                        tud_cdc_write_str("\r\n");
+                        tud_cdc_write_flush();
+                    } else {
+                        tud_cdc_write_str("BME680 is not initialized\r\n");
+                    }
+
                 } else {
                     tud_cdc_write_str("Unknown command: ");
                     tud_cdc_write_str(cmd_buf);

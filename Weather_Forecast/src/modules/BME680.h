@@ -12,8 +12,8 @@
 #define BME680_ADDR         0x76
 #define BME680_ID           0xD0
 #define BME680_CONFIG       0x75
-#define BME680_CTRL_MEAS    _u(0x74)
-#define BME680_CTRL_HUM     _u(0x72)
+#define BME680_CTRL_MEAS    0x74
+#define BME680_CTRL_HUM     0x72
 #define BME680_CTRL_GAS_0   0x70
 #define BME680_CTRL_GAS_1   0x71
 #define BME680_GAS_WAIT_0   0x64
@@ -22,7 +22,7 @@
 #define BME680_HUM          0x25
 #define BME680_TEMP         0x22
 #define BME680_PRESS        0x1F
-#define BME680_STATUS       0x1D
+#define BME680_MEAS_STATUS  0x1D
 
 // Registers for calibration parameters
 #define BME680_PARAM_G      0xEB
@@ -96,13 +96,12 @@ typedef struct bme680_hum_par_s {
     uint8_t h6;
 } bme680_hum_par_t;
 
-// void measureBME680 (BME680_par_t * par, uint16_t target_temp, uint8_t amb_temp, int coefficient);
-void bme680Temperature (uint8_t * temp_buf);
-void bme680Pressure (uint8_t * press_buf);
-void bme680Humidity (uint8_t * hum_buf);
-void bme680GasRes (uint8_t * gas_buf);
-void forcedMode(void);
-void oversampling (void);
+typedef struct bme680_s {
+    bool initialized;
+} bme680_t;
+
 void bme680GetCalibrationParameters (bme680_temp_par_t * temp_par, bme680_press_par_t * press_par, bme680_hum_par_t * hum_par);
+void bme680Configure(void);
+void bme680Measure (uint8_t * temp_buf, uint8_t * press_buf, uint8_t * hum_buf, uint8_t * gas_buf);
 
 #endif //BME680_H

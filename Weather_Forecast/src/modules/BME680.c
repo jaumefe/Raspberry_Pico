@@ -165,17 +165,20 @@ void configureGasMeasurement (void) {
 }
 
 void forcedMode (void){
-    uint8_t reg[] = {BME680_CTRL_MEAS, 0x55};
-    i2c_write_blocking(i2c_default, BME680_ADDR, reg, 2, false);
+    uint8_t reg = BME680_CTRL_MEAS;
+    uint8_t buf[1] = {0};
+    i2c_write_blocking(i2c_default, BME680_ADDR, &reg, 1, true);
+    i2c_read_blocking(i2c_default, BME680_ADDR, buf, 1, false);
+
+    uint8_t reg_mode[] = {reg, buf[0] | BME680_MODE_FORCED};
+    i2c_write_blocking(i2c_default, BME680_ADDR, reg_mode, 2, false);
 }
 
-// void measureBME680 (BME680_par_t * par, uint16_t target_temp, uint8_t amb_temp, int coefficient){
-//     oversampling();
-//     filter(coefficient);
-//     bme680GetCalibrationParameters(par);
-//     heaterSetPoint(par, target_temp, amb_temp); 
-//     heaterSettings(par);
-// }
+void bme680Configure(void) {
+    oversampling();
+    filter(7);
+    configureGasMeasurement();
+}
 
 void bme680Temperature (uint8_t * temp_buf){
     uint8_t reg = BME680_TEMP;
@@ -201,9 +204,28 @@ void bme680GasRes (uint8_t * gas_buf){
     i2c_read_blocking(i2c_default, BME680_ADDR, gas_buf, 2, false);
 }
 
-// void constDetBME680 (BME680_par_t * par){
-//     double const_array1[] = {1, 1, 1, 1, 1, 0.99, 1, 0.992, 1, 1, 0.998, 0.995, 1, 0.99, 1, 1};
-//     double const_array2[] = {8000000, 4000000, 2000000, 1000000, 499500.4995, 248262.1648, 125000, 63004.03226, 31281.28128, 15625, 7812.5, 3906.25, 1953.125, 976.5625, 488.28125, 244.140625};
-//     par->const_array1 = const_array1[par->gas_range];
-//     par->const_array2 = const_array2[par->gas_range];
-// }
+void bme680Measure (uint8_t * temp_buf, uint8_t * press_buf, uint8_t * hum_buf, uint8_t * gas_buf){
+    forcedMode();
+    uint8_t max_retries = 30;
+
+    // Wait for measurement to complete
+    bool measCompleted = false;
+    uint8_t reg = BME680_MEAS_STATUS;
+    uint8_t status;
+    while (!measCompleted && max_retries != 0) {
+        i2c_write_blocking(i2c_default, BME680_ADDR, &reg, 1, true);
+        i2c_read_blocking(i2c_default, BME680_ADDR, &status, 1, false);
+        measCompleted = (status & 0x80) ? true : false;
+        sleep_ms(150);
+        max_retries--;
+    }
+
+    if (max_retries == 0) {
+        return;
+    }
+
+    bme680Temperature(temp_buf);
+    bme680Pressure(press_buf);
+    bme680Humidity(hum_buf);
+    bme680GasRes(gas_buf);
+}
