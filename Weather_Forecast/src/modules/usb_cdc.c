@@ -52,22 +52,29 @@ void printBufToUSB(const uint8_t * buf, uint8_t size){
     }
 }
 
-void printBME680ParametersUSB(const bme680_temp_par_t * temp_par, const bme680_press_par_t * press_par, const bme680_hum_par_t * hum_par){
+void printBME680ParametersUSB(const bme680_temp_par_t * temp_par, const bme680_press_par_t * press_par, const bme680_hum_par_t * hum_par, const uint8_t * gas_sw_err){
     char param_str[256];
     snprintf(param_str, sizeof(param_str), "Temp Par: %u, %d, %d\r\n", temp_par->t1, temp_par->t2, temp_par->t3);
     tud_cdc_write_str(param_str);
     tud_cdc_write_flush();
-    snprintf(param_str, sizeof(param_str), "Press Par: %u, %d, %d, %d, %d, %d, %d, %d, %d\r\n",
+    snprintf(param_str, sizeof(param_str), "Press Par: %u, %d, %d, %d, %d\r\n",
              press_par->p1, press_par->p2, press_par->p3, press_par->p4,
-             press_par->p5, press_par->p6, press_par->p7, press_par->p8,
-             press_par->p9);
+             press_par->p5);
     tud_cdc_write_str(param_str);
-    tud_cdc_write_str("\r\n");
+    tud_cdc_write_flush();
+    snprintf(param_str, sizeof(param_str), "%d, %d, %d, %d, %u\r\n",
+             press_par->p6, press_par->p7, press_par->p8, press_par->p9,
+             press_par->p10);
+    tud_cdc_write_str(param_str);
     tud_cdc_write_flush();
     snprintf(param_str, sizeof(param_str), "Hum Par: %u, %u, %d, %d, %d, %d, %d\r\n",
              hum_par->h1, hum_par->h2, hum_par->h3,
              hum_par->h4, hum_par->h5, hum_par->h6, hum_par->h7);
     tud_cdc_write_str(param_str);
+    tud_cdc_write_flush();
+    snprintf(param_str, sizeof(param_str), "Gas Switching Error: %u\r\n", *gas_sw_err);
+    tud_cdc_write_str(param_str);
+    tud_cdc_write_flush();
 }
 
 void usb_cdc_task(void *p) {
@@ -145,9 +152,10 @@ void usb_cdc_task(void *p) {
                     bme680_temp_par_t temp_par;
                     bme680_press_par_t press_par;
                     bme680_hum_par_t hum_par;
-                    bme680GetCalibrationParameters(&temp_par, &press_par, &hum_par);
+                    uint8_t gas_sw_err;
+                    bme680GetCalibrationParameters(&temp_par, &press_par, &hum_par, &gas_sw_err);
                     tud_cdc_write_str("BME680 Calibration Parameters:\r\n");
-                    printBME680ParametersUSB(&temp_par, &press_par, &hum_par);
+                    printBME680ParametersUSB(&temp_par, &press_par, &hum_par, &gas_sw_err);
                     tud_cdc_write_str("\r\n");
                 } else if (strcmp(cmd_buf, "BME680_CONFIG") == 0) {
                     if (!bme680.initialized) {
