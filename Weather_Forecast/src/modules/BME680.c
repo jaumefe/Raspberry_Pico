@@ -54,7 +54,7 @@ void filter (int coefficient){
     i2c_write_blocking(i2c_default, BME680_ADDR, reg, 2, false);
 }
 
-void bme680GetCalibrationParameters (bme680_temp_par_t * temp_par, bme680_press_par_t * press_par, bme680_hum_par_t * hum_par){
+void bme680GetCalibrationParameters (bme680_temp_par_t * temp_par, bme680_press_par_t * press_par, bme680_hum_par_t * hum_par, uint8_t * gas_sw_err){
     // Temperature calibration parameters
     uint8_t reg = BME680_PARAM_T1;
     uint8_t buf_temp_par_t1[2] = {0};
@@ -93,7 +93,7 @@ void bme680GetCalibrationParameters (bme680_temp_par_t * temp_par, bme680_press_
     i2c_read_blocking(i2c_default, BME680_ADDR, buf_press_par_p8_p10, 5, false);
     press_par->p8 = (int16_t)((buf_press_par_p8_p10[0] & 0x00FF) | ((buf_press_par_p8_p10[1] << 8)& 0xFF00));
     press_par->p9 = (int16_t)((buf_press_par_p8_p10[2] & 0x00FF) | ((buf_press_par_p8_p10[3] << 8)& 0xFF00));
-    press_par->p10 = (int8_t)buf_press_par_p8_p10[4];
+    press_par->p10 = (uint8_t)buf_press_par_p8_p10[4];
 
     // Humidity parameters
     reg = BME680_PARAM_H2;
@@ -107,6 +107,13 @@ void bme680GetCalibrationParameters (bme680_temp_par_t * temp_par, bme680_press_
     hum_par->h5 = (int8_t)buf_hum_par_h[5];
     hum_par->h6 = (uint8_t)buf_hum_par_h[6];
     hum_par->h7 = (int8_t)buf_hum_par_h[7];
+
+    // Gas Switching Error
+    reg = BME680_RAN_SW_ER;
+    uint8_t buf_gas_sw_err;
+    i2c_write_blocking(i2c_default, BME680_ADDR, &reg, 1, true);
+    i2c_read_blocking(i2c_default, BME680_ADDR, &buf_gas_sw_err, 1, false);
+    gas_sw_err = &buf_gas_sw_err;
 }
 
 uint8_t computeHeaterResistance (uint16_t target_temp, uint8_t amb_temp){

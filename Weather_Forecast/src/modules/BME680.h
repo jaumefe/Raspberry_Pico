@@ -87,7 +87,8 @@ typedef struct bme680_temp_par_s {
 typedef struct bme680_press_par_s {
     uint16_t p1;
     int16_t p2, p4, p5, p8, p9;
-    int8_t p3, p6, p7, p10;
+    int8_t p3, p6, p7;
+    uint8_t p10;
 } bme680_press_par_t;
 
 typedef struct bme680_hum_par_s {
@@ -100,7 +101,7 @@ typedef struct bme680_s {
     bool initialized;
 } bme680_t;
 
-void bme680GetCalibrationParameters (bme680_temp_par_t * temp_par, bme680_press_par_t * press_par, bme680_hum_par_t * hum_par);
+void bme680GetCalibrationParameters (bme680_temp_par_t * temp_par, bme680_press_par_t * press_par, bme680_hum_par_t * hum_par, uint8_t * gas_sw_err);
 void bme680Configure(void);
 void bme680Measure (uint8_t * temp_buf, uint8_t * press_buf, uint8_t * hum_buf, uint8_t * gas_buf);
 
