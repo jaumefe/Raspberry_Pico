@@ -8,17 +8,6 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 pico_sdk_init()
 
-add_library(tinycbor STATIC IMPORTED)
-
-set_target_properties(tinycbor PROPERTIES
-	IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/src/lib/libtinycbor.a
-)
-
-target_include_directories(tinycbor INTERFACE
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/lib
-)
-
-
 add_executable(weather_forecast
 	src/weather_forecast.c  
 	src/modules/usb_cdc.c
@@ -32,7 +21,12 @@ target_include_directories(weather_forecast PUBLIC
 	"${CMAKE_CURRENT_DIR}/src"
 	"${CMAKE_CURRENT_DIR}/src/modules"
 	"${CMAKE_SOURCE_DIR}/src/core"
-	"${CMAKE_SOURCE_DIR}/src/lib"
+	"${CMAKE_SOURCE_DIR}/src/lib/tinycbor/"
+)
+
+add_library(tinycbor
+	${CMAKE_SOURCE_DIR}/src/lib/tinycbor/cborencoder.c
+	${CMAKE_SOURCE_DIR}/src/lib/tinycbor/cborparser.c
 )
 
 target_link_libraries(weather_forecast PUBLIC

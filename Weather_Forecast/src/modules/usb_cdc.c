@@ -7,6 +7,7 @@
 #include "DPS310.h"
 #include "SHT4x.h"
 #include "BME680.h"
+#include "cbor.h"
 
 const uint LED_USB_PIN = 1;
 
@@ -101,7 +102,24 @@ void usb_cdc_task(void *p) {
                 cmd_buf[idx] = '\0';
                 if (strcmp(cmd_buf, "LED_ON") == 0) {
                     gpio_put(LED_USB_PIN, 1);
-                    tud_cdc_write_str("LED turned ON\r\n");
+                    CborEncoder encoder, map;
+                    uint8_t buf[128];
+                    cbor_encoder_init(&encoder, buf, sizeof(buf), 0);
+                    cbor_encoder_create_map(&encoder, &map, 3);
+                    cbor_encode_text_stringz(&map, "type");
+                    cbor_encode_text_stringz(&map, "status");
+                    cbor_encode_text_stringz(&map, "gpio");
+                    cbor_encode_text_stringz(&map, "led");
+                    cbor_encode_text_stringz(&map, "value");
+                    cbor_encode_boolean(&map, true);
+                    cbor_encoder_close_container(&encoder, &map);
+                    size_t len = cbor_encoder_get_buffer_size(&encoder, buf);
+                    size_t written = 0;
+                    while (written < len) {
+                        written += tud_cdc_write(buf + written, len - written);
+                    }
+
+                    
                 } else if (strcmp(cmd_buf, "LED_OFF") == 0) {
                     gpio_put(LED_USB_PIN, 0);
                     tud_cdc_write_str("LED turned OFF\r\n");
