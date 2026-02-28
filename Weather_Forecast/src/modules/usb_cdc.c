@@ -8,6 +8,7 @@
 #include "SHT4x.h"
 #include "BME680.h"
 #include "cbor.h"
+#include "friday.h"
 
 const uint LED_USB_PIN = 1;
 
@@ -53,29 +54,216 @@ void printBufToUSB(const uint8_t * buf, uint8_t size){
     }
 }
 
-void printBME680ParametersUSB(const bme680_temp_par_t * temp_par, const bme680_press_par_t * press_par, const bme680_hum_par_t * hum_par, const uint8_t * gas_sw_err){
-    char param_str[256];
-    snprintf(param_str, sizeof(param_str), "Temp Par: %u, %d, %d\r\n", temp_par->t1, temp_par->t2, temp_par->t3);
-    tud_cdc_write_str(param_str);
-    tud_cdc_write_flush();
-    snprintf(param_str, sizeof(param_str), "Press Par: %u, %d, %d, %d, %d\r\n",
-             press_par->p1, press_par->p2, press_par->p3, press_par->p4,
-             press_par->p5);
-    tud_cdc_write_str(param_str);
-    tud_cdc_write_flush();
-    snprintf(param_str, sizeof(param_str), "%d, %d, %d, %d, %u\r\n",
-             press_par->p6, press_par->p7, press_par->p8, press_par->p9,
-             press_par->p10);
-    tud_cdc_write_str(param_str);
-    tud_cdc_write_flush();
-    snprintf(param_str, sizeof(param_str), "Hum Par: %u, %u, %d, %d, %d, %d, %d\r\n",
-             hum_par->h1, hum_par->h2, hum_par->h3,
-             hum_par->h4, hum_par->h5, hum_par->h6, hum_par->h7);
-    tud_cdc_write_str(param_str);
-    tud_cdc_write_flush();
-    snprintf(param_str, sizeof(param_str), "Gas Switching Error: %u\r\n", *gas_sw_err);
-    tud_cdc_write_str(param_str);
-    tud_cdc_write_flush();
+size_t printBME680ParametersUSB(const bme680_temp_par_t * temp_par, const bme680_press_par_t * press_par, const bme680_hum_par_t * hum_par, const uint8_t * gas_sw_err){
+    uint8_t msg[FRIDAY_MAX_PAYLOAD_SIZE];
+    CborEncoder buf, bme680, temp, press, hum, gas;
+    cbor_encoder_init(&buf, msg, sizeof(msg), 0);
+    cbor_encoder_create_map(&buf, &bme680, 6);
+
+    cbor_encode_text_stringz(&bme680, "sensor");
+    cbor_encode_text_stringz(&bme680, "BME680");
+    cbor_encode_text_stringz(&bme680, "type");
+    cbor_encode_text_stringz(&bme680, "params");
+
+    cbor_encode_text_stringz(&bme680, "temp");
+    cbor_encoder_create_map(&bme680, &temp, 3);
+    cbor_encode_text_stringz(&temp, "t1");
+    cbor_encode_uint(&temp, temp_par->t1);
+    cbor_encode_text_stringz(&temp, "t2");
+    cbor_encode_int(&temp, temp_par->t2);
+    cbor_encode_text_stringz(&temp, "t3");
+    cbor_encode_int(&temp, temp_par->t3);
+    cbor_encoder_close_container(&bme680, &temp);
+
+    cbor_encode_text_stringz(&bme680, "press");
+    cbor_encoder_create_map(&bme680, &press, 10);
+    cbor_encode_text_stringz(&press, "p1");
+    cbor_encode_uint(&press, press_par->p1);
+    cbor_encode_text_stringz(&press, "p2");
+    cbor_encode_int(&press, press_par->p2);
+    cbor_encode_text_stringz(&press, "p3");
+    cbor_encode_int(&press, press_par->p3);
+    cbor_encode_text_stringz(&press, "p4");
+    cbor_encode_int(&press, press_par->p4);
+    cbor_encode_text_stringz(&press, "p5");
+    cbor_encode_int(&press, press_par->p5);
+    cbor_encode_text_stringz(&press, "p6");
+    cbor_encode_int(&press, press_par->p6);
+    cbor_encode_text_stringz(&press, "p7");
+    cbor_encode_int(&press, press_par->p7);
+    cbor_encode_text_stringz(&press, "p8");
+    cbor_encode_int(&press, press_par->p8);
+    cbor_encode_text_stringz(&press, "p9");
+    cbor_encode_int(&press, press_par->p9);
+    cbor_encode_text_stringz(&press, "p10");
+    cbor_encode_uint(&press, press_par->p10);
+    cbor_encoder_close_container(&bme680, &press);
+
+    cbor_encode_text_stringz(&bme680, "hum");
+    cbor_encoder_create_map(&bme680, &hum, 7);
+    cbor_encode_text_stringz(&hum, "h1");
+    cbor_encode_uint(&hum, hum_par->h1);
+    cbor_encode_text_stringz(&hum, "h2");
+    cbor_encode_uint(&hum, hum_par->h2);
+    cbor_encode_text_stringz(&hum, "h3");
+    cbor_encode_int(&hum, hum_par->h3);
+    cbor_encode_text_stringz(&hum, "h4");
+    cbor_encode_int(&hum, hum_par->h4);
+    cbor_encode_text_stringz(&hum, "h5");
+    cbor_encode_int(&hum, hum_par->h5);
+    cbor_encode_text_stringz(&hum, "h6");
+    cbor_encode_uint(&hum, hum_par->h6);
+    cbor_encode_text_stringz(&hum, "h7");
+    cbor_encode_int(&hum, hum_par->h7);
+    cbor_encoder_close_container(&bme680, &hum);
+
+    cbor_encode_text_stringz(&bme680, "gas");
+    cbor_encoder_create_map(&bme680, &gas, 1);
+    cbor_encode_text_stringz(&gas, "gas_sw_err");
+    cbor_encode_uint(&gas, *gas_sw_err);
+    cbor_encoder_close_container(&bme680, &gas);
+
+    cbor_encoder_close_container(&buf, &bme680);
+    size_t msg_len = cbor_encoder_get_buffer_size(&buf, msg);
+    return sendFridayMessage(msg, msg_len);
+}
+
+size_t printBME680MeasureUSB(const uint8_t * temp, const uint8_t * press, const uint8_t * hum, const uint8_t * gas) {
+    uint8_t msg[FRIDAY_MAX_PAYLOAD_SIZE];
+    CborEncoder buf, bme680, temp_map, press_map, hum_map, gas_map;
+    cbor_encoder_init(&buf, msg, sizeof(msg), 0);
+    cbor_encoder_create_map(&buf, &bme680, 5);
+
+    cbor_encode_text_stringz(&bme680, "sensor");
+    cbor_encode_text_stringz(&bme680, "BME680");
+    cbor_encode_text_stringz(&bme680, "type");
+    cbor_encode_text_stringz(&bme680, "measure");
+
+    cbor_encode_text_stringz(&bme680, "temp");
+    cbor_encoder_create_map(&bme680, &temp_map, 3);
+    cbor_encode_text_stringz(&temp_map, "t1");
+    cbor_encode_uint(&temp_map, temp[0]);
+    cbor_encode_text_stringz(&temp_map, "t2");
+    cbor_encode_uint(&temp_map, temp[1]);
+    cbor_encode_text_stringz(&temp_map, "t3");
+    cbor_encode_uint(&temp_map, temp[2]);
+    cbor_encoder_close_container(&bme680, &temp_map);
+
+    cbor_encode_text_stringz(&bme680, "press");
+    cbor_encoder_create_map(&bme680, &press_map, 3);
+    cbor_encode_text_stringz(&press_map, "p1");
+    cbor_encode_uint(&press_map, press[0]);
+    cbor_encode_text_stringz(&press_map, "p2");
+    cbor_encode_uint(&press_map, press[1]);
+    cbor_encode_text_stringz(&press_map, "p3");
+    cbor_encode_uint(&press_map, press[2]);
+    cbor_encoder_close_container(&bme680, &press_map);
+
+    cbor_encode_text_stringz(&bme680, "hum");
+    cbor_encoder_create_map(&bme680, &hum_map, 2);
+    cbor_encode_text_stringz(&hum_map, "h1");
+    cbor_encode_uint(&hum_map, hum[0]);
+    cbor_encode_text_stringz(&hum_map, "h2");
+    cbor_encode_uint(&hum_map, hum[1]);
+    cbor_encoder_close_container(&bme680, &hum_map);
+
+    cbor_encode_text_stringz(&bme680,"gas");
+    cbor_encoder_create_map(&bme680,&gas_map ,2);
+	cbor_encode_text_stringz (&gas_map,"g1");
+	cbor_encode_uint(&gas_map,gas[0]);
+    cbor_encode_text_stringz (&gas_map,"g2");
+    cbor_encode_uint(&gas_map,gas[1]);
+	cbor_encoder_close_container (&bme680,&gas_map);
+
+	cbor_encoder_close_container (&buf,&bme680);
+	size_t msg_len = cbor_encoder_get_buffer_size (&buf,msg);
+	return sendFridayMessage(msg,msg_len);
+}
+
+size_t printDPS310ParametersUSB(const uint8_t * coeff_buf){
+    uint8_t msg[FRIDAY_MAX_PAYLOAD_SIZE];
+    CborEncoder buf, dps310, coeffs;
+    cbor_encoder_init(&buf, msg, sizeof(msg), 0);
+    cbor_encoder_create_map(&buf, &dps310, 3);
+    cbor_encode_text_stringz(&dps310, "sensor");
+    cbor_encode_text_stringz(&dps310, "DPS310");
+    cbor_encode_text_stringz(&dps310, "type");
+    cbor_encode_text_stringz(&dps310, "params");
+
+    cbor_encode_text_stringz(&dps310, "coeffs");
+    cbor_encoder_create_map(&dps310, &coeffs, 18);
+    for (int i = 0; i < 18; i++) {
+        char key[4];
+        snprintf(key, sizeof(key), "c%d", i);
+        cbor_encode_text_stringz(&coeffs, key);
+        cbor_encode_uint(&coeffs, coeff_buf[i]);
+    }
+    cbor_encoder_close_container(&dps310, &coeffs);
+    cbor_encoder_close_container(&buf, &dps310);
+
+    size_t msg_len = cbor_encoder_get_buffer_size(&buf, msg);
+    return sendFridayMessage(msg, msg_len);
+}
+
+size_t printDPS310MeasureUSB(const uint8_t * temp_buf, const uint8_t * press_buf){
+    uint8_t msg[FRIDAY_MAX_PAYLOAD_SIZE];
+    CborEncoder buf, dps310, temp_map, press_map;
+    cbor_encoder_init(&buf, msg, sizeof(msg), 0);
+    cbor_encoder_create_map(&buf, &dps310, 4);
+
+    cbor_encode_text_stringz(&dps310, "sensor");
+    cbor_encode_text_stringz(&dps310, "DPS310");
+    cbor_encode_text_stringz(&dps310, "type");
+    cbor_encode_text_stringz(&dps310, "measure");
+
+    cbor_encode_text_stringz(&dps310, "temp");
+    cbor_encoder_create_map(&dps310, &temp_map, 3);
+    cbor_encode_text_stringz(&temp_map, "t1");
+    cbor_encode_uint(&temp_map, temp_buf[0]);
+    cbor_encode_text_stringz(&temp_map, "t2");
+    cbor_encode_uint(&temp_map, temp_buf[1]);
+    cbor_encode_text_stringz(&temp_map, "t3");
+    cbor_encode_uint(&temp_map, temp_buf[2]);
+    cbor_encoder_close_container(&dps310, &temp_map);
+
+    cbor_encode_text_stringz(&dps310, "press");
+    cbor_encoder_create_map(&dps310, &press_map, 3);
+    cbor_encode_text_stringz(&press_map, "p1");
+    cbor_encode_uint(&press_map, press_buf[0]);
+    cbor_encode_text_stringz(&press_map, "p2");
+    cbor_encode_uint(&press_map, press_buf[1]);
+    cbor_encode_text_stringz(&press_map, "p3");
+    cbor_encode_uint(&press_map, press_buf[2]);
+    cbor_encoder_close_container(&dps310, &press_map);
+
+    cbor_encoder_close_container(&buf, &dps310);
+    size_t msg_len = cbor_encoder_get_buffer_size(&buf, msg);
+    return sendFridayMessage(msg, msg_len);
+}
+
+size_t printSHT4xMeasureUSB(const uint8_t * sh4x_buf){
+    uint8_t msg[FRIDAY_MAX_PAYLOAD_SIZE];
+    CborEncoder buf, sht4x, measure;
+    cbor_encoder_init(&buf, msg, sizeof(msg), 0);
+    cbor_encoder_create_map(&buf, &sht4x, 3);
+    cbor_encode_text_stringz(&sht4x, "sensor");
+    cbor_encode_text_stringz(&sht4x, "SHT4x");
+    cbor_encode_text_stringz(&sht4x, "type");
+    cbor_encode_text_stringz(&sht4x, "measure");
+
+    cbor_encode_text_stringz(&sht4x, "data");
+    cbor_encoder_create_map(&sht4x, &measure, 6);
+    for (int i = 0; i < 6; i++) {
+        char key[3];
+        snprintf(key, sizeof(key), "b%d", i);
+        cbor_encode_text_stringz(&measure, key);
+        cbor_encode_uint(&measure, sh4x_buf[i]);
+    }
+    cbor_encoder_close_container(&sht4x, &measure);
+    cbor_encoder_close_container(&buf, &sht4x);
+
+    size_t msg_len = cbor_encoder_get_buffer_size(&buf, msg);
+    return sendFridayMessage(msg, msg_len);
 }
 
 void usb_cdc_task(void *p) {
@@ -83,7 +271,7 @@ void usb_cdc_task(void *p) {
     char cmd_buf[128]= {0};
     uint8_t coeff_buf[18] = {0};
     size_t idx = 0;
-    char c;
+    uint8_t c;
     gpio_init(LED_USB_PIN);
 	gpio_set_dir(LED_USB_PIN, GPIO_OUT);
     dps310_t dps310 = { .initialized = false };
@@ -114,20 +302,13 @@ void usb_cdc_task(void *p) {
                     cbor_encode_boolean(&map, true);
                     cbor_encoder_close_container(&encoder, &map);
                     size_t len = cbor_encoder_get_buffer_size(&encoder, buf);
-                    size_t written = 0;
-                    while (written < len) {
-                        written += tud_cdc_write(buf + written, len - written);
-                    }
-
-                    
+                    sendFridayMessage(buf, len);
                 } else if (strcmp(cmd_buf, "LED_OFF") == 0) {
                     gpio_put(LED_USB_PIN, 0);
                     tud_cdc_write_str("LED turned OFF\r\n");
                 } else if (strcmp(cmd_buf, "DPS310_COEFF") == 0) {
                     readRawCoeffDPS310(coeff_buf);
-                    tud_cdc_write_str("DPS310 Coefficients:\r\n");
-                    printBufToUSB(coeff_buf, sizeof(coeff_buf));
-                    tud_cdc_write_str("\r\n");
+                    printDPS310ParametersUSB(coeff_buf);                    
                 } else if (strcmp(cmd_buf, "DPS310_INIT") == 0) {
                     if (!dps310.initialized) {
                         if(configDPS310()){
@@ -142,39 +323,24 @@ void usb_cdc_task(void *p) {
                 } else if (strcmp(cmd_buf, "DPS310_MEAS") == 0) {
                     if (dps310.initialized) {
                         uint8_t temp_buf[3] = {0};
-                        dps310ReadTemp(temp_buf);
-                        tud_cdc_write_str("DPS310 Temperature Raw Data:\r\n");
-                        printBufToUSB(temp_buf, sizeof(temp_buf));
-                        tud_cdc_write_str("\r\n");
-                        tud_cdc_write_flush();
-
                         uint8_t press_buf[3] = {0};
+                        dps310ReadTemp(temp_buf);
                         dps310ReadPress(press_buf);
-                        tud_cdc_write_str("DPS310 Pressure Raw Data:\r\n");
-                        printBufToUSB(press_buf, sizeof(press_buf));
-                        tud_cdc_write_str("\r\n");
+                        printDPS310MeasureUSB(temp_buf, press_buf);
                     } else {
                         tud_cdc_write_str("DPS310 is not initialized\r\n");
                     }
                 } else if (strcmp(cmd_buf, "SHT4x_MEAS") == 0) {
                     uint8_t sh4x_buf[6] = {0};
                     readHighTH(sh4x_buf);
-                    tud_cdc_write_str("SHT4x Raw Data:\r\n");
-                        for (int i = 0; i < 6; i++) {
-                            char byte_str[5];
-                            snprintf(byte_str, sizeof(byte_str), "%02X ", sh4x_buf[i]);
-                            tud_cdc_write_str(byte_str);
-                        }
-                        tud_cdc_write_str("\r\n");
+                    printSHT4xMeasureUSB(sh4x_buf);
                 } else if (strcmp(cmd_buf, "BME680_CALIB") == 0) {
                     bme680_temp_par_t temp_par;
                     bme680_press_par_t press_par;
                     bme680_hum_par_t hum_par;
                     uint8_t gas_sw_err;
                     bme680GetCalibrationParameters(&temp_par, &press_par, &hum_par, &gas_sw_err);
-                    tud_cdc_write_str("BME680 Calibration Parameters:\r\n");
                     printBME680ParametersUSB(&temp_par, &press_par, &hum_par, &gas_sw_err);
-                    tud_cdc_write_str("\r\n");
                 } else if (strcmp(cmd_buf, "BME680_CONFIG") == 0) {
                     if (!bme680.initialized) {
                         bme680Configure();
@@ -190,26 +356,7 @@ void usb_cdc_task(void *p) {
                         uint8_t hum_buf[2] = {0};
                         uint8_t gas_buf[2] = {0};
                         bme680Measure(temp_buf, press_buf, hum_buf, gas_buf);
-
-                        tud_cdc_write_str("BME680 Temperature Raw Data:\r\n");
-                        printBufToUSB(temp_buf, sizeof(temp_buf));
-                        tud_cdc_write_str("\r\n");
-                        tud_cdc_write_flush();
-
-                        tud_cdc_write_str("BME680 Pressure Raw Data:\r\n");
-                        printBufToUSB(press_buf, sizeof(press_buf));
-                        tud_cdc_write_str("\r\n");
-                        tud_cdc_write_flush();
-
-                        tud_cdc_write_str("BME680 Humidity Raw Data:\r\n");
-                        printBufToUSB(hum_buf, sizeof(hum_buf));
-                        tud_cdc_write_str("\r\n");
-                        tud_cdc_write_flush();
-
-                        tud_cdc_write_str("BME680 Gas Resistance Raw Data:\r\n");
-                        printBufToUSB(gas_buf, sizeof(gas_buf));
-                        tud_cdc_write_str("\r\n");
-                        tud_cdc_write_flush();
+                        printBME680MeasureUSB(temp_buf, press_buf, hum_buf, gas_buf);
                     } else {
                         tud_cdc_write_str("BME680 is not initialized\r\n");
                     }
@@ -229,7 +376,7 @@ void usb_cdc_task(void *p) {
 }
 
 void cdc_init(void){
-    usb_rx_queue = xQueueCreate(128, sizeof(char));
+    usb_rx_queue = xQueueCreate(128, sizeof(uint8_t));
     if (usb_rx_queue == NULL) {
         while (1);
     }

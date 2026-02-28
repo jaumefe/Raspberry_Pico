@@ -14,7 +14,8 @@ add_executable(weather_forecast
 	src/modules/DPS310.c
 	src/modules/SHT4x.c
 	src/modules/BME680.c
-	src/modules/led.c     
+	src/modules/led.c
+	src/modules/friday.c     
 )
 
 target_include_directories(weather_forecast PUBLIC
