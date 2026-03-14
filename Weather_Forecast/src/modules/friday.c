@@ -32,10 +32,11 @@ size_t sendFridayMessage(const uint8_t * msg, size_t len) {
     return written;
 }
 
-static void rx_reset(rx_friday_t *rx)
-{
+static void rx_reset(rx_friday_t *rx) {
     rx->state = RX_FRIDAY;
+    rx->version = 0;
     rx->length = 0;
+    memset(rx->payload, 0, FRIDAY_MAX_PAYLOAD_SIZE);
     rx->payload_idx = 0;
 }
 
@@ -44,8 +45,6 @@ void receiveFridayMessage(rx_friday_t * rx, uint8_t byte) {
         case RX_FRIDAY:
             if (byte == FRIDAY_HEADER) {
                 rx->state = RX_VERSION;
-                rx->payload_idx = 0;
-                rx->length = 0;
                 memset(rx->payload, 0, FRIDAY_MAX_PAYLOAD_SIZE);
             }
             break;
@@ -75,7 +74,7 @@ void receiveFridayMessage(rx_friday_t * rx, uint8_t byte) {
             rx->payload[rx->payload_idx++] = byte;
             if (rx->payload_idx >= rx->length) {
                 // Message received, process it
-                rx_reset(rx);
+                rx->state = RX_COMPLETE;
             }
     }
 }

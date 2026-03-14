@@ -10,7 +10,8 @@ typedef enum {
     RX_VERSION,
     RX_LEN1,
     RX_LEN2,
-    RX_PAYLOAD
+    RX_PAYLOAD,
+    RX_COMPLETE
 } rx_friday_state_t;
 
 typedef struct rx_friday_s{
@@ -20,6 +21,26 @@ typedef struct rx_friday_s{
     uint8_t payload[FRIDAY_MAX_PAYLOAD_SIZE];
     uint16_t payload_idx;
 } rx_friday_t;
+
+/*
+Modules:
+- gpio: 1
+- sensor: 2
+*/
+
+typedef struct friday_payload_s {
+    char module[16];
+    char name[16];
+    char type[16];
+    int value;
+} friday_payload_t;
+
+typedef struct rx_friday_keys_s {
+    char module[16];
+    char name[16];
+    char type[16];
+    char value[16];
+} rx_friday_keys_t;
 
 size_t sendFridayMessage(const uint8_t * msg, size_t len);
 void receiveFridayMessage(rx_friday_t * rx, uint8_t byte);

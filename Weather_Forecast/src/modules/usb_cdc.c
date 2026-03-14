@@ -268,108 +268,181 @@ size_t printSHT4xMeasureUSB(const uint8_t * sh4x_buf){
 
 void usb_cdc_task(void *p) {
     (void) p;
-    char cmd_buf[128]= {0};
+    uint8_t rx_payload[FRIDAY_MAX_PAYLOAD_SIZE];
+    rx_friday_t rx = { .state = RX_FRIDAY, .version = 0, .length = 0, .payload_idx = 0 };
+    friday_payload_t payload;
+    rx_friday_keys_t keys;
     uint8_t coeff_buf[18] = {0};
     size_t idx = 0;
-    uint8_t c;
+    uint8_t b;
     gpio_init(LED_USB_PIN);
 	gpio_set_dir(LED_USB_PIN, GPIO_OUT);
     dps310_t dps310 = { .initialized = false };
     bme680_t bme680 = { .initialized = false };
 
     while (1) {
-        if (xQueueReceive(usb_rx_queue, &c, portMAX_DELAY) == pdTRUE) {
-            if (c != '\n' && c != '\r') {
-                if (idx < sizeof(cmd_buf) - 1) {
-                    cmd_buf[idx++] = c;
-                } else {
-                    idx = 0;
-                    cmd_buf[0] = '\0';
+        if (xQueueReceive(usb_rx_queue, &b, portMAX_DELAY) == pdTRUE) {
+            receiveFridayMessage(&rx, b);
+            if (rx.state == RX_COMPLETE) {
+                CborParser parser;
+                CborValue it, map_it;
+                size_t len;
+                if (cbor_parser_init(rx.payload, rx.length, 0, &parser, &it) != CborNoError) {
+                    continue;
                 }
-            } else if (c == '\n') {
-                cmd_buf[idx] = '\0';
-                if (strcmp(cmd_buf, "LED_ON") == 0) {
-                    gpio_put(LED_USB_PIN, 1);
-                    CborEncoder encoder, map;
-                    uint8_t buf[128];
-                    cbor_encoder_init(&encoder, buf, sizeof(buf), 0);
-                    cbor_encoder_create_map(&encoder, &map, 3);
-                    cbor_encode_text_stringz(&map, "type");
-                    cbor_encode_text_stringz(&map, "status");
-                    cbor_encode_text_stringz(&map, "gpio");
-                    cbor_encode_text_stringz(&map, "led");
-                    cbor_encode_text_stringz(&map, "value");
-                    cbor_encode_boolean(&map, true);
-                    cbor_encoder_close_container(&encoder, &map);
-                    size_t len = cbor_encoder_get_buffer_size(&encoder, buf);
-                    sendFridayMessage(buf, len);
-                } else if (strcmp(cmd_buf, "LED_OFF") == 0) {
-                    gpio_put(LED_USB_PIN, 0);
-                    tud_cdc_write_str("LED turned OFF\r\n");
-                } else if (strcmp(cmd_buf, "DPS310_COEFF") == 0) {
-                    readRawCoeffDPS310(coeff_buf);
-                    printDPS310ParametersUSB(coeff_buf);                    
-                } else if (strcmp(cmd_buf, "DPS310_INIT") == 0) {
-                    if (!dps310.initialized) {
-                        if(configDPS310()){
-                            dps310.initialized = true;
-                            tud_cdc_write_str("DPS310 Initialized\r\n");
-                        } else {
-                            tud_cdc_write_str("DPS310 Initialization Failed\r\n");
-                        }                    
-                    } else {
-                        tud_cdc_write_str("DPS310 was already initialized\r\n");
+
+                if (!cbor_value_is_map(&it)) {
+                    continue;
+                }
+
+                if (cbor_value_enter_container(&it, &map_it) != CborNoError) {
+                    continue;
+                }
+
+                len = sizeof(keys.module);
+                if (cbor_value_copy_text_string(&map_it, keys.module, &len, &map_it) != CborNoError) {
+                    cbor_value_leave_container(&it, &map_it);
+                    continue;    
+                }
+
+                if (strcmp(keys.module, "module") == 0) {
+                    len = sizeof(payload.module);
+                    if (cbor_value_copy_text_string(&map_it, payload.module, &len, &map_it) != CborNoError) {
+                        cbor_value_leave_container(&it, &map_it);
+                        continue;
                     }
-                } else if (strcmp(cmd_buf, "DPS310_MEAS") == 0) {
-                    if (dps310.initialized) {
-                        uint8_t temp_buf[3] = {0};
-                        uint8_t press_buf[3] = {0};
-                        dps310ReadTemp(temp_buf);
-                        dps310ReadPress(press_buf);
-                        printDPS310MeasureUSB(temp_buf, press_buf);
-                    } else {
-                        tud_cdc_write_str("DPS310 is not initialized\r\n");
+                } else {
+                    cbor_value_leave_container(&it, &map_it);
+                    continue;
+                }
+
+                len = sizeof(keys.name);
+                if (cbor_value_copy_text_string(&map_it, keys.name, &len, &map_it) != CborNoError) {
+                    cbor_value_leave_container(&it, &map_it);
+                    continue;
+                }
+
+                if (strcmp(keys.name, "name") == 0) {
+                    len = sizeof(payload.name);
+                    if (cbor_value_copy_text_string(&map_it, payload.name, &len, &map_it) != CborNoError) {
+                        cbor_value_leave_container(&it, &map_it);
+                        continue;
                     }
-                } else if (strcmp(cmd_buf, "SHT4x_MEAS") == 0) {
-                    uint8_t sh4x_buf[6] = {0};
-                    readHighTH(sh4x_buf);
-                    printSHT4xMeasureUSB(sh4x_buf);
-                } else if (strcmp(cmd_buf, "BME680_CALIB") == 0) {
-                    bme680_temp_par_t temp_par;
-                    bme680_press_par_t press_par;
-                    bme680_hum_par_t hum_par;
-                    uint8_t gas_sw_err;
-                    bme680GetCalibrationParameters(&temp_par, &press_par, &hum_par, &gas_sw_err);
-                    printBME680ParametersUSB(&temp_par, &press_par, &hum_par, &gas_sw_err);
-                } else if (strcmp(cmd_buf, "BME680_CONFIG") == 0) {
-                    if (!bme680.initialized) {
-                        bme680Configure();
-                        bme680.initialized = true;
-                        tud_cdc_write_str("BME680 Configured\r\n");
-                    } else {
-                        tud_cdc_write_str("BME680 was already initialized\r\n");
+                } else {
+                    cbor_value_leave_container(&it, &map_it);
+                    continue;
+                }
+
+                len = sizeof(keys.type);
+                if (cbor_value_copy_text_string(&map_it, keys.type, &len, &map_it) != CborNoError) {
+                    cbor_value_leave_container(&it, &map_it);
+                    continue;
+                }
+
+                if (strcmp(keys.type, "type") == 0) {
+                    len = sizeof(payload.type);
+                    if (cbor_value_copy_text_string(&map_it, payload.type, &len, &map_it) != CborNoError) {
+                        cbor_value_leave_container(&it, &map_it);
+                        continue;
                     }
-                } else if (strcmp(cmd_buf, "BME680_MEAS") == 0) {
-                    if (bme680.initialized) {
-                        uint8_t temp_buf[3] = {0};
-                        uint8_t press_buf[3] = {0};
-                        uint8_t hum_buf[2] = {0};
-                        uint8_t gas_buf[2] = {0};
-                        bme680Measure(temp_buf, press_buf, hum_buf, gas_buf);
-                        printBME680MeasureUSB(temp_buf, press_buf, hum_buf, gas_buf);
-                    } else {
-                        tud_cdc_write_str("BME680 is not initialized\r\n");
+                } else {
+                    cbor_value_leave_container(&it, &map_it);
+                    continue;
+                }
+
+                len = sizeof(keys.value);
+                if (cbor_value_copy_text_string(&map_it, keys.value, &len, &map_it) != CborNoError) {
+                    cbor_value_leave_container(&it, &map_it);
+                    continue;
+                }
+
+                if (strcmp(keys.value, "value") == 0) {
+                    if (cbor_value_get_int(&map_it, &payload.value) != CborNoError) {
+                        cbor_value_leave_container(&it, &map_it);
+                        continue;
+                    }
+                    cbor_value_advance(&map_it);
+                } else {
+                    cbor_value_leave_container(&it, &map_it);
+                    continue;
+                }
+
+                if (strcmp(payload.module, "gpio") == 0) {
+                    if (strcmp(payload.name, "led") == 0) {
+                        if (strcmp(payload.type, "cmd") == 0) {
+                            gpio_put(LED_USB_PIN, payload.value);
+                            CborEncoder encoder, map;
+                            uint8_t buf[FRIDAY_MAX_PAYLOAD_SIZE];
+                            cbor_encoder_init(&encoder, buf, sizeof(buf), 0);
+                            cbor_encoder_create_map(&encoder, &map, 3);
+                            cbor_encode_text_stringz(&map, "type");
+                            cbor_encode_text_stringz(&map, "status");
+                            cbor_encode_text_stringz(&map, "gpio");
+                            cbor_encode_text_stringz(&map, "led");
+                            cbor_encode_text_stringz(&map, "value");
+                            cbor_encode_uint(&map, payload.value);
+                            cbor_encoder_close_container(&encoder, &map);
+                            size_t len = cbor_encoder_get_buffer_size(&encoder, buf);
+                            sendFridayMessage(buf, len);
+                        }
+                    }
+                }
+
+                if (strcmp(payload.module, "sensor") == 0) {
+                    if (strcmp(payload.name, "dps310") == 0) {
+                        if (strcmp(payload.type, "init") == 0) {
+                            if (!dps310.initialized) {
+                                if (configDPS310()) {
+                                    dps310.initialized = true;
+                                }
+                            }
+                        } else if (strcmp(payload.type, "coeff") == 0) {
+                            readRawCoeffDPS310(coeff_buf);
+                            printDPS310ParametersUSB(coeff_buf); 
+                        } else if (strcmp(payload.type, "meas") == 0) {
+                            if (dps310.initialized) {
+                                uint8_t temp_buf[3] = {0};
+                                uint8_t press_buf[3] = {0};
+                                dps310ReadTemp(temp_buf);
+                                dps310ReadPress(press_buf);
+                                printDPS310MeasureUSB(temp_buf, press_buf);
+                            }
+                        }
                     }
 
-                } else {
-                    tud_cdc_write_str("Unknown command: ");
-                    tud_cdc_write_str(cmd_buf);
-                    tud_cdc_write_str("\r\n");
-                }
-                tud_cdc_write_flush();
+                    if (strcmp(payload.name, "sht4x") == 0) {
+                        if (strcmp(payload.type, "meas") == 0) {
+                            uint8_t sh4x_buf[6] = {0};
+                            readHighTH(sh4x_buf);
+                            printSHT4xMeasureUSB(sh4x_buf);
+                        }
+                    }
 
-                idx = 0;
-                cmd_buf[0] = '\0';
+                    if (strcmp(payload.name, "bme680")==0){
+                        if (strcmp(payload.type, "init") == 0) {
+                            if (!bme680.initialized) {
+                                bme680Configure();
+                                bme680.initialized = true;
+                            }
+                        } else if (strcmp(payload.name, "calib") == 0) {
+                            bme680_temp_par_t temp_par;
+                            bme680_press_par_t press_par;
+                            bme680_hum_par_t hum_par;
+                            uint8_t gas_sw_err;
+                            bme680GetCalibrationParameters(&temp_par, &press_par, &hum_par, &gas_sw_err);
+                            printBME680ParametersUSB(&temp_par, &press_par, &hum_par, &gas_sw_err);
+                        } else if (strcmp(payload.name, "meas") == 0) {
+                            if (bme680.initialized) {
+                                uint8_t temp_buf[3] = {0};
+                                uint8_t press_buf[3] = {0};
+                                uint8_t hum_buf[2] = {0};
+                                uint8_t gas_buf[2] = {0};
+                                bme680Measure(temp_buf, press_buf, hum_buf, gas_buf);
+                                printBME680MeasureUSB(temp_buf, press_buf, hum_buf, gas_buf);
+                            }
+                        }
+                    }
+                }  
             }
         }  
     }
