@@ -29,6 +29,7 @@ size_t sendFridayMessage(const uint8_t * msg, size_t len) {
             written += n;
         }
     }
+    tud_cdc_write_flush();
     return written;
 }
 

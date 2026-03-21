@@ -284,6 +284,7 @@ void usb_cdc_task(void *p) {
         if (xQueueReceive(usb_rx_queue, &b, portMAX_DELAY) == pdTRUE) {
             receiveFridayMessage(&rx, b);
             if (rx.state == RX_COMPLETE) {
+                rx.state = RX_FRIDAY;
                 CborParser parser;
                 CborValue it, map_it;
                 size_t len;
@@ -384,6 +385,7 @@ void usb_cdc_task(void *p) {
                             cbor_encoder_close_container(&encoder, &map);
                             size_t len = cbor_encoder_get_buffer_size(&encoder, buf);
                             sendFridayMessage(buf, len);
+                            continue;
                         }
                     }
                 }
@@ -394,11 +396,13 @@ void usb_cdc_task(void *p) {
                             if (!dps310.initialized) {
                                 if (configDPS310()) {
                                     dps310.initialized = true;
+                                    continue;
                                 }
                             }
                         } else if (strcmp(payload.type, "coeff") == 0) {
                             readRawCoeffDPS310(coeff_buf);
-                            printDPS310ParametersUSB(coeff_buf); 
+                            printDPS310ParametersUSB(coeff_buf);
+                            continue; 
                         } else if (strcmp(payload.type, "meas") == 0) {
                             if (dps310.initialized) {
                                 uint8_t temp_buf[3] = {0};
@@ -406,6 +410,7 @@ void usb_cdc_task(void *p) {
                                 dps310ReadTemp(temp_buf);
                                 dps310ReadPress(press_buf);
                                 printDPS310MeasureUSB(temp_buf, press_buf);
+                                continue;
                             }
                         }
                     }
@@ -415,6 +420,7 @@ void usb_cdc_task(void *p) {
                             uint8_t sh4x_buf[6] = {0};
                             readHighTH(sh4x_buf);
                             printSHT4xMeasureUSB(sh4x_buf);
+                            continue;
                         }
                     }
 
@@ -423,6 +429,7 @@ void usb_cdc_task(void *p) {
                             if (!bme680.initialized) {
                                 bme680Configure();
                                 bme680.initialized = true;
+                                continue;
                             }
                         } else if (strcmp(payload.name, "calib") == 0) {
                             bme680_temp_par_t temp_par;
@@ -431,6 +438,7 @@ void usb_cdc_task(void *p) {
                             uint8_t gas_sw_err;
                             bme680GetCalibrationParameters(&temp_par, &press_par, &hum_par, &gas_sw_err);
                             printBME680ParametersUSB(&temp_par, &press_par, &hum_par, &gas_sw_err);
+                            continue;
                         } else if (strcmp(payload.name, "meas") == 0) {
                             if (bme680.initialized) {
                                 uint8_t temp_buf[3] = {0};
@@ -439,6 +447,7 @@ void usb_cdc_task(void *p) {
                                 uint8_t gas_buf[2] = {0};
                                 bme680Measure(temp_buf, press_buf, hum_buf, gas_buf);
                                 printBME680MeasureUSB(temp_buf, press_buf, hum_buf, gas_buf);
+                                continue;
                             }
                         }
                     }
