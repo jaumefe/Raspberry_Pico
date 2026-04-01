@@ -132,7 +132,7 @@ size_t printBME680MeasureUSB(const uint8_t * temp, const uint8_t * press, const 
     uint8_t msg[FRIDAY_MAX_PAYLOAD_SIZE];
     CborEncoder buf, bme680, temp_map, press_map, hum_map, gas_map;
     cbor_encoder_init(&buf, msg, sizeof(msg), 0);
-    cbor_encoder_create_map(&buf, &bme680, 5);
+    cbor_encoder_create_map(&buf, &bme680, 6);
 
     cbor_encode_text_stringz(&bme680, "sensor");
     cbor_encode_text_stringz(&bme680, "BME680");
@@ -272,7 +272,7 @@ void usb_cdc_task(void *p) {
     rx_friday_t rx = { .state = RX_FRIDAY, .version = 0, .length = 0, .payload_idx = 0 };
     friday_payload_t payload;
     rx_friday_keys_t keys;
-    uint8_t coeff_buf[18] = {0};
+    
     size_t idx = 0;
     uint8_t b;
     gpio_init(LED_USB_PIN);
@@ -400,6 +400,7 @@ void usb_cdc_task(void *p) {
                                 }
                             }
                         } else if (strcmp(payload.type, "coeff") == 0) {
+                            uint8_t coeff_buf[18] = {0};
                             readRawCoeffDPS310(coeff_buf);
                             printDPS310ParametersUSB(coeff_buf);
                             continue; 
@@ -431,7 +432,7 @@ void usb_cdc_task(void *p) {
                                 bme680.initialized = true;
                                 continue;
                             }
-                        } else if (strcmp(payload.name, "calib") == 0) {
+                        } else if (strcmp(payload.type, "calib") == 0) {
                             bme680_temp_par_t temp_par;
                             bme680_press_par_t press_par;
                             bme680_hum_par_t hum_par;
@@ -439,7 +440,7 @@ void usb_cdc_task(void *p) {
                             bme680GetCalibrationParameters(&temp_par, &press_par, &hum_par, &gas_sw_err);
                             printBME680ParametersUSB(&temp_par, &press_par, &hum_par, &gas_sw_err);
                             continue;
-                        } else if (strcmp(payload.name, "meas") == 0) {
+                        } else if (strcmp(payload.type, "meas") == 0) {
                             if (bme680.initialized) {
                                 uint8_t temp_buf[3] = {0};
                                 uint8_t press_buf[3] = {0};
